@@ -1,3 +1,5 @@
+import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
+import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/AppImages.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
@@ -29,7 +31,9 @@ class DomesticLeadDataProfile extends StatelessWidget {
     double totalWidth =
         (avatarRadius * 2 + borderWidth * 2) + (overlap * (count - 1));
     return Scaffold(
-      appBar: AppBar(title: Text("Data detailed page")),
+      drawer: TabletMobileDrawer(),
+
+      appBar: CustomAppBar(title: "Data detailed page"),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 0),
         child: Padding(
@@ -76,23 +80,36 @@ class DomesticLeadDataProfile extends StatelessWidget {
                                 var m = entry.value;
                                 return Positioned(
                                   left: index * overlap,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                        color: const Color.fromARGB(
-                                          255,
-                                          230,
-                                          133,
-                                          194,
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder:
+                                              (_) => AssignedMemberDetails(
+                                                member: m,
+                                              ),
                                         ),
-                                        width: borderWidth,
+                                      );
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: const Color.fromARGB(
+                                            255,
+                                            230,
+                                            133,
+                                            194,
+                                          ),
+                                          width: borderWidth,
+                                        ),
                                       ),
-                                    ),
-                                    child: CircleAvatar(
-                                      radius: avatarRadius,
-                                      backgroundImage: NetworkImage(
-                                        m.profileImage,
+                                      child: CircleAvatar(
+                                        radius: avatarRadius,
+                                        backgroundImage: NetworkImage(
+                                          m.profileImage,
+                                        ),
                                       ),
                                     ),
                                   ),
