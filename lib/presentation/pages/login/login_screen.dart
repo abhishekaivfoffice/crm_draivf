@@ -1,4 +1,5 @@
 import 'package:crm_draivfmobileapp/core/constatnts/AppImages.dart';
+import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/login/login_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_textfield.dart';
 import 'package:flutter/material.dart';
@@ -13,13 +14,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<LoginProvider>(context);
     return Scaffold(
-      body:
-      
-      
-      
-      
-      
-       Stack(
+      body: Stack(
         children: [
           Container(
             height: MediaQuery.of(context).size.height * 0.35,
@@ -80,22 +75,25 @@ class LoginScreen extends StatelessWidget {
                       key: _formKey,
                       child: Column(
                         children: [
-                          const Text(
+                          Text(
                             "Welcome Back",
                             style: TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.bold,
+                              fontFamily: AppFonts.poppins,
                             ),
                           ),
                           const SizedBox(height: 6),
                           const Text(
                             "Enter your details below",
-                            style: TextStyle(color: Colors.grey),
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontFamily: AppFonts.poppins,
+                            ),
                           ),
 
                           const SizedBox(height: 24),
 
-                         
                           CustomTextField(
                             labelText: "Email id",
                             controller: provider.emailcontroller,
@@ -108,13 +106,11 @@ class LoginScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 20),
 
-                          
-                          
                           CustomTextField(
                             labelText: "Password",
                             obscureText: true,
                             controller: provider.passwordcontroller,
-                            hintText: "enter password",
+                            hintText: "Enter password",
                             validator:
                                 (val) =>
                                     val == null || val.isEmpty

@@ -28,7 +28,7 @@ class AddLeadScreen extends StatelessWidget {
       appBar: CustomAppBar(title: "Add Leads"),
 
       body: Padding(
-        padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
+        padding: EdgeInsets.symmetric(horizontal: 16),
         child: SingleChildScrollView(
           child: Column(
             children: [
