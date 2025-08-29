@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:crm_draivfmobileapp/core/constatnts/appimages.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domestic_leads/domestic_leads_home/domestic_lead_home/domestic_leads_home.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_home.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -42,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen>
     // Navigate to Dashboard After 3.5 sec
     Timer(const Duration(seconds: 4), () {
      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){
-      return DomesticLeadsHome();
+      return LoginScreen();
      }));
     });
   }

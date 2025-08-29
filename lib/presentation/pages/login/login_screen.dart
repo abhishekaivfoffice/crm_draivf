@@ -1,11 +1,11 @@
 import 'package:crm_draivfmobileapp/core/constatnts/AppImages.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/login/login_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/widgets/custom_textfield/custom_textfield.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
-   LoginScreen({super.key});
+  LoginScreen({super.key});
 
   final _formKey = GlobalKey<FormState>();
 
@@ -13,7 +13,13 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<LoginProvider>(context);
     return Scaffold(
-      body: Stack(
+      body:
+      
+      
+      
+      
+      
+       Stack(
         children: [
           Container(
             height: MediaQuery.of(context).size.height * 0.35,
@@ -41,7 +47,7 @@ class LoginScreen extends StatelessWidget {
                   child: Container(
                     height: 50,
                     width: 180,
-                    decoration:  BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(AppImages.logo),
                         fit: BoxFit.contain,
@@ -87,50 +93,33 @@ class LoginScreen extends StatelessWidget {
                             style: TextStyle(color: Colors.grey),
                           ),
 
-                          const Text(
-                            "Login",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
                           const SizedBox(height: 24),
 
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text("Email id"),
-                              const SizedBox(height: 6),
-                              CustomTextField(
-                                controller: provider.emailcontroller,
-                                hintText: "enter email id",
-                                validator:
-                                    (val) =>
-                                        val == null || val.isEmpty
-                                            ? "enter email"
-                                            : null,
-                              ),
-                            ],
+                         
+                          CustomTextField(
+                            labelText: "Email id",
+                            controller: provider.emailcontroller,
+                            hintText: "enter email id",
+                            validator:
+                                (val) =>
+                                    val == null || val.isEmpty
+                                        ? "enter email"
+                                        : null,
                           ),
                           const SizedBox(height: 20),
 
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text("Password"),
-                              const SizedBox(height: 6),
-                              CustomTextField(
-                                controller: provider.passwordcontroller,
-                                hintText: "enter password",
-                                validator:
-                                    (val) =>
-                                        val == null || val.isEmpty
-                                            ? 'Enter password'
-                                            : null,
-                              ),
-                            ],
+                          
+                          
+                          CustomTextField(
+                            labelText: "Password",
+                            obscureText: true,
+                            controller: provider.passwordcontroller,
+                            hintText: "enter password",
+                            validator:
+                                (val) =>
+                                    val == null || val.isEmpty
+                                        ? 'Enter password'
+                                        : null,
                           ),
                           const SizedBox(height: 24),
 

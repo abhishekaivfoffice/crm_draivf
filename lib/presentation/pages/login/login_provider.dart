@@ -1,4 +1,6 @@
-import 'package:crm_draivfmobileapp/presentation/pages/domestic_leads/domestic_leads_home/add_lead_page/add_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_home/dashboard_screen.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/add_leads/add_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_home.dart';
 import 'package:flutter/material.dart';
 
 class LoginProvider extends ChangeNotifier{
@@ -18,7 +20,7 @@ void login(BuildContext context)async{
   await Future.delayed(const Duration(seconds: 2));
   _isloading=false;
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("login successfull")));
-  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AddLeadScreen())); 
+  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DashboardScreen())); 
 
 
 }

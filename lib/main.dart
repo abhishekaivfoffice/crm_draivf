@@ -1,17 +1,30 @@
+import 'package:crm_draivfmobileapp/controller/ui_controllers/appbar_controllers.dart';
+import 'package:crm_draivfmobileapp/core/routes/app_route_observer.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domestic_leads/domestic_leads_home/add_lead_page/add_leads_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domestic_leads/domestic_leads_home/domestic_leads_data/domestic_leads_data_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domestic_leads/domestic_leads_home/domestic_lead_home/domestic_leads_home.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domestic_leads/domestic_leads_home/domestic_lead_home/domestic_leads_homeprovider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domestic_leads/domestic_leads_home/import_lead/import_leads_provider.dart';
+import 'package:crm_draivfmobileapp/core/utils/helper_utils.dart';
+import 'package:crm_draivfmobileapp/presentation/page_not_found/page_not_found.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_home/dashboard_screen.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/add_leads/add_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/add_leads/add_leads_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/bulk_action/bulk_action_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/domestic_leads_data.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/domestic_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_home.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_homeprovider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/import_leads/import_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/import_leads/import_leads_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/login/login_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/login/login_screen.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/splash_screen/splash_screen.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/teleDashboard/teledashboard_home/teledashboard_home.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:get/get.dart';
+
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
+  Get.lazyPut<AppBarController>(() => AppBarController());
 }
 
 class MyApp extends StatelessWidget {
@@ -24,7 +37,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => LoginProvider()),
         ChangeNotifierProvider(create: (_) => AddLeadsProvider()),
         ChangeNotifierProvider(create: (_) => ImportLeadsProvider()),
-        ChangeNotifierProvider(create: (_) => DropdownProvider()),
+        // ChangeNotifierProvider(create: (_) => DomesticLeadsHomeprovider()),
         ChangeNotifierProvider(create: (_) => DomesticLeadsDataProvider()),
       ],
       child: GetMaterialApp(
@@ -42,9 +55,61 @@ class MyApp extends StatelessWidget {
             fillColor: const Color(0xFFF2F2F2),
           ),
         ),
-        initialRoute: AppRoutes.splashScreen,
-        getPages: AppRoutes.routes,
+
+        navigatorObservers: [AppRouteObserver()],
+        initialRoute: "/splashscreen",
+        onGenerateRoute: (settings) {
+          String routeName = settings.name ?? '';
+          routeName = HelperUtil.normalizeUrl(routeName);
+
+          if (HelperUtil.isValidStaticRoute(routeName)) {
+            return GetPageRoute(
+              settings: settings,
+              page: () => _getStaticPage(routeName),
+            );
+          }
+
+          return GetPageRoute(
+            settings: settings,
+            page: () => const NotFoundPage(),
+          );
+        },
       ),
     );
+  }
+
+  Widget _getStaticPage(String routeName) {
+    switch (routeName) {
+      case AppRoutes.splashScreen:
+        return SplashScreen();
+      case AppRoutes.loginScreen:
+        return LoginScreen();
+      case AppRoutes.domesticLeadHome:
+        return DomesticLeadsHome();
+      case AppRoutes.addLeadScreen:
+        return AddLeadScreen();
+      case AppRoutes.importLeadScreen:
+        return ImportLeads();
+      case AppRoutes.testScreen:
+        return const DomesticLeadsData();
+      case AppRoutes.bulkActionScreen:
+        return const BulkActionPage();
+          case AppRoutes.dashboardScreen:
+        return const DashboardScreen();
+          case AppRoutes.teledashboardScreen:
+        return const TeleDashboradScreen();
+       
+
+
+
+
+           case AppRoutes.notFoundScreen:
+        return const NotFoundPage();
+       
+        
+
+      default:
+        return const NotFoundPage();
+    }
   }
 }
