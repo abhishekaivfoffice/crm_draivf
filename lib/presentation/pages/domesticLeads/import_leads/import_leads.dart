@@ -32,7 +32,7 @@ class ImportLeads extends StatelessWidget {
 
       appBar: CustomAppBar(title: "Import Leads"),
       body: Padding(
-        padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
+        padding: EdgeInsets.symmetric(horizontal: 16),
         child: SingleChildScrollView(
           child: Form(
             key: _importleadformKey,
