@@ -95,13 +95,13 @@ class LoginScreen extends StatelessWidget {
                           const SizedBox(height: 24),
 
                           CustomTextField(
-                            labelText: "Email id",
+                            labelText: "Email",
                             controller: provider.emailcontroller,
-                            hintText: "enter email id",
+                            hintText: "Enter Email Id",
                             validator:
                                 (val) =>
                                     val == null || val.isEmpty
-                                        ? "enter email"
+                                        ? "Enter Email"
                                         : null,
                           ),
                           const SizedBox(height: 20),
@@ -155,6 +155,8 @@ class LoginScreen extends StatelessWidget {
                                             style: TextStyle(
                                               fontSize: 16,
                                               color: Colors.white,
+                                              fontFamily: AppFonts.poppins,
+
                                             ),
                                           )
                                           : Text(
@@ -162,6 +164,7 @@ class LoginScreen extends StatelessWidget {
                                             style: TextStyle(
                                               fontSize: 16,
                                               color: Colors.white,
+                                               fontFamily: AppFonts.poppins,
                                             ),
                                           ),
                                 ),
@@ -181,6 +184,9 @@ class LoginScreen extends StatelessWidget {
                                     text: 'Terms and Conditions',
                                     style: TextStyle(
                                       color: Colors.blue.shade700,
+                                      fontFamily: AppFonts.poppins,
+                                      fontSize: 14
+
                                     ),
                                   ),
                                   const TextSpan(text: ' and '),
@@ -188,12 +194,14 @@ class LoginScreen extends StatelessWidget {
                                     text: 'Privacy Policy',
                                     style: TextStyle(
                                       color: Colors.blue.shade700,
+                                      fontFamily: AppFonts.poppins,
+
                                     ),
                                   ),
                                 ],
                               ),
                               textAlign: TextAlign.center,
-                              style: const TextStyle(fontSize: 12),
+                              style: const TextStyle(fontSize: 14),
                             ),
                           ),
                         ],

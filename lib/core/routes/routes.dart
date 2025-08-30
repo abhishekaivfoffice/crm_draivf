@@ -15,7 +15,11 @@ class AppRoutes {
   static const testScreen = '/testscreen';
   static const bulkActionScreen = '/bulkactionscreen';
   static const notFoundScreen = '/notfoundscreen';
-  static const assignedMemberProfileedithome = '/assignedmemberprofileedithome';
+  static const enquiryHome = '/enquiryhome';
+  static const enquiryAdd = '/addenquiry';
+    static const assignedMemberProfileedithome = '/assignedmemberprofileedithome';
+
+
 
   static const assignedMemberProfilepermission =
       '/assignedmemberprofilepermission';

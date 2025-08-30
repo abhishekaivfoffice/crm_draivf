@@ -32,10 +32,12 @@ class AppColor{
   // static const Color bgYellow2 = Color(0xffFEFAE6);
   // static const Color bgYellow1 = Color(0xffFDF7DE);
   
-  // static const Color cream1 = Color(0xffF7EECA);
-  // static const Color cardColor = Color(0xffFFF9DB);
-  // static const Color textfieldborderyellow = Color(0xffF4C432);
-  //   static const Color scndpagedarktext = Color(0xff3D3D3D);
+  static const Color cream1 = Color(0xffF7EECA);
+  static const Color cardColor = Color(0xffFFF9DB);
+  static const Color textfieldborderyellow = Color(0xffF4C432);
+    static const Color scndpagedarktext = Color(0xff3D3D3D);
+    static const Color gryColor = Colors.grey;
+
 
 
 }

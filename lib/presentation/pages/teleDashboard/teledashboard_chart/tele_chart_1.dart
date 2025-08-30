@@ -5,6 +5,9 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../../../../core/components/appbar/appbar.dart';
+import '../../../../core/components/drawer/drawer.dart';
+
 
 class TeleChart1 extends StatefulWidget {
   const TeleChart1({super.key});
@@ -118,19 +121,9 @@ class _TeleChart1State extends State<TeleChart1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColor.primaryColor2,
-        centerTitle: true,
-        title: const Text(
-          "Zone-wise performance logs",
-          style: TextStyle(
-            fontFamily: AppFonts.poppins,
-            color: Colors.white,
-            fontSize: 18,
-          ),
-        ),
-        iconTheme: const IconThemeData(color: Colors.white),
-      ),
+      drawer: TabletMobileDrawer(),
+
+      appBar: CustomAppBar(title: "Chart 1"),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
         child: Column(

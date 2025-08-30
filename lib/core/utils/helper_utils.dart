@@ -17,6 +17,7 @@ class HelperUtil {
       AppRoutes.bulkActionScreen,
       AppRoutes.dashboardScreen,
       AppRoutes.teledashboardScreen,
+      AppRoutes.enquiryHome,
             AppRoutes.assignedMemberProfileedithome,
 
             AppRoutes.assignedMemberProfilepermission,

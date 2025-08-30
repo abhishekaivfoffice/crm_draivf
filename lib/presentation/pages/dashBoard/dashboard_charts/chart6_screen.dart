@@ -27,15 +27,17 @@ class _Chart6ScreenState extends State<Chart6Screen> {
 
   String? selectedZone;
   String? selectedSource;
-  final List<String> zones = [
+  final List<String> zones =  [
+    "Sholinganallur",
+    "Madipakkam",
+    "Urapakkam",
+    "Kanchipuram",
+    "Thiruvallur",
+    "Tambaram",
+    "Vadapalani",
+    "Villupuram",
+    "Chengalpattu",
     "Chennai",
-    "Karnataka",
-    "Central TN",
-    "Kerala",
-    "South TN",
-    "West1 TN",
-    "AP & Vellore",
-    "West2 TN",
   ];
   final List<String> sources = [
     "Google Ads",
