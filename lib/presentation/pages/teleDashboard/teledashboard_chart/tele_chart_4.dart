@@ -5,6 +5,9 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../../../../core/components/appbar/appbar.dart';
+import '../../../../core/components/drawer/drawer.dart';
+
 
 class TeleChart4Screen extends StatefulWidget {
   const TeleChart4Screen({super.key});
@@ -156,19 +159,9 @@ class _TeleChart4ScreenState extends State<TeleChart4Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColor.primaryColor2,
-        centerTitle: true,
-        title: const Text(
-          "Centre-wise split",
-          style: TextStyle(
-            fontFamily: AppFonts.poppins,
-            color: Colors.white,
-            fontSize: 18,
-          ),
-        ),
-        iconTheme: const IconThemeData(color: Colors.white),
-      ),
+      drawer: TabletMobileDrawer(),
+
+      appBar: CustomAppBar(title: "Chart 1"),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(10),
         child: Column(

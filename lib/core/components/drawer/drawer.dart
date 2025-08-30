@@ -4,6 +4,8 @@ import 'package:crm_draivfmobileapp/core/constatnts/appimages.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 
+import '../../../presentation/pages/enquiry/enquiry_home/enquiry_home.dart';
+
 class TabletMobileDrawer extends StatelessWidget {
   const TabletMobileDrawer({super.key});
 
@@ -96,6 +98,11 @@ class TabletMobileDrawer extends StatelessWidget {
                           leadingicon: Icons.home_work,
                           title: 'Domestic Leads',
                           targetPage: AppRoutes.domesticLeadHome,
+                          fontSize: navItemFontSize,
+                        ),TabletAppbarNavigationBtn(
+                          leadingicon: Icons.home_work,
+                          title: 'Enquiry',
+                          targetPage: AppRoutes.enquiryHome,
                           fontSize: navItemFontSize,
                         ),
                         // TabletAppbarNavigationBtn(

@@ -16,5 +16,7 @@ class AppRoutes {
   static const testScreen = '/testscreen';
   static const bulkActionScreen = '/bulkactionscreen';
   static const notFoundScreen = '/notfoundscreen';
+  static const enquiryHome = '/enquiryhome';
+  static const enquiryAdd = '/addenquiry';
 
 }

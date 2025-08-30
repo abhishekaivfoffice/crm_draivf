@@ -19,17 +19,19 @@ class Chart4Screen extends StatefulWidget {
 class _Chart4ScreenState extends State<Chart4Screen> {
   // ----- sample data -----
   final List<String> zones = [
+    "Sholinganallur",
+    "Madipakkam",
+    "Urapakkam",
+    "Kanchipuram",
+    "Thiruvallur",
+    "Tambaram",
+    "Vadapalani",
+    "Villupuram",
+    "Chengalpattu",
     "Chennai",
-    "Karnataka",
-    "Central TN",
-    "Kerala",
-    "South TN",
-    "West1 TN",
-    "AP & Vellore",
-    "West2 TN",
   ];
-  final List<int> targetLeads = [1950, 1201, 1500, 1577, 600, 1400, 1200, 1000];
-  final List<int> actualLeads = [1245, 981, 1635, 1500, 401, 1064, 673, 507];
+  final List<int> targetLeads = [1950, 1201, 1500, 1577, 600, 1400, 1200, 1000,128,156];
+  final List<int> actualLeads = [1245, 981, 1635, 1500, 401, 1064, 673, 507,156,190];
 
   final List<String> sources = [
     "Google Ads",

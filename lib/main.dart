@@ -3,6 +3,7 @@ import 'package:crm_draivfmobileapp/core/routes/app_route_observer.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/core/utils/helper_utils.dart';
 import 'package:crm_draivfmobileapp/presentation/page_not_found/page_not_found.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_charts/dashborad_chart_provider/chart1_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_home/dashboard_screen.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/add_leads/add_leads.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/add_leads/add_leads_provider.dart';
@@ -13,6 +14,9 @@ import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_le
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_homeprovider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/import_leads/import_leads.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/import_leads/import_leads_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_home/enquiry_home.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_home/add_new_enquiry/add_enquiry_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_home/home_enquiry_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/login/login_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/login/login_screen.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/splash_screen/splash_screen.dart';
@@ -39,6 +43,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ImportLeadsProvider()),
         // ChangeNotifierProvider(create: (_) => DomesticLeadsHomeprovider()),
         ChangeNotifierProvider(create: (_) => DomesticLeadsDataProvider()),
+        ChangeNotifierProvider(create: (_) => Chart1Provider()),
+        ChangeNotifierProvider(create: (_) => AddEnquiryProvider()),
+        ChangeNotifierProvider(create: (_) => HomeEnquiryProvider()),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
@@ -98,15 +105,17 @@ class MyApp extends StatelessWidget {
         return const DashboardScreen();
           case AppRoutes.teledashboardScreen:
         return const TeleDashboradScreen();
-       
+      case AppRoutes.enquiryHome:
+        return  EnquiryHome();
+
 
 
 
 
            case AppRoutes.notFoundScreen:
         return const NotFoundPage();
-       
-        
+
+
 
       default:
         return const NotFoundPage();

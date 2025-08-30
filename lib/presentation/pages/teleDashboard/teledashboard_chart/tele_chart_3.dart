@@ -5,6 +5,9 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../../../../core/components/appbar/appbar.dart';
+import '../../../../core/components/drawer/drawer.dart';
+
 
 class TeleChart3 extends StatefulWidget {
   const TeleChart3({super.key});
@@ -150,19 +153,9 @@ class _TeleChart3State extends State<TeleChart3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColor.primaryColor2,
-        centerTitle: true,
-        title: const Text(
-          "Zone-wise all tele callers",
-          style: TextStyle(
-            fontFamily: AppFonts.poppins,
-            color: Colors.white,
-            fontSize: 18,
-          ),
-        ),
-        iconTheme: const IconThemeData(color: Colors.white),
-      ),
+      drawer: TabletMobileDrawer(),
+
+      appBar: CustomAppBar(title: "Chart 1"),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(10),
         child: Column(

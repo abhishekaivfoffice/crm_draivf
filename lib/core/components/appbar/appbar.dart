@@ -17,9 +17,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      title: Text(title!,style:TextStyle(fontSize:22,fontWeight: FontWeight.w600, fontFamily: AppFonts.poppins,color: AppColor.whiteColor) ,),
-      
-      
+      title: Text(title!,style:TextStyle(fontSize:18,fontWeight: FontWeight.w600, fontFamily: AppFonts.poppins,color: AppColor.whiteColor) ,),
       // Container(
       //   height: 50,
       //   width: 180,
