@@ -1,4 +1,3 @@
-import 'package:crm_draivfmobileapp/presentation/pages/teleDashboard/teledashboard_home/teledashboard_home.dart';
 
 class AppRoutes {
   static const splashScreen = '/splashscreen';
@@ -16,5 +15,8 @@ class AppRoutes {
   static const testScreen = '/testscreen';
   static const bulkActionScreen = '/bulkactionscreen';
   static const notFoundScreen = '/notfoundscreen';
+  static const assignedMemberProfileedithome = '/assignedmemberprofileedithome';
 
+  static const assignedMemberProfilepermission =
+      '/assignedmemberprofilepermission';
 }
