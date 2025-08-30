@@ -5,7 +5,7 @@ import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile/assigned_member_profile.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/edit_delete_view_buttons.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_info_row.dart';

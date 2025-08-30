@@ -36,14 +36,7 @@ class AddLeadScreen extends StatelessWidget {
                 key: _addleadformKey,
                 child: Column(
                   children: [
-                    // const Text(
-                    //   "Add New Lead",
-                    //   style: TextStyle(
-                    //     fontFamily: AppFonts.poppins,
-                    //     fontSize: 22,
-                    //     fontWeight: FontWeight.bold,
-                    //   ),
-                    // ),
+                  
 
                     const SizedBox(height: 24),
 
