@@ -6,6 +6,10 @@ import 'package:crm_draivfmobileapp/presentation/page_not_found/page_not_found.d
 import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_home/dashboard_screen.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/add_leads/add_leads.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/add_leads/add_leads_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_permission/assigned_member_permission_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile/assigned_member_profile_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile_edit/assigned_member_profile_edit_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile_edit/assigned_member_profile_edithome.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/bulk_action/bulk_action_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/domestic_leads_data.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/domestic_leads_data_provider.dart';
@@ -39,6 +43,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ImportLeadsProvider()),
         // ChangeNotifierProvider(create: (_) => DomesticLeadsHomeprovider()),
         ChangeNotifierProvider(create: (_) => DomesticLeadsDataProvider()),
+        ChangeNotifierProvider(create: (_) => AssignedMemberProfileProvider()),
+        ChangeNotifierProvider(
+          create: (_) => AssignedMemberProfileEditProvider(),
+        ),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
@@ -94,19 +102,18 @@ class MyApp extends StatelessWidget {
         return const DomesticLeadsData();
       case AppRoutes.bulkActionScreen:
         return const BulkActionPage();
-          case AppRoutes.dashboardScreen:
+      case AppRoutes.dashboardScreen:
         return const DashboardScreen();
-          case AppRoutes.teledashboardScreen:
+      case AppRoutes.teledashboardScreen:
         return const TeleDashboradScreen();
-       
+     
+         case AppRoutes.assignedMemberProfilepermission:
+        return const AssignedMemberPermissionPage();
+        case AppRoutes.assignedMemberProfileedithome:
+        return const AssignedMemberProfileEditHome();
 
-
-
-
-           case AppRoutes.notFoundScreen:
+      case AppRoutes.notFoundScreen:
         return const NotFoundPage();
-       
-        
 
       default:
         return const NotFoundPage();
