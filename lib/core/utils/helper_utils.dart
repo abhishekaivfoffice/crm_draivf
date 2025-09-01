@@ -19,10 +19,16 @@ class HelperUtil {
       AppRoutes.teledashboardScreen,
       AppRoutes.enquiryHome,
       AppRoutes.assignedMemberProfileedithome,
+
       AppRoutes.internationalLeadHome,
       AppRoutes.importInternationalLeadScreen,
       AppRoutes.internationalLeadBulkActionScreen,
       AppRoutes.addInternationalLeadScreen,
+
+
+      AppRoutes.assignedMemberProfilepermission,
+      AppRoutes.campHome,
+
 
       AppRoutes.notFoundScreen,
     ];

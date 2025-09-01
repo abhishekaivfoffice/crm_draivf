@@ -3,6 +3,9 @@ import 'package:crm_draivfmobileapp/core/routes/app_route_observer.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/core/utils/helper_utils.dart';
 import 'package:crm_draivfmobileapp/presentation/page_not_found/page_not_found.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/camp_management/camp_management_screens/camp_home_screen.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/camp_management/camp_zone_userdetails_screen/camp_userdetails_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/camp_management/new_comp_add/new_camp_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_charts/dashborad_chart_provider/chart1_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_home/dashboard_screen.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/add_leads/add_leads.dart';
@@ -16,8 +19,11 @@ import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_le
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_home.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/import_leads/import_leads.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/import_leads/import_leads_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_home/enquiry_home.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/enquiry/convert_screen/convert_screen_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/enquiry/edit_enquiry/edit_enquiry_provider_screen.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_main_home/enquiry_home.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_home/add_new_enquiry/add_enquiry_provider.dart';
+
 import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_home/home_enquiry_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/add_international_leads/add_international_leads.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/add_international_leads/add_international_leads_provider.dart';
@@ -26,6 +32,9 @@ import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/import
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_bulk_action/international_leads_bulk_action_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_home.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_leads_data/International_leads_data_provider.dart';
+
+import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_main_home/home_enquiry_provider.dart';
+
 import 'package:crm_draivfmobileapp/presentation/pages/login/login_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/login/login_screen.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/splash_screen/splash_screen.dart';
@@ -57,6 +66,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AddEnquiryProvider()),
         ChangeNotifierProvider(create: (_) => HomeEnquiryProvider()),
         ChangeNotifierProvider(create: (_) => AssignedMemberProfileProvider()),
+
         //////////////international leads provider
         ChangeNotifierProvider(create: (_) => AddInternationalLeadsProvider()),
         ChangeNotifierProvider(
@@ -64,9 +74,16 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(create: (_) => InternationalLeadsDataProvider()),
 
+
+        ChangeNotifierProvider(create: (_) => AssignedMemberProfileProvider()),
+
         ChangeNotifierProvider(
           create: (_) => AssignedMemberProfileEditProvider(),
         ),
+        ChangeNotifierProvider(create: (_) => EditEnquiryProvider()),
+        ChangeNotifierProvider(create: (_) => ConvertScreenProvider()),
+        ChangeNotifierProvider(create: (_) => NewCampProvider()),
+        ChangeNotifierProvider(create: (_) => CampUserDetailsProvider()),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
@@ -130,6 +147,7 @@ class MyApp extends StatelessWidget {
       case AppRoutes.enquiryHome:
         return EnquiryHome();
 
+
       case AppRoutes.assignedMemberProfileedithome:
         return const AssignedMemberProfileEditHome();
       case AppRoutes.internationalLeadHome:
@@ -140,6 +158,14 @@ class MyApp extends StatelessWidget {
         return InternationalLeadsBulkActionPage();
                 case AppRoutes.importInternationalLeadScreen:
         return ImportInternationalLeads();
+
+      case AppRoutes.assignedMemberProfilepermission:
+        return const AssignedMemberPermissionPage();
+      case AppRoutes.assignedMemberProfileedithome:
+        return const AssignedMemberProfileEditHome();
+      case AppRoutes.campHome:
+        return const CampHomeScreen();
+
 
       case AppRoutes.notFoundScreen:
         return const NotFoundPage();

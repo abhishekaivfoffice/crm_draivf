@@ -18,7 +18,8 @@ class AppRoutes {
   static const enquiryAdd = '/addenquiry';
   static const assignedMemberProfileedithome = '/assignedmemberprofileedithome';
 
-  ////ab
+  static const campHome = '/camphome';
+
 
   static const internationalLeadHome = '/internationalleadhome';
   static const addInternationalLeadScreen = '/addinternationalleadhome';

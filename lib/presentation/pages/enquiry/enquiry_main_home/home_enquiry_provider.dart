@@ -16,7 +16,7 @@ class HomeEnquiryProvider extends ChangeNotifier {
   final List<Enquiry> enquiries = [
     Enquiry(
       id: 5353,
-      name: "test_data",
+      name: "karthick",
       phone: "86******42",
       source: "Inbound Call",
       email: "testdata@gmail.com",
