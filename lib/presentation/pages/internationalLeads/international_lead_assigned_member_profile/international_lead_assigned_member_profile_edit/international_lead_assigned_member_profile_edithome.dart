@@ -2,8 +2,8 @@ import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_assigned_member_profile/international_lead_assigned_member_profile_edit/International_lead_assigned_member_profile_edit_provider.dart';
 
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile_edit/assigned_member_profile_edit_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/segment_swipe_button.dart.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/Custom_date_field.dart';
@@ -15,16 +15,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-class AssignedMemberProfileEditHome extends StatefulWidget {
-  const AssignedMemberProfileEditHome({super.key});
+class InternationalLeadAssignedMemberProfileEdithome extends StatefulWidget {
+  const InternationalLeadAssignedMemberProfileEdithome({super.key});
 
   @override
-  State<AssignedMemberProfileEditHome> createState() =>
-      _AssignedMemberProfileEditHomeState();
+  State<InternationalLeadAssignedMemberProfileEdithome> createState() =>
+      _InternationalLeadAssignedMemberProfileEdithomeState();
 }
 
-class _AssignedMemberProfileEditHomeState
-    extends State<AssignedMemberProfileEditHome> {
+class _InternationalLeadAssignedMemberProfileEdithomeState
+    extends State<InternationalLeadAssignedMemberProfileEdithome> {
   bool _isPage1Active = true;
 
   void _onPage1() {
@@ -42,9 +42,9 @@ class _AssignedMemberProfileEditHomeState
   @override
   Widget build(BuildContext context) {
     final assignedmemberprofileeditprovider =
-        Provider.of<AssignedMemberProfileEditProvider>(context);
+        Provider.of<InternationalLeadAssignedMemberProfileEditProvider>(context);
     return Scaffold(
-      appBar: CustomAppBar(title: "Profile Edit"),
+      appBar: CustomAppBar(title: " International lead Profile Edit"),
       drawer: TabletMobileDrawer(),
       body: Column(
         children: [

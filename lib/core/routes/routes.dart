@@ -1,4 +1,3 @@
-
 class AppRoutes {
   static const splashScreen = '/splashscreen';
   static const loginScreen = '/loginscreen';
@@ -17,10 +16,13 @@ class AppRoutes {
   static const notFoundScreen = '/notfoundscreen';
   static const enquiryHome = '/enquiryhome';
   static const enquiryAdd = '/addenquiry';
-    static const assignedMemberProfileedithome = '/assignedmemberprofileedithome';
+  static const assignedMemberProfileedithome = '/assignedmemberprofileedithome';
 
+  ////ab
 
-
-  static const assignedMemberProfilepermission =
-      '/assignedmemberprofilepermission';
+  static const internationalLeadHome = '/internationalleadhome';
+  static const addInternationalLeadScreen = '/addinternationalleadhome';
+  static const importInternationalLeadScreen = '/importinternationalleadscreen';
+  static const internationalLeadBulkActionScreen =
+      '/internationalleadbulkactionscreen';
 }

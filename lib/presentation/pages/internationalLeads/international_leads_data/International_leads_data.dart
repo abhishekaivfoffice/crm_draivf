@@ -1,27 +1,25 @@
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/domestic_lead_data_profile.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/domestic_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_leads_data/International_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_leads_data/international_lead_data_profile.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_daterange_field.dart';
-import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_textfield.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_with_search.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdownfield_with_selectall_option.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:provider/provider.dart';
 
-class DomesticLeadsData extends StatelessWidget {
-  const DomesticLeadsData({super.key});
+class InternationalLeadsData extends StatelessWidget {
+  const InternationalLeadsData({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final domestileaddataprovider = Provider.of<DomesticLeadsDataProvider>(
+    final internationalleaddataprovider = Provider.of<InternationalLeadsDataProvider>(
       context,
     );
-    final users = domestileaddataprovider.currentPageUsers;
+    final users = internationalleaddataprovider.currentPageUsers;
 
     return Column(
       children: [
@@ -41,7 +39,7 @@ class DomesticLeadsData extends StatelessWidget {
                     child: SizedBox(
                       height: 35,
                       child: DropdownButton<int>(
-                        value: domestileaddataprovider.pageSize,
+                        value: internationalleaddataprovider.pageSize,
                         underline: const SizedBox(),
                         items:
                             [5, 10, 15, 20].map((e) {
@@ -59,7 +57,7 @@ class DomesticLeadsData extends StatelessWidget {
                             }).toList(),
                         onChanged: (val) {
                           if (val != null) {
-                            domestileaddataprovider.setPageSize(val);
+                            internationalleaddataprovider.setPageSize(val);
                           }
                         },
                       ),
@@ -80,7 +78,7 @@ class DomesticLeadsData extends StatelessWidget {
                     child: SizedBox(
                       height: 35,
                       child: DropdownButton<String>(
-                        value: domestileaddataprovider.selectedAction,
+                        value: internationalleaddataprovider.selectedAction,
                         underline: const SizedBox(),
                         hint: const Text(
                           " Export",
@@ -91,7 +89,7 @@ class DomesticLeadsData extends StatelessWidget {
                           ),
                         ),
                         items:
-                            domestileaddataprovider.actionItems.map((e) {
+                            internationalleaddataprovider.actionItems.map((e) {
                               return DropdownMenuItem(
                                 value: e,
                                 child: Text(
@@ -105,7 +103,7 @@ class DomesticLeadsData extends StatelessWidget {
                               );
                             }).toList(),
                         onChanged: (val) {
-                          domestileaddataprovider.setSelectedAction(val);
+                          internationalleaddataprovider.setSelectedAction(val);
                         },
                       ),
                     ),
@@ -114,7 +112,7 @@ class DomesticLeadsData extends StatelessWidget {
                 ////
                 GestureDetector(
                   onTap: () {
-                    Get.toNamed(AppRoutes.bulkActionScreen);
+                    Get.toNamed(AppRoutes.internationalLeadBulkActionScreen);
                   },
                   child: Container(
                     decoration: BoxDecoration(
@@ -146,7 +144,7 @@ class DomesticLeadsData extends StatelessWidget {
                 ////
                 GestureDetector(
                   onTap: () {
-                    domestileaddataprovider.toggleFilters();
+                    internationalleaddataprovider.toggleFilters();
                   },
                   child: Container(
                     decoration: BoxDecoration(
@@ -177,84 +175,102 @@ class DomesticLeadsData extends StatelessWidget {
         ),
 
         /// SHOW FILTERS ONLY IF ENABLED
-        if (domestileaddataprovider.showFilters) ...[
+        if (internationalleaddataprovider.showFilters) ...[
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             child: Column(
               children: [
-                SelectAllMultiSelectTextfield(
-                  labelText: "Zone",
-                  hintText: "Select zone",
-                  items: domestileaddataprovider.filterzones,
-                  selectedValues: domestileaddataprovider.selectedFilterZones,
-                  onChanged:
-                      (vals) => domestileaddataprovider.setFilterZones(vals),
-                  isMandatory: false,
-                ),
-                const SizedBox(height: 6),
-                SelectAllMultiSelectTextfield(
-                  labelText: "Branches",
-                  hintText: "Select branches",
-                  items: domestileaddataprovider.branches,
-                  selectedValues:
-                      domestileaddataprovider.selectedFilterBranches,
-                  onChanged:
-                      (vals) => domestileaddataprovider.setFilterBranches(vals),
-                  isMandatory: false,
-                ),
-                const SizedBox(height: 6),
-                SelectAllMultiSelectTextfield(
-                  labelText: "Status",
-                  hintText: "Select Status",
-                  items: domestileaddataprovider.filterstatus,
-                  selectedValues: domestileaddataprovider.selectedFilterStatus,
-                  onChanged:
-                      (vals) => domestileaddataprovider.setFilterStatus(vals),
-                  isMandatory: false,
-                ),
-                const SizedBox(height: 6),
                 CustomSearchDropdownWithSearch(
                   isMandatory: false,
                   labelText: "Assigned",
-                  items: domestileaddataprovider.filteragentName,
+                  items: internationalleaddataprovider.filteragentName,
                   selectedValue:
-                      domestileaddataprovider.selectedFilterAgentName,
-                  onChanged: domestileaddataprovider.setFilterAgentNames,
+                      internationalleaddataprovider.selectedFilterAgentName,
+                  onChanged: internationalleaddataprovider.setFilterAgentNames,
                   hintText: "Select Assigned",
                 ),
                 const SizedBox(height: 6),
-                CustomSearchDropdownWithSearch(
+                   SelectAllMultiSelectTextfield(
+                  labelText: "Status",
+                  hintText: "Select Status",
+                  items: internationalleaddataprovider.filterstatus,
+                  selectedValues: internationalleaddataprovider.selectedFilterStatus,
+                  onChanged:
+                      (vals) => internationalleaddataprovider.setFilterStatus(vals),
                   isMandatory: false,
-                  labelText: "Social media",
-                  items: domestileaddataprovider.filtersocialMedia,
+                ),
+                const SizedBox(height: 6),
+                 CustomSearchDropdownWithSearch(
+                  isMandatory: false,
+                  labelText: "Source",
+                  items: internationalleaddataprovider.filterdigitalmedia,
                   selectedValue:
-                      domestileaddataprovider.selectedFilterSocialMedia,
-                  onChanged: domestileaddataprovider.setFilterSocialMedia,
-                  hintText: "Select social media",
+                      internationalleaddataprovider.selectedFilterDigitalMedia,
+                  onChanged: internationalleaddataprovider.setFilterDigitalMedia,
+                  hintText: "Select source",
                 ),
                 const SizedBox(height: 6),
                 CustomSearchDropdownWithSearch(
                   isMandatory: false,
-                  labelText: "Digital media",
-                  items: domestileaddataprovider.filterdigitalmedia,
+                  labelText: "Attribute",
+                  items: internationalleaddataprovider.filtersocialMedia,
                   selectedValue:
-                      domestileaddataprovider.selectedFilterDigitalMedia,
-                  onChanged: domestileaddataprovider.setFilterDigitalMedia,
-                  hintText: "Select digital media",
+                      internationalleaddataprovider.selectedFilterSocialMedia,
+                  onChanged: internationalleaddataprovider.setFilterSocialMedia,
+                  hintText: "Select attribute",
                 ),
                 const SizedBox(height: 6),
+
+
+                ////
+                   CustomSearchDropdownWithSearch(
+                  isMandatory: false,
+                  labelText: "Preferred Location",
+                  items: internationalleaddataprovider.filterpreferredlocation,
+                  selectedValue:
+                      internationalleaddataprovider.selectedFilterPreferredLocation,
+                  onChanged: internationalleaddataprovider.setFilterPreferredLocation,
+                  hintText: "Select preferred location",
+                ),
+
+
+              
+                const SizedBox(height: 6),
+                  CustomSearchDropdownWithSearch(
+                  isMandatory: false,
+                  labelText: "Select",
+                  items: internationalleaddataprovider.branches,
+                  selectedValue:
+                      internationalleaddataprovider.selectedFilterBranches,
+                  onChanged: internationalleaddataprovider.setFilterBranches,
+                  hintText: "Select",
+                ),
+
+
+
+
+
+
+
+
+            
+                const SizedBox(height: 6),
+             
+                
+                
+               
                 CustomSearchDropdownWithSearch(
                   isMandatory: false,
                   labelText: "Date filter",
-                  items: domestileaddataprovider.filterdateFilter,
+                  items: internationalleaddataprovider.filterdateFilter,
                   selectedValue:
-                      domestileaddataprovider.selectedFilterDateFilter,
-                  onChanged: domestileaddataprovider.setFilterDateFilter,
+                      internationalleaddataprovider.selectedFilterDateFilter,
+                  onChanged: internationalleaddataprovider.setFilterDateFilter,
                   hintText: "Select date filter",
                 ),
                 const SizedBox(height: 6),
                 CustomDateRangeField(
-                  controller: domestileaddataprovider.dateRangeController,
+                  controller: internationalleaddataprovider.dateRangeController,
                   hintText: "Select Date Range",
                   labelText: "Date Range",
                   isMandatory: false,
@@ -279,7 +295,7 @@ class DomesticLeadsData extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => DomesticLeadDataProfile(user: user),
+                      builder: (context) => InternationalLeadDataProfile(user: user),
                     ),
                   );
                 },
@@ -338,22 +354,13 @@ class DomesticLeadsData extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 8),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "# ID: ${user.id}",
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 14,
-                                  color: AppColor.blackColor,
-                                ),
-                              ),
-                                  Text(
-                                "${user.source}",
-                                style: const TextStyle(color: Colors.grey),
-                              ),
-                            ],
+                          Text(
+                            "# ID: ${user.id}",
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              color: AppColor.blackColor,
+                            ),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -396,10 +403,10 @@ class DomesticLeadsData extends StatelessWidget {
               return Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if (domestileaddataprovider
+                  if (internationalleaddataprovider
                       .hasPreviousPage) // Show Back only if not on first page
                     ElevatedButton(
-                      onPressed: domestileaddataprovider.previousPage,
+                      onPressed: internationalleaddataprovider.previousPage,
 
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.grey.shade600,
@@ -410,10 +417,10 @@ class DomesticLeadsData extends StatelessWidget {
                       child: const Text("← Back"),
                     ),
                   const SizedBox(width: 12),
-                  if (domestileaddataprovider
+                  if (internationalleaddataprovider
                       .hasNextPage) // Show Next if more pages
                     ElevatedButton(
-                      onPressed: domestileaddataprovider.nextPage,
+                      onPressed: internationalleaddataprovider.nextPage,
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),

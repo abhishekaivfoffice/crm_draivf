@@ -7,7 +7,6 @@ import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_chart
 import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_home/dashboard_screen.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/add_leads/add_leads.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/add_leads/add_leads_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_permission/assigned_member_permission_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile/assigned_member_profile_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile_edit/assigned_member_profile_edit_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile_edit/assigned_member_profile_edithome.dart';
@@ -15,12 +14,18 @@ import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/bulk_action
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/domestic_leads_data.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/domestic_leads_data_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_home.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_homeprovider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/import_leads/import_leads.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/import_leads/import_leads_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_home/enquiry_home.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_home/add_new_enquiry/add_enquiry_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_home/home_enquiry_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/add_international_leads/add_international_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/add_international_leads/add_international_leads_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/import_international_leads/import_international_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/import_international_leads/import_international_leads_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_bulk_action/international_leads_bulk_action_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_home.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_leads_data/International_leads_data_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/login/login_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/login/login_screen.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/splash_screen/splash_screen.dart';
@@ -52,6 +57,13 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AddEnquiryProvider()),
         ChangeNotifierProvider(create: (_) => HomeEnquiryProvider()),
         ChangeNotifierProvider(create: (_) => AssignedMemberProfileProvider()),
+        //////////////international leads provider
+        ChangeNotifierProvider(create: (_) => AddInternationalLeadsProvider()),
+        ChangeNotifierProvider(
+          create: (_) => ImportInternationalLeadsProvider(),
+        ),
+        ChangeNotifierProvider(create: (_) => InternationalLeadsDataProvider()),
+
         ChangeNotifierProvider(
           create: (_) => AssignedMemberProfileEditProvider(),
         ),
@@ -116,23 +128,21 @@ class MyApp extends StatelessWidget {
         return const TeleDashboradScreen();
 
       case AppRoutes.enquiryHome:
-        return  EnquiryHome();
+        return EnquiryHome();
 
-
-
-
-     
-         case AppRoutes.assignedMemberProfilepermission:
-        return const AssignedMemberPermissionPage();
-        case AppRoutes.assignedMemberProfileedithome:
+      case AppRoutes.assignedMemberProfileedithome:
         return const AssignedMemberProfileEditHome();
-
+      case AppRoutes.internationalLeadHome:
+        return InternationalLeadsHome();
+         case AppRoutes.addInternationalLeadScreen:
+        return AddInternationalLeads();
+         case AppRoutes.internationalLeadBulkActionScreen:
+        return InternationalLeadsBulkActionPage();
+                case AppRoutes.importInternationalLeadScreen:
+        return ImportInternationalLeads();
 
       case AppRoutes.notFoundScreen:
         return const NotFoundPage();
-
-
-
 
       default:
         return const NotFoundPage();

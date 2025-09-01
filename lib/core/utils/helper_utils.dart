@@ -18,10 +18,11 @@ class HelperUtil {
       AppRoutes.dashboardScreen,
       AppRoutes.teledashboardScreen,
       AppRoutes.enquiryHome,
-            AppRoutes.assignedMemberProfileedithome,
-
-            AppRoutes.assignedMemberProfilepermission,
-
+      AppRoutes.assignedMemberProfileedithome,
+      AppRoutes.internationalLeadHome,
+      AppRoutes.importInternationalLeadScreen,
+      AppRoutes.internationalLeadBulkActionScreen,
+      AppRoutes.addInternationalLeadScreen,
 
       AppRoutes.notFoundScreen,
     ];
