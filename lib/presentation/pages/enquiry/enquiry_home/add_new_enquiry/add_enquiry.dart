@@ -32,6 +32,7 @@ class _AddEnquiryState extends State<AddEnquiry> {
               // Name Field
               CustomTextField(
                 controller: addenquiryprovider.nameController,
+                keyboardType: TextInputType.emailAddress,
                 hintText: "Enter address",
                 labelText: "Address",
                 isMandatory: false,
@@ -40,9 +41,10 @@ class _AddEnquiryState extends State<AddEnquiry> {
 
               // Phone Field
               CustomTextField(
+                keyboardType: TextInputType.phone,
                 controller: addenquiryprovider.phoneNumberController,
-                hintText: "Enter address",
-                labelText: "Address",
+                hintText: "Enter Phone Number",
+                labelText: "Phone",
                 isMandatory: false,
               ),
               const SizedBox(height: 15),
@@ -71,7 +73,8 @@ class _AddEnquiryState extends State<AddEnquiry> {
                 onPressed: () {
                   Get.to(() => const AddEnquiry());
                 },
-              ),            ],
+              ),
+            ],
           ),
         ),
       ),
