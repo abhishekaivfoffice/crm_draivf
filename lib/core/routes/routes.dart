@@ -1,4 +1,3 @@
-
 class AppRoutes {
   static const splashScreen = '/splashscreen';
   static const loginScreen = '/loginscreen';
@@ -17,9 +16,8 @@ class AppRoutes {
   static const notFoundScreen = '/notfoundscreen';
   static const enquiryHome = '/enquiryhome';
   static const enquiryAdd = '/addenquiry';
-    static const assignedMemberProfileedithome = '/assignedmemberprofileedithome';
-
-
+  static const assignedMemberProfileedithome = '/assignedmemberprofileedithome';
+  static const campHome = '/camphome';
 
   static const assignedMemberProfilepermission =
       '/assignedmemberprofilepermission';

@@ -1,4 +1,3 @@
-
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +40,10 @@ class CustomSearchDropdownWithSearch extends StatelessWidget {
             if (isMandatory) const SizedBox(width: 3),
             Text(
               labelText,
-              style: const TextStyle(fontSize: 14, fontFamily: AppFonts.poppins),
+              style: const TextStyle(
+                fontSize: 14,
+                fontFamily: AppFonts.poppins,
+              ),
             ),
           ],
         ),
@@ -71,13 +73,25 @@ class CustomSearchDropdownWithSearch extends StatelessWidget {
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton2<String>(
                       isExpanded: true,
-                      hint: Text(hintText,style: TextStyle(fontSize: 14,color: AppColor.hinttextblackColor, fontFamily: AppFonts.poppins),),
+                      hint: Text(
+                        hintText,
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: AppColor.hinttextblackColor,
+                          fontFamily: AppFonts.poppins,
+                        ),
+                      ),
                       items:
                           items
                               .map(
                                 (item) => DropdownMenuItem(
                                   value: item,
-                                  child: Text(item),
+                                  child: Text(
+                                    item,
+                                    style: TextStyle(
+                                      fontFamily: AppFonts.poppins,
+                                    ),
+                                  ),
                                 ),
                               )
                               .toList(),
@@ -96,7 +110,12 @@ class CustomSearchDropdownWithSearch extends StatelessWidget {
                             decoration: InputDecoration(
                               isDense: true,
                               contentPadding: const EdgeInsets.all(8),
-                              hintText: 'Search...',hintStyle: TextStyle(fontSize: 14, fontFamily: AppFonts.poppins,color: AppColor.blackColor),
+                              hintText: 'Search...',
+                              hintStyle: TextStyle(
+                                fontSize: 14,
+                                fontFamily: AppFonts.poppins,
+                                color: AppColor.blackColor,
+                              ),
                               fillColor: const Color(0xFFF2F2F2),
                               filled: true,
                               border: OutlineInputBorder(
@@ -123,7 +142,11 @@ class CustomSearchDropdownWithSearch extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 5, left: 8),
                     child: Text(
                       state.errorText!,
-                      style: const TextStyle(fontFamily: AppFonts.poppins, color: Colors.red, fontSize: 12),
+                      style: const TextStyle(
+                        fontFamily: AppFonts.poppins,
+                        color: Colors.red,
+                        fontSize: 12,
+                      ),
                     ),
                   ),
               ],

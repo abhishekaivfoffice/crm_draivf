@@ -7,10 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DomesticLeadsHome extends StatelessWidget {
+  const DomesticLeadsHome({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          drawer: TabletMobileDrawer(),
+      drawer: TabletMobileDrawer(),
 
       appBar: CustomAppBar(title: "Domestic Leads"),
       body: SingleChildScrollView(
@@ -48,7 +50,6 @@ class DomesticLeadsHome extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 12),
-
                 ],
               ),
             ),
