@@ -17,8 +17,13 @@ class AppRoutes {
   static const enquiryHome = '/enquiryhome';
   static const enquiryAdd = '/addenquiry';
   static const assignedMemberProfileedithome = '/assignedmemberprofileedithome';
+
   static const campHome = '/camphome';
 
-  static const assignedMemberProfilepermission =
-      '/assignedmemberprofilepermission';
+
+  static const internationalLeadHome = '/internationalleadhome';
+  static const addInternationalLeadScreen = '/addinternationalleadhome';
+  static const importInternationalLeadScreen = '/importinternationalleadscreen';
+  static const internationalLeadBulkActionScreen =
+      '/internationalleadbulkactionscreen';
 }

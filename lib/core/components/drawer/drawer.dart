@@ -99,7 +99,14 @@ class TabletMobileDrawer extends StatelessWidget {
                           title: 'Domestic Leads',
                           targetPage: AppRoutes.domesticLeadHome,
                           fontSize: navItemFontSize,
-                        ),TabletAppbarNavigationBtn(
+                        ),
+                         TabletAppbarNavigationBtn(
+                          leadingicon: Icons.flight,
+                          title: 'International Leads',
+                          targetPage: AppRoutes.internationalLeadHome,
+                          fontSize: navItemFontSize,
+                        ),
+                        TabletAppbarNavigationBtn(
                           leadingicon: Icons.home_work,
                           title: 'Enquiry',
                           targetPage: AppRoutes.enquiryHome,

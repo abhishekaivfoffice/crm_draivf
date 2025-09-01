@@ -1,7 +1,6 @@
-import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
 import 'package:flutter/cupertino.dart';
 
-class AssignedMemberProfileEditProvider extends ChangeNotifier {
+class InternationalLeadAssignedMemberProfileEditProvider extends ChangeNotifier {
   final emailController = TextEditingController();
   final firstNameController = TextEditingController();
 

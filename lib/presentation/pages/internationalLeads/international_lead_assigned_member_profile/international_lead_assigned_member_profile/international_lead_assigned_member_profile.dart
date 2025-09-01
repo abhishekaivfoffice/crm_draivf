@@ -4,7 +4,7 @@ import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile/assigned_member_profile_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_assigned_member_profile/international_lead_assigned_member_profile/international_lead_assigned_member_profile_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_containers/custom_time_container.dart';
 import 'package:flutter/material.dart';
@@ -12,18 +12,18 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:provider/provider.dart';
 
-class AssignedMemberDetails extends StatelessWidget {
+class InternationalLeadAssignedMemberProfile extends StatelessWidget {
   final AssignedMember member;
 
-  const AssignedMemberDetails({super.key, required this.member});
+  const InternationalLeadAssignedMemberProfile({super.key, required this.member});
 
   @override
   Widget build(BuildContext context) {
     final assignedmemberprofileprovider =
-        Provider.of<AssignedMemberProfileProvider>(context);
+        Provider.of<InternationalLeadAssignedMemberProfileProvider>(context);
     return Scaffold(
       drawer: TabletMobileDrawer(),
-      appBar: CustomAppBar(title: "Assigned Profile"),
+      appBar: CustomAppBar(title: "International Assigned Profile"),
       body: Column(
         children: [
           // Top section with background and profile image
