@@ -24,7 +24,6 @@ import 'package:crm_draivfmobileapp/presentation/pages/enquiry/edit_enquiry/edit
 import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_main_home/enquiry_home.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_home/add_new_enquiry/add_enquiry_provider.dart';
 
-import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_home/home_enquiry_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/add_international_leads/add_international_leads.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/add_international_leads/add_international_leads_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/import_international_leads/import_international_leads.dart';
@@ -159,8 +158,7 @@ class MyApp extends StatelessWidget {
                 case AppRoutes.importInternationalLeadScreen:
         return ImportInternationalLeads();
 
-      case AppRoutes.assignedMemberProfilepermission:
-        return const AssignedMemberPermissionPage();
+    
       case AppRoutes.assignedMemberProfileedithome:
         return const AssignedMemberProfileEditHome();
       case AppRoutes.campHome:
