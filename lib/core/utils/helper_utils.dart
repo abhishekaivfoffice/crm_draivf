@@ -26,7 +26,6 @@ class HelperUtil {
       AppRoutes.addInternationalLeadScreen,
 
 
-      AppRoutes.assignedMemberProfilepermission,
       AppRoutes.campHome,
 
 
