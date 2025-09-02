@@ -3,16 +3,24 @@ import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/AppImages.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile/assigned_member_profile.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/domestic_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/attachment_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/payment_links_tab.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/profile_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/reminders_tab.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/task_tabs.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_icon_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/edit_delete_view_buttons.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_filechooser_field/upload_box.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_info_row.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_info_row_without_icon.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_large_textfield.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_textfield.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:provider/provider.dart';
 
 //////////////////////////////////////domestic lead profile detailed page///////////////
 
@@ -22,6 +30,8 @@ class DomesticLeadDataProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final domesticleaddataprofileprovider =
+        Provider.of<DomesticLeadsDataProvider>(context);
     double avatarRadius = 30;
     double borderWidth = 2;
     double overlap = 40; // space between avatars
@@ -35,9 +45,8 @@ class DomesticLeadDataProfile extends StatelessWidget {
 
       appBar: CustomAppBar(title: "Data detailed page"),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 0),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Container(
@@ -278,34 +287,76 @@ class DomesticLeadDataProfile extends StatelessWidget {
                   ),
                 ),
               ),
+              if (domesticleaddataprofileprovider.isProfileExpanded) ...[
+                const SizedBox(height: 8),
 
-              // Expanded(
-              //   child: ListView(
-              //     children:
-              //         user.entries.map((entry) {
-              //           return Padding(
-              //             padding: const EdgeInsets.symmetric(vertical: 6),
-              //             child: Row(
-              //               children: [
-              //                 Text(
-              //                   "${entry.key}: ",
-              //                   style: const TextStyle(
-              //                     fontWeight: FontWeight.bold,
-              //                     fontSize: 15,
-              //                   ),
-              //                 ),
-              //                 Expanded(
-              //                   child: Text(
-              //                     "${entry.value}",
-              //                     style: const TextStyle(fontSize: 15),
-              //                   ),
-              //                 ),
-              //               ],
-              //             ),
-              //           );
-              //         }).toList(),
-              //   ),
-              // ),
+                // TabBar + TabBarView
+                DefaultTabController(
+                  length: 5,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const TabBar(
+                        isScrollable: true,
+                        labelColor: Colors.blue,
+                        unselectedLabelColor: Colors.grey,
+                        indicatorColor: Colors.blue,
+                        tabs: [
+                          Tab(text: " Overview "),
+                          Tab(text: "   Task   "),
+                          Tab(text: "Attachments"),
+                          Tab(text: " Reminders "),
+                          Tab(text: "Payment Links"),
+                        ],
+                      ),
+
+                      // 👇 This listens to TabController changes
+                      Builder(
+                        builder: (context) {
+                          final TabController tabController =
+                              DefaultTabController.of(context)!;
+
+                          return AnimatedBuilder(
+                            animation: tabController,
+                            builder: (context, _) {
+                              return IndexedStack(
+                                index: tabController.index,
+                                children: [
+                                  // Tab 1
+                                  ProfileTabs(),
+
+                                  /////////////////////// Tab 2//////////////////////////////
+                                  TaskTabs(),
+
+                                  //////////////////////////// Tab 3////////////////////////////
+                                  AttachmentTabs(),
+                                  ///////////////tab 4 ////////////////////////
+                                  RemindersTab(),
+                                  ///////////tab 5 ///////////////////////////////////
+                                  PaymentLinksTab(),
+                                ],
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+
+              const SizedBox(height: 12),
+              TextButton(
+                onPressed: () {
+                  domesticleaddataprofileprovider.toggle();
+                },
+                child: Text(
+                  domesticleaddataprofileprovider.isProfileExpanded
+                      ? "See Less"
+                      : "See More",
+                  style: const TextStyle(color: Colors.blue),
+                ),
+              ),
             ],
           ),
         ),

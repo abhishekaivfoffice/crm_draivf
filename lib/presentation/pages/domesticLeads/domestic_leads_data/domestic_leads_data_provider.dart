@@ -1,5 +1,6 @@
 
 import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart' show AssignedMember, User;
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 class DomesticLeadsDataProvider extends ChangeNotifier {
@@ -48,6 +49,39 @@ class DomesticLeadsDataProvider extends ChangeNotifier {
     _showFilters = !_showFilters;
     notifyListeners();
   }
+  bool _isProfileExpanded = false;
+
+  bool get isProfileExpanded => _isProfileExpanded;
+    void toggle() {
+    _isProfileExpanded = !_isProfileExpanded;
+    notifyListeners();
+  }
+  ///////SEE MORE TAB 
+    int _currentIndex = 0;
+
+  int get currentIndex => _currentIndex;
+
+  void changeTab(int index) {
+    _currentIndex = index;
+    notifyListeners();
+  }
+  ///////////////////////////see more upload file section
+   List<PlatformFile> _selectedFiles = [];
+
+  List<PlatformFile> get selectedFiles => _selectedFiles;
+
+  void setFiles(List<PlatformFile> files) {
+    _selectedFiles = files;
+    notifyListeners();
+  }
+
+  void clearFiles() {
+    _selectedFiles = [];
+    notifyListeners();
+  }
+  //////see more textfields
+  final totalAmountController = TextEditingController();
+    final descriptionController = TextEditingController();
 
   /////status option
   final List<String> _status = [

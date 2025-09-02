@@ -15,7 +15,7 @@ static const String sourceicon = 'assets/images/source.svg';
 
 static const String walkindateicon = 'assets/images/walkindate.svg';
 
-static const String lastcontacticon = 'assets/images/lastcontact.svg';
+static const String lastcontacticon = 'assets/images/lastupdate.svg';
 
 
 
