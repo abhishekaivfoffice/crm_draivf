@@ -3,6 +3,9 @@ import 'package:crm_draivfmobileapp/core/routes/app_route_observer.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/core/utils/helper_utils.dart';
 import 'package:crm_draivfmobileapp/presentation/page_not_found/page_not_found.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/camp_management/add_camp_inside_details/addcamp_inside_details_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/camp_management/addcamp_inside_action_details/addcamp_inside_actionprovider_screen.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/camp_management/camp_detalis/camp_details_inside_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/camp_management/camp_management_screens/camp_home_screen.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/camp_management/camp_zone_userdetails_screen/camp_userdetails_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/camp_management/new_comp_add/new_camp_provider.dart';
@@ -73,7 +76,6 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(create: (_) => InternationalLeadsDataProvider()),
 
-
         ChangeNotifierProvider(create: (_) => AssignedMemberProfileProvider()),
 
         ChangeNotifierProvider(
@@ -83,6 +85,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ConvertScreenProvider()),
         ChangeNotifierProvider(create: (_) => NewCampProvider()),
         ChangeNotifierProvider(create: (_) => CampUserDetailsProvider()),
+        ChangeNotifierProvider(create: (_) => CampDetailsInsidePageProvider()),
+        ChangeNotifierProvider(create: (_) => AddCampInsideProvider()),
+        ChangeNotifierProvider(create: (_) => AddCampInsideActionProvider()),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
@@ -146,24 +151,21 @@ class MyApp extends StatelessWidget {
       case AppRoutes.enquiryHome:
         return EnquiryHome();
 
-
       case AppRoutes.assignedMemberProfileedithome:
         return const AssignedMemberProfileEditHome();
       case AppRoutes.internationalLeadHome:
         return InternationalLeadsHome();
-         case AppRoutes.addInternationalLeadScreen:
+      case AppRoutes.addInternationalLeadScreen:
         return AddInternationalLeads();
-         case AppRoutes.internationalLeadBulkActionScreen:
+      case AppRoutes.internationalLeadBulkActionScreen:
         return InternationalLeadsBulkActionPage();
-                case AppRoutes.importInternationalLeadScreen:
+      case AppRoutes.importInternationalLeadScreen:
         return ImportInternationalLeads();
 
-    
       case AppRoutes.assignedMemberProfileedithome:
         return const AssignedMemberProfileEditHome();
       case AppRoutes.campHome:
         return const CampHomeScreen();
-
 
       case AppRoutes.notFoundScreen:
         return const NotFoundPage();

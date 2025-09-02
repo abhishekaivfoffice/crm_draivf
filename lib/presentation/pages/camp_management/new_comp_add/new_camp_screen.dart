@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:provider/provider.dart';
-
 import '../../../../core/components/appbar/appbar.dart';
 import '../../../../core/components/drawer/drawer.dart';
 import '../../../../core/constatnts/appcolors.dart';
@@ -22,7 +21,7 @@ class NewCampScreen extends StatelessWidget {
 
     return Scaffold(
       drawer: TabletMobileDrawer(),
-      appBar: CustomAppBar(title: "Add Enquiry"),
+      appBar: CustomAppBar(title: "New Camp"),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: SingleChildScrollView(

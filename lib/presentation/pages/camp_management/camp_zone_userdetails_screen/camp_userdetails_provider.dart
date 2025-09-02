@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
+import '../../../../data/models/camp_user_model.dart';
+
 class CampUserDetailsProvider extends ChangeNotifier {
   final marriageDateController = TextEditingController();
 
@@ -41,6 +43,57 @@ class CampUserDetailsProvider extends ChangeNotifier {
     "Kolkata",
   ];
 
+  final List<Map<String, dynamic>> campList = [
+    {
+      "branch": "WEST 2 TN Erode",
+      "campType": "External",
+      "campDate": "2024-12-22",
+      "campLocation": "K S PHYSIOTHERAPY CLINIC",
+      "drName": "Dr. Priya",
+      "campIncharge": "",
+      "createdDate": "2024-12-21 09:15:24",
+      "deatils": "2024-12-21 09:15:24",
+      "QR": "2024-12-21 09:15:24",
+      "action": "2024-12-21 09:15:24",
+    },
+    {
+      "branch": "WEST 1 TN Coimbatore - Thudiyalur",
+      "campType": "Inhouse",
+      "campDate": "2024-12-22",
+      "campLocation": "HINDUSTHAN HOSPITAL",
+      "drName": "Dr. Deepa",
+      "campIncharge": ".",
+      "createdDate": "2024-12-21 09:14:15",
+      "deatils": "2024-12-21 09:15:24",
+      "QR": "2024-12-21 09:15:24",
+      "action": "2024-12-21 09:15:24",
+    },
+    {
+      "branch": "WEST 1 TN Coimbatore - Thudiyalur",
+      "campType": "Inhouse",
+      "campDate": "2024-12-22",
+      "campLocation": "HINDUSTHAN HOSPITAL",
+      "drName": "Dr. Deepa",
+      "campIncharge": ".",
+      "createdDate": "2024-12-21 09:14:15",
+      "deatils": "2024-12-21 09:15:24",
+      "QR": "2024-12-21 09:15:24",
+      "action": "2024-12-21 09:15:24",
+    },
+    {
+      "branch": "WEST 1 TN Coimbatore - Thudiyalur",
+      "campType": "Inhouse",
+      "campDate": "2024-12-22",
+      "campLocation": "HINDUSTHAN HOSPITAL",
+      "drName": "Dr. Deepa",
+      "campIncharge": ".",
+      "createdDate": "2024-12-21 09:14:15",
+      "deatils": "2024-12-21 09:15:24",
+      "QR": "2024-12-21 09:15:24",
+      "action": "2024-12-21 09:15:24",
+    },
+  ];
+
   List<String> get location => _location;
   String? _selectedlocation;
   String? get selectedlocation => _selectedlocation;
@@ -51,11 +104,7 @@ class CampUserDetailsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  final List<String> _camptype = [
-    "InHouse",
-    "External",
-
-  ];
+  final List<String> _camptype = ["InHouse", "External"];
   List<String> get campeType => _camptype;
   String? _selectedcampeType;
   String? get selectedcampeType => _selectedcampeType;
@@ -112,6 +161,4 @@ class CampUserDetailsProvider extends ChangeNotifier {
         break;
     }
   }
-
-
 }
