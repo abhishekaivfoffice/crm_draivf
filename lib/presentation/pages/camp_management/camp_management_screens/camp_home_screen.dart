@@ -21,29 +21,11 @@ class CampHomeScreen extends StatelessWidget {
       appBar: const CustomAppBar(title: "Camp"),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: CustomGradientButton(
-                      height: 40,
-                      width: 150,
-                      text: "New Camp",
-                      icon: Icons.add,
-                      onPressed: () {
-                        Get.to(() => const NewCampScreen());
-                      },
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 15,),
-              CampZoneUserScreen(),
-
-            ],
-          ),
+        child: Column(
+          children: [
+            SizedBox(height: 15),
+            Expanded(child: CampZoneUserScreen()),
+          ],
         ),
       ),
     );
