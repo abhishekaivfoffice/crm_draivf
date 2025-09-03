@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart' show AssignedMember, User;
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +84,47 @@ class DomesticLeadsDataProvider extends ChangeNotifier {
   //////see more textfields
   final totalAmountController = TextEditingController();
     final descriptionController = TextEditingController();
+ final notesController = TextEditingController();
+    final dateContactedController = TextEditingController();
+     final activityLogController = TextEditingController();
+ File? _selectedCallRecordingFile;
 
+  File? get selectedCallRecordingFile => _selectedCallRecordingFile;
+  //choose file
+  void setCallRecordingFileFile(File file) {
+    _selectedCallRecordingFile = file;
+    notifyListeners();
+  }
+ final List<String> _language = [
+    "Tamil",
+    "English",
+    "Malayalam",
+  
+  ];
+  List<String> get language => _language;
+  
+  String? _selectedLanguage;
+  String? get selectedLanguage => _selectedLanguage;
+  
+  void setSelectedLanguage(String? language) {
+    _selectedLanguage = language;
+    notifyListeners();
+  }
+   final List<String> _template = [
+    "Tamil",
+    "English",
+    "Malayalam",
+  
+  ];
+  List<String> get template => _template;
+  
+  String? _selectedTemplate;
+  String? get selectedTemplate => _selectedTemplate;
+  
+  void setSelectedTemplate(String? template) {
+    _selectedTemplate = template;
+    notifyListeners();
+  }
   /////status option
   final List<String> _status = [
     "New Lead",

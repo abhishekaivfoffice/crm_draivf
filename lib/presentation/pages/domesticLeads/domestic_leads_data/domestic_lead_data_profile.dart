@@ -6,10 +6,16 @@ import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile/assigned_member_profile.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/domestic_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/activity_log_tabs.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/attachment_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/call_recordings_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/email_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/marketing_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/notes_tab.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/payment_links_tab.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/profile_tabs.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/reminders_tab.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/sms_tab.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/profile_tabs/task_tabs.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_icon_button.dart';
@@ -182,181 +188,97 @@ class DomesticLeadDataProfile extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: const Color.fromARGB(44, 0, 0, 0)),
-                  color: const Color.fromARGB(255, 255, 255, 255),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10),
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "${user.created}",
-                            style: const TextStyle(color: Colors.grey),
-                          ),
+       
+              const SizedBox(height: 8),
 
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 4,
-                            ),
-                            decoration: BoxDecoration(
-                              color:
-                                  user.status == "Query"
-                                      ? Colors.green.shade100
-                                      : user.status == "Pending"
-                                      ? Colors.orange.shade100
-                                      : user.status == "Closed"
-                                      ? Colors.red.shade100
-                                      : Colors.blue.shade100,
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Text(
-                              user.status,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      InfoRow(
-                        iconPath: AppImages.idicon,
-                        label: "Id",
-                        value: user.id.toString(),
-                      ),
-                      InfoRow(
-                        iconPath: AppImages.nameicon,
-                        label: "Wife Name",
-                        value: user.name,
-                      ),
-                      InfoRow(
-                        iconPath: AppImages.branchicon,
-                        label: "Branch",
-                        value: user.branch,
-                      ),
-                      InfoRow(
-                        iconPath: AppImages.phoneicon,
-                        label: "Wife Phone",
-                        value: user.phone,
-                      ),
-                      InfoRow(
-                        iconPath: AppImages.dupeicon,
-                        label: "Dupe",
-                        value: user.dupe.toString(),
-                      ),
-                      InfoRow(
-                        iconPath: AppImages.sourceicon,
-                        label: "Source",
-                        value: user.source,
-                      ),
-                      InfoRow(
-                        iconPath: AppImages.walkindateicon,
-                        label: "Walkin Date",
-                        value: user.walkInDate,
-                      ),
-                      InfoRow(
-                        iconPath: AppImages.lastcontacticon,
-                        label: "Last Contact",
-                        value: user.lastContact,
-                      ),
-                      const SizedBox(height: 16),
-                      CustomGradientButton(
-                        text: ("Make Call"),
-                        height: 43,
-                        icon: Icons.call,
-                        gradientColors: const [
-                          Color(0xFF42A5F5), // Sky Blue
-                          Color(0xFF1565C0), // Rich Blue
-                        ],
+              // TabBar + TabBarView
+              DefaultTabController(
+                length: 11,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const TabBar(
+                      isScrollable: true,
+                      labelColor: AppColor.primaryColor2,
 
-                        onPressed: () {
-                          // cancel action
-                        },
+                      unselectedLabelColor: Colors.grey,
+                      indicatorColor: AppColor.primaryColor1,
+                      // 👇 Add custom text styles
+                      labelStyle: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
                       ),
-                      const SizedBox(height: 16),
-                    ],
-                  ),
+                      unselectedLabelStyle: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
+                      ),
+                      tabs: [
+                        Tab(text: " Overview "),
+                        Tab(text: "   Task   "),
+                        Tab(text: "Attachments"),
+                        Tab(text: " Reminders "),
+                        Tab(text: "Payment Links"),
+                        Tab(text: "  Notes  "),
+                        Tab(text: "Activity Log"),
+                        Tab(text: "Marketing"),
+                        Tab(text: "Call Recordings"),
+                        Tab(text: "   Sms   "),
+                        Tab(text: "   Email   "),
+                      ],
+                    ),
+
+                    // 👇 This listens to TabController changes
+                    Builder(
+                      builder: (context) {
+                        final TabController tabController =
+                            DefaultTabController.of(context)!;
+
+                        return AnimatedBuilder(
+                          animation: tabController,
+                          builder: (context, _) {
+                            return IndexedStack(
+                              index: tabController.index,
+                              children: [
+                                // Tab 1
+                                ProfileTabs(user: user),
+
+                                /////////////////////// Tab 2//////////////////////////////
+                                TaskTabs(),
+
+                                //////////////////////////// Tab 3////////////////////////////
+                                AttachmentTabs(),
+                                ///////////////tab 4 ////////////////////////
+                                RemindersTab(),
+                                ///////////tab 5 ///////////////////////////////////
+                                PaymentLinksTab(),
+
+                                ///////////tab 6 ///////////////////////////////////
+                                NotesTab(),
+
+                                ///////////tab 7 ///////////////////////////////////
+                                ActivityLogTabs(),
+
+                                ///////////tab 8 ///////////////////////////////////
+                                MarketingTabs(),
+                                ///////////tab 9 ///////////////////////////////////
+                                CallRecordingTabs(),
+                                ///////////tab 10 ///////////////////////////////////
+                                SmsTab(),
+                                ///////////tab 11 ///////////////////////////////////
+                                EmailTabs(),
+                              ],
+                            );
+                          },
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ),
-              if (domesticleaddataprofileprovider.isProfileExpanded) ...[
-                const SizedBox(height: 8),
 
-                // TabBar + TabBarView
-                DefaultTabController(
-                  length: 5,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const TabBar(
-                        isScrollable: true,
-                        labelColor: Colors.blue,
-                        unselectedLabelColor: Colors.grey,
-                        indicatorColor: Colors.blue,
-                        tabs: [
-                          Tab(text: " Overview "),
-                          Tab(text: "   Task   "),
-                          Tab(text: "Attachments"),
-                          Tab(text: " Reminders "),
-                          Tab(text: "Payment Links"),
-                        ],
-                      ),
-
-                      // 👇 This listens to TabController changes
-                      Builder(
-                        builder: (context) {
-                          final TabController tabController =
-                              DefaultTabController.of(context)!;
-
-                          return AnimatedBuilder(
-                            animation: tabController,
-                            builder: (context, _) {
-                              return IndexedStack(
-                                index: tabController.index,
-                                children: [
-                                  // Tab 1
-                                  ProfileTabs(),
-
-                                  /////////////////////// Tab 2//////////////////////////////
-                                  TaskTabs(),
-
-                                  //////////////////////////// Tab 3////////////////////////////
-                                  AttachmentTabs(),
-                                  ///////////////tab 4 ////////////////////////
-                                  RemindersTab(),
-                                  ///////////tab 5 ///////////////////////////////////
-                                  PaymentLinksTab(),
-                                ],
-                              );
-                            },
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-
+              // ],
               const SizedBox(height: 12),
-              TextButton(
-                onPressed: () {
-                  domesticleaddataprofileprovider.toggle();
-                },
-                child: Text(
-                  domesticleaddataprofileprovider.isProfileExpanded
-                      ? "See Less"
-                      : "See More",
-                  style: const TextStyle(color: Colors.blue),
-                ),
-              ),
+      
             ],
           ),
         ),

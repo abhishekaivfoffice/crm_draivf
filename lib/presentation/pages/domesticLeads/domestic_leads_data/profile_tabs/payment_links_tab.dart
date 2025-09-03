@@ -12,11 +12,14 @@ class PaymentLinksTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+            double screenWidth = MediaQuery.of(context).size.width;
+
+
      final domesticleaddataprofileprovider =
         Provider.of<DomesticLeadsDataProvider>(context);
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const SizedBox(height: 10),
         Text(
@@ -43,7 +46,8 @@ class PaymentLinksTab extends StatelessWidget {
           isMandatory: true,
         ),
         const SizedBox(height: 16),
-        CustomGradientButton(
+        CustomGradientButton(          width:  screenWidth / 2,
+
           height: 40,
           text: "Submit",
           onPressed: () {
