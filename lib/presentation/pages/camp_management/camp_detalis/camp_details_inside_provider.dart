@@ -1,18 +1,41 @@
 import 'package:flutter/material.dart';
 
 class CampDetailsInsidePageProvider extends ChangeNotifier {
-  final List<Map<String, dynamic>> campList = [
+  final List<Map<String, dynamic>> _campList = [
     {
-      "branch": "WEST 2 TN Erode",
-      "campType": "External",
-      "campDate": "2024-12-22",
+      "Zone": "CHENNAI",
+      "Branch": "Chennai - Urapakkam",
+      "Camp Type": "Inhouse",
       "campLocation": "K S PHYSIOTHERAPY CLINIC",
-      "drName": "Dr. Priya",
-      "campIncharge": "",
-      "createdDate": "2024-12-21 09:15:24",
-      "deatils": "2024-12-21 09:15:24",
-      "QR": "2024-12-21 09:15:24",
-      "action": "2024-12-21 09:15:24",
+      "Dr. Name": "Dr. Shruthi",
+      "Camp Date": "2025-02-09",
+      "Location": "Dr. Aravind's IVF - Best Fertility and Pregnancy Centre",
+      "Camp Incharge": "",
+    },{
+      "Zone": "madurai",
+      "Branch": "Chennai - Urapakkam",
+      "Camp Type": "Inhouse",
+      "campLocation": "K S PHYSIOTHERAPY CLINIC",
+      "Dr. Name": "Dr. Shruthi",
+      "Camp Date": "2025-02-09",
+      "Location": "Dr. Aravind's IVF - Best Fertility and Pregnancy Centre",
+      "Camp Incharge": "",
     },
+
+
   ];
+
+  // Get all camps
+  List<Map<String, dynamic>> get campList => List.unmodifiable(_campList);
+
+  // Add a new camp
+  void addCamp(Map<String, dynamic> newCamp) {
+    _campList.add(newCamp);
+    notifyListeners();
+  }
+
+  // Get camp by index
+  Map<String, dynamic> getCampDetails(int index) {
+    return _campList[index];
+  }
 }
