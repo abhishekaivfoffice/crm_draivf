@@ -24,10 +24,10 @@ class HelperUtil {
       AppRoutes.importInternationalLeadScreen,
       AppRoutes.internationalLeadBulkActionScreen,
       AppRoutes.addInternationalLeadScreen,
-
-
+      AppRoutes.convertToCustomerScreen,
+      AppRoutes.addNewTaskScreen,
+      AppRoutes.setLeadReminderScreen,
       AppRoutes.campHome,
-
 
       AppRoutes.notFoundScreen,
     ];

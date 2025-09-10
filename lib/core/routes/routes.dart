@@ -20,10 +20,13 @@ class AppRoutes {
 
   static const campHome = '/camphome';
 
-
   static const internationalLeadHome = '/internationalleadhome';
   static const addInternationalLeadScreen = '/addinternationalleadhome';
   static const importInternationalLeadScreen = '/importinternationalleadscreen';
-  static const internationalLeadBulkActionScreen =
-      '/internationalleadbulkactionscreen';
+  static const internationalLeadBulkActionScreen = '/internationalleadbulkactionscreen';
+  static const convertToCustomerScreen ='/converttocustomerscreen';
+    static const addNewTaskScreen ='/addnewtaskscreen';
+        static const setLeadReminderScreen ='/setleadremindetrscreen';
+
+
 }

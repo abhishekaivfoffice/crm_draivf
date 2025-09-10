@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 class ImportLeadsProvider with ChangeNotifier {
    // Table headers
   final List<String> headers = [
-    "* Name",
+    "Name",
     "Wifeage",
     "Husbandname",
     "Husbandage",

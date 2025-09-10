@@ -1,11 +1,14 @@
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appimages.dart';
+import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_icon_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_info_row.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_info_row_without_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
 
 class ProfileTabs extends StatelessWidget {
   final User user;
@@ -28,7 +31,7 @@ class ProfileTabs extends StatelessWidget {
                   width: 190,
                   text: "Convert to Customer",
                   onPressed: () {
-                    // submit action
+                   Get.toNamed(AppRoutes.convertToCustomerScreen);
                   },
                 ),
                 Row(

@@ -17,9 +17,15 @@ import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_me
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile_edit/assigned_member_profile_edit_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile_edit/assigned_member_profile_edithome.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/bulk_action/bulk_action_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/add_new_task.dart/add_new_task_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/add_new_task.dart/add_new_task_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/convert_to_customer/convert_to_customer_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/convert_to_customer/convert_to_customer_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/domestic_leads_data.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/domestic_leads_data_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_home.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/set_lead_reminders/set_lead_reminders_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/set_lead_reminders/set_lead_reminders_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/import_leads/import_leads.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/import_leads/import_leads_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/enquiry/convert_screen/convert_screen_provider.dart';
@@ -63,21 +69,17 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ImportLeadsProvider()),
         // ChangeNotifierProvider(create: (_) => DomesticLeadsHomeprovider()),
         ChangeNotifierProvider(create: (_) => DomesticLeadsDataProvider()),
-
         ChangeNotifierProvider(create: (_) => Chart1Provider()),
         ChangeNotifierProvider(create: (_) => AddEnquiryProvider()),
         ChangeNotifierProvider(create: (_) => HomeEnquiryProvider()),
         ChangeNotifierProvider(create: (_) => AssignedMemberProfileProvider()),
-
         //////////////international leads provider
         ChangeNotifierProvider(create: (_) => AddInternationalLeadsProvider()),
         ChangeNotifierProvider(
           create: (_) => ImportInternationalLeadsProvider(),
         ),
         ChangeNotifierProvider(create: (_) => InternationalLeadsDataProvider()),
-
         ChangeNotifierProvider(create: (_) => AssignedMemberProfileProvider()),
-
         ChangeNotifierProvider(
           create: (_) => AssignedMemberProfileEditProvider(),
         ),
@@ -88,6 +90,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CampDetailsInsidePageProvider()),
         ChangeNotifierProvider(create: (_) => AddCampInsideProvider()),
         ChangeNotifierProvider(create: (_) => AddCampInsideActionProvider()),
+        ChangeNotifierProvider(create: (_) => ConvertToCustomerProvider()),
+        ChangeNotifierProvider(create: (_) => AddNewTaskProvider()),
+                ChangeNotifierProvider(create: (_) => SetLeadRemindersProvider()),
+
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
@@ -166,6 +172,13 @@ class MyApp extends StatelessWidget {
         return const AssignedMemberProfileEditHome();
       case AppRoutes.campHome:
         return const CampHomeScreen();
+      case AppRoutes.convertToCustomerScreen:
+        return const ConvertToCustomerPage();
+        case AppRoutes.addNewTaskScreen:
+        return const AddNewTaskPage();
+         case AppRoutes.setLeadReminderScreen:
+        return const SetLeadRemindersPage();
+        
 
       case AppRoutes.notFoundScreen:
         return const NotFoundPage();
