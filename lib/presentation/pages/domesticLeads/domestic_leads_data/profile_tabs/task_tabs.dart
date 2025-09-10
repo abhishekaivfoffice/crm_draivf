@@ -1,5 +1,8 @@
+import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/instance_manager.dart';
 
 class TaskTabs extends StatelessWidget {
   const TaskTabs({super.key});
@@ -17,7 +20,7 @@ class TaskTabs extends StatelessWidget {
           width: 190,
           text: "New Task",
           onPressed: () {
-            // submit action
+           Get.toNamed(AppRoutes.addNewTaskScreen);
           },
         ),
         const SizedBox(height: 10),

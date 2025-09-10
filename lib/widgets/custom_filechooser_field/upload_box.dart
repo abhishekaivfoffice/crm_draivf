@@ -36,7 +36,7 @@ class UploadBox extends StatelessWidget {
               Icon(Icons.upload_file, size: 40, color: Colors.blue),
               SizedBox(height: 10),
               Text(
-                "Drop files here to upload",
+                "Tap here to upload files",
                 style: TextStyle(color: Colors.blue, fontSize: 16),
               ),
             ],

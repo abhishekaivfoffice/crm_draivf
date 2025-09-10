@@ -148,17 +148,7 @@ class DomesticLeadDataProfile extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // View Button
-                        CustomMenuButton(
-                          icon: Icons.visibility,
-                          label: "View",
-                          onTap: () {},
-                          containerColor: Colors.green.shade100,
-                          borderColor: Colors.green.shade300,
-                          iconColor: Colors.green.shade800,
-                          textColor: Colors.green.shade800,
-                        ),
-                        const SizedBox(width: 8),
+              
                         CustomMenuButton(
                           icon: Icons.edit,
                           label: "Edit",

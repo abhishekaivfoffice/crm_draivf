@@ -1,5 +1,7 @@
+import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RemindersTab extends StatelessWidget {
   const RemindersTab({super.key});
@@ -17,7 +19,7 @@ class RemindersTab extends StatelessWidget {
           width: 190,
           text: "Set Lead reminders",
           onPressed: () {
-            // submit action
+            Get.toNamed(AppRoutes.setLeadReminderScreen);
           },
         ),
         const SizedBox(height: 10),
