@@ -12,7 +12,7 @@ import '../../../../data/models/enquiry_user_model.dart';
 import '../../../../widgets/custom_buttons/custom_gradient_button.dart';
 import '../edit_enquiry/edit_enquiry_screen.dart';
 import '../enquiry_home/add_new_enquiry/add_enquiry.dart';
-import 'home_enquiry_provider.dart';
+import '../../../../provider/enquiry_provider/home_enquiry_provider.dart';
 
 class EnquiryHome extends StatefulWidget {
   const EnquiryHome({super.key});

@@ -9,7 +9,7 @@ import '../../../../core/fonts/fonts.dart';
 import '../../../../widgets/custom_buttons/custom_gradient_button.dart';
 import '../../../../widgets/custom_textfield/custom_dropdown_with_search.dart';
 import '../../../../widgets/custom_textfield/custom_textfield.dart';
-import 'convert_screen_provider.dart';
+import '../../../../provider/enquiry_provider/convert_screen_provider.dart';
 
 class ConvertScreen extends StatelessWidget {
   const ConvertScreen({super.key});

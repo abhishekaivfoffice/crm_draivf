@@ -6,7 +6,7 @@ import '../../../../../core/components/drawer/drawer.dart';
 import '../../../../../widgets/custom_buttons/custom_gradient_button.dart';
 import '../../../../../widgets/custom_textfield/custom_dropdown_with_search.dart';
 import '../../../../../widgets/custom_textfield/custom_textfield.dart';
-import 'add_enquiry_provider.dart';
+import '../../../../../provider/enquiry_provider/add_enquiry_provider.dart';
 
 class AddEnquiry extends StatefulWidget {
   const AddEnquiry({super.key});

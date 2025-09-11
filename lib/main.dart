@@ -11,37 +11,38 @@ import 'package:crm_draivfmobileapp/presentation/pages/camp_management/camp_zone
 import 'package:crm_draivfmobileapp/presentation/pages/camp_management/new_comp_add/new_camp_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_charts/dashborad_chart_provider/chart1_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_home/dashboard_screen.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/add_leads/add_leads.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/add_leads/add_leads_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile/assigned_member_profile_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile_edit/assigned_member_profile_edit_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/assigned_member_profile/assigned_member_profile_edit/assigned_member_profile_edithome.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/new_leads/add_leads.dart';
+import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/add_leads_provider.dart';
+import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_provider.dart';
+import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_edit_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/assigned_member_profile/assigned_member_profile/assigned_member_profile_edithome.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/bulk_action/bulk_action_page.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/add_new_task.dart/add_new_task_page.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/add_new_task.dart/add_new_task_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/convert_to_customer/convert_to_customer_page.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/convert_to_customer/convert_to_customer_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/domestic_leads_data.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/domestic_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/add_new_task.dart/add_new_task_page.dart';
+import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/add_new_task_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/convert_to_customer/convert_to_customer_page.dart';
+import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/convert_to_customer_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/domestic_leads_data.dart';
+import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/domestic_leads_data_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_home.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/set_lead_reminders/set_lead_reminders_page.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_data/set_lead_reminders/set_lead_reminders_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/set_lead_reminders/set_lead_reminders_page.dart';
+import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/set_lead_reminders_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/edit_leads/edit_leads.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/import_leads/import_leads.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/import_leads/import_leads_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/enquiry/convert_screen/convert_screen_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/enquiry/edit_enquiry/edit_enquiry_provider_screen.dart';
+import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/import_leads_provider.dart';
+import 'package:crm_draivfmobileapp/provider/enquiry_provider/convert_screen_provider.dart';
+import 'package:crm_draivfmobileapp/provider/enquiry_provider/edit_enquiry_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_main_home/enquiry_home.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_home/add_new_enquiry/add_enquiry_provider.dart';
+import 'package:crm_draivfmobileapp/provider/enquiry_provider/add_enquiry_provider.dart';
 
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/add_international_leads/add_international_leads.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/add_international_leads/add_international_leads_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/add_international_leads_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/import_international_leads/import_international_leads.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/import_international_leads/import_international_leads_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/import_international_leads_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_bulk_action/international_leads_bulk_action_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_home.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_leads_data/International_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/International_leads_data_provider.dart';
 
-import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_main_home/home_enquiry_provider.dart';
+import 'package:crm_draivfmobileapp/provider/enquiry_provider/home_enquiry_provider.dart';
 
 import 'package:crm_draivfmobileapp/presentation/pages/login/login_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/login/login_screen.dart';
@@ -178,6 +179,8 @@ class MyApp extends StatelessWidget {
         return const AddNewTaskPage();
          case AppRoutes.setLeadReminderScreen:
         return const SetLeadRemindersPage();
+         case AppRoutes.editLeadScreen:
+        return const EditLeadScreen();
         
 
       case AppRoutes.notFoundScreen:

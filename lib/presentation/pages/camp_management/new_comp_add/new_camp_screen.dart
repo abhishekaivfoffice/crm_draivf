@@ -9,7 +9,7 @@ import '../../../../core/fonts/fonts.dart';
 import '../../../../widgets/custom_buttons/custom_gradient_button.dart';
 import '../../../../widgets/custom_textfield/custom_dropdown_with_search.dart';
 import '../../../../widgets/custom_textfield/custom_textfield.dart';
-import '../../domesticLeads/add_leads/date_field_with_age.dart';
+import '../../domesticLeads/new_leads/date_field_with_age.dart';
 import 'new_camp_provider.dart';
 
 class NewCampScreen extends StatelessWidget {

@@ -3,7 +3,7 @@ import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/import_international_leads/import_international_lead_text.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/import_international_leads/import_international_leads_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/import_international_leads_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_filechooser_field/custom_file_chooser_field.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_with_search.dart';
