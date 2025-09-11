@@ -2,7 +2,7 @@ import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/add_international_leads/add_international_leads_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/add_international_leads_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/add_international_leads/international_lead_date_field_with_age.dart';
 
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';

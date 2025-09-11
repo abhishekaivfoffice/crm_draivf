@@ -28,6 +28,7 @@ class HelperUtil {
       AppRoutes.addNewTaskScreen,
       AppRoutes.setLeadReminderScreen,
       AppRoutes.campHome,
+      AppRoutes.editLeadScreen,
 
       AppRoutes.notFoundScreen,
     ];

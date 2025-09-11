@@ -9,7 +9,7 @@ import '../../../../widgets/custom_buttons/custom_gradient_button.dart';
 import '../../../../widgets/custom_textfield/custom_dropdown_with_search.dart';
 import '../../../../widgets/custom_textfield/custom_textfield.dart';
 import '../enquiry_home/add_new_enquiry/add_enquiry.dart';
-import 'edit_enquiry_provider_screen.dart';
+import '../../../../provider/enquiry_provider/edit_enquiry_provider.dart';
 
 class EditEnquiryScreen extends StatelessWidget {
   const EditEnquiryScreen({super.key});
