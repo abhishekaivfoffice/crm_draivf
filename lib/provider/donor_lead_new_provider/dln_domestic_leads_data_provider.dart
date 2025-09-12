@@ -5,7 +5,7 @@ import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart' sho
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
-class DLNDomesticLeadsDataProvider extends ChangeNotifier {
+class DLNDonorLeadsNewDataProvider extends ChangeNotifier {
   int currentPage = 0;
   int pageSize = 10;
   bool get hasNextPage => (currentPage + 1) * pageSize < users.length;

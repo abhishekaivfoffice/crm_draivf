@@ -2,7 +2,6 @@ import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/domestic_leads_data_provider.dart';
 import 'package:crm_draivfmobileapp/provider/donor_lead_new_provider/dln_domestic_leads_data_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_datefield_with_time.dart';
@@ -18,12 +17,12 @@ class DLNBulkActionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dlndomestileaddataprovider =
-        Provider.of<DLNDomesticLeadsDataProvider>(context);
+        Provider.of<DLNDonorLeadsNewDataProvider>(context);
 
     return Scaffold(
       drawer: TabletMobileDrawer(),
 
-      appBar: CustomAppBar(title: "Bulk Action"),
+      appBar: CustomAppBar(title: "DLN Bulk Action"),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(16),
