@@ -12,6 +12,8 @@ import 'package:crm_draivfmobileapp/presentation/pages/camp_management/new_comp_
 import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_charts/dashborad_chart_provider/chart1_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_home/dashboard_screen.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/new_leads/add_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/dln_donor_leads_new_home.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_new_leads/dln_add_leads.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/add_leads_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_edit_provider.dart';
@@ -29,6 +31,8 @@ import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/set_lead_re
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/edit_leads/edit_leads.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/import_leads/import_leads.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/import_leads_provider.dart';
+import 'package:crm_draivfmobileapp/provider/donor_lead_new_provider/dln_add_leads_provider.dart';
+import 'package:crm_draivfmobileapp/provider/donor_lead_new_provider/dln_domestic_leads_data_provider.dart';
 import 'package:crm_draivfmobileapp/provider/enquiry_provider/convert_screen_provider.dart';
 import 'package:crm_draivfmobileapp/provider/enquiry_provider/edit_enquiry_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_main_home/enquiry_home.dart';
@@ -65,35 +69,48 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        //login provider
         ChangeNotifierProvider(create: (_) => LoginProvider()),
+        //dashboard
+        ChangeNotifierProvider(create: (_) => Chart1Provider()),
+
+        //domesticlead provider
+                ChangeNotifierProvider(create: (_) => DomesticLeadsDataProvider()),
+
         ChangeNotifierProvider(create: (_) => AddLeadsProvider()),
         ChangeNotifierProvider(create: (_) => ImportLeadsProvider()),
-        // ChangeNotifierProvider(create: (_) => DomesticLeadsHomeprovider()),
-        ChangeNotifierProvider(create: (_) => DomesticLeadsDataProvider()),
-        ChangeNotifierProvider(create: (_) => Chart1Provider()),
-        ChangeNotifierProvider(create: (_) => AddEnquiryProvider()),
-        ChangeNotifierProvider(create: (_) => HomeEnquiryProvider()),
+
         ChangeNotifierProvider(create: (_) => AssignedMemberProfileProvider()),
+        ChangeNotifierProvider(create: (_) => ConvertToCustomerProvider()),
+        ChangeNotifierProvider(create: (_) => AddNewTaskProvider()),
+        ChangeNotifierProvider(create: (_) => SetLeadRemindersProvider()),
+              ChangeNotifierProvider(create: (_) => AssignedMemberProfileProvider()),
+        ChangeNotifierProvider(
+          create: (_) => AssignedMemberProfileEditProvider(),
+        ),
         //////////////international leads provider
         ChangeNotifierProvider(create: (_) => AddInternationalLeadsProvider()),
         ChangeNotifierProvider(
           create: (_) => ImportInternationalLeadsProvider(),
         ),
-        ChangeNotifierProvider(create: (_) => InternationalLeadsDataProvider()),
-        ChangeNotifierProvider(create: (_) => AssignedMemberProfileProvider()),
-        ChangeNotifierProvider(
-          create: (_) => AssignedMemberProfileEditProvider(),
-        ),
+        ChangeNotifierProvider(create: (_) => InternationalLeadsDataProvider()),  
         ChangeNotifierProvider(create: (_) => EditEnquiryProvider()),
         ChangeNotifierProvider(create: (_) => ConvertScreenProvider()),
+
+
+        //donor leads provider
+        ChangeNotifierProvider(create: (_) => DLNDonorLeadsNewDataProvider()),
+        ChangeNotifierProvider(create: (_) => DLNAddLeadsProvider()),
+
+        //enquiry provider
+        ChangeNotifierProvider(create: (_) => AddEnquiryProvider()),
+        ChangeNotifierProvider(create: (_) => HomeEnquiryProvider()),
+        //camp provider
         ChangeNotifierProvider(create: (_) => NewCampProvider()),
         ChangeNotifierProvider(create: (_) => CampUserDetailsProvider()),
         ChangeNotifierProvider(create: (_) => CampDetailsInsidePageProvider()),
         ChangeNotifierProvider(create: (_) => AddCampInsideProvider()),
         ChangeNotifierProvider(create: (_) => AddCampInsideActionProvider()),
-        ChangeNotifierProvider(create: (_) => ConvertToCustomerProvider()),
-        ChangeNotifierProvider(create: (_) => AddNewTaskProvider()),
-                ChangeNotifierProvider(create: (_) => SetLeadRemindersProvider()),
 
       ],
       child: GetMaterialApp(
@@ -136,20 +153,13 @@ class MyApp extends StatelessWidget {
 
   Widget _getStaticPage(String routeName) {
     switch (routeName) {
+      //splash screen
       case AppRoutes.splashScreen:
         return SplashScreen();
+      //loginscreen
       case AppRoutes.loginScreen:
         return LoginScreen();
-      case AppRoutes.domesticLeadHome:
-        return DomesticLeadsHome();
-      case AppRoutes.addLeadScreen:
-        return AddLeadScreen();
-      case AppRoutes.importLeadScreen:
-        return ImportLeads();
-      case AppRoutes.testScreen:
-        return const DomesticLeadsData();
-      case AppRoutes.bulkActionScreen:
-        return const BulkActionPage();
+
       case AppRoutes.dashboardScreen:
         return const DashboardScreen();
       case AppRoutes.teledashboardScreen:
@@ -158,8 +168,6 @@ class MyApp extends StatelessWidget {
       case AppRoutes.enquiryHome:
         return EnquiryHome();
 
-      case AppRoutes.assignedMemberProfileedithome:
-        return const AssignedMemberProfileEditHome();
       case AppRoutes.internationalLeadHome:
         return InternationalLeadsHome();
       case AppRoutes.addInternationalLeadScreen:
@@ -169,20 +177,37 @@ class MyApp extends StatelessWidget {
       case AppRoutes.importInternationalLeadScreen:
         return ImportInternationalLeads();
 
-      case AppRoutes.assignedMemberProfileedithome:
-        return const AssignedMemberProfileEditHome();
       case AppRoutes.campHome:
         return const CampHomeScreen();
       case AppRoutes.convertToCustomerScreen:
         return const ConvertToCustomerPage();
-        case AppRoutes.addNewTaskScreen:
-        return const AddNewTaskPage();
-         case AppRoutes.setLeadReminderScreen:
-        return const SetLeadRemindersPage();
-         case AppRoutes.editLeadScreen:
-        return const EditLeadScreen();
-        
 
+      //domestic lead screen
+      case AppRoutes.domesticLeadHome:
+        return DomesticLeadsHome();
+      case AppRoutes.addLeadScreen:
+        return AddLeadScreen();
+      case AppRoutes.importLeadScreen:
+        return ImportLeads();
+      case AppRoutes.domesticleaddata:
+        return const DomesticLeadsData();
+      case AppRoutes.bulkActionScreen:
+        return const BulkActionPage();
+      case AppRoutes.assignedMemberProfileedithome:
+        return const AssignedMemberProfileEditHome();
+      case AppRoutes.addNewTaskScreen:
+        return const AddNewTaskPage();
+      case AppRoutes.setLeadReminderScreen:
+        return const SetLeadRemindersPage();
+      case AppRoutes.editLeadScreen:
+        return const EditLeadScreen();
+      //donor lead new screen
+      case AppRoutes.donorLeadNewHome:
+        return DLNDonorLeadsNewHome();
+        case AppRoutes.adddonorLeadNewScreen:
+        return DLNAddLeadScreen();
+
+      //not found screen
       case AppRoutes.notFoundScreen:
         return const NotFoundPage();
 

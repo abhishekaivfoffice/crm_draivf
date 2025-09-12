@@ -4,32 +4,38 @@ class HelperUtil {
   // Static Routes
   static bool isValidStaticRoute(String route) {
     final validRoutes = [
+      //splash screen
       AppRoutes.splashScreen,
-      AppRoutes.splashScreen,
-
+      //login screen
       AppRoutes.loginScreen,
-
+      //dashboard screen
+      AppRoutes.dashboardScreen,
+      //teledashboard screen
+      AppRoutes.teledashboardScreen,
+      //domestic lead home screen
       AppRoutes.domesticLeadHome,
-
       AppRoutes.addLeadScreen,
-
       AppRoutes.importLeadScreen,
       AppRoutes.bulkActionScreen,
-      AppRoutes.dashboardScreen,
-      AppRoutes.teledashboardScreen,
-      AppRoutes.enquiryHome,
       AppRoutes.assignedMemberProfileedithome,
-
-      AppRoutes.internationalLeadHome,
-      AppRoutes.importInternationalLeadScreen,
-      AppRoutes.internationalLeadBulkActionScreen,
-      AppRoutes.addInternationalLeadScreen,
       AppRoutes.convertToCustomerScreen,
       AppRoutes.addNewTaskScreen,
       AppRoutes.setLeadReminderScreen,
       AppRoutes.campHome,
       AppRoutes.editLeadScreen,
+      //international lead screen
+      AppRoutes.internationalLeadHome,
+      AppRoutes.importInternationalLeadScreen,
+      AppRoutes.internationalLeadBulkActionScreen,
+      AppRoutes.addInternationalLeadScreen,
 
+      //enquiry screen
+      AppRoutes.enquiryHome,
+      //donor lead new screen
+      AppRoutes.donorLeadNewHome,
+      AppRoutes.adddonorLeadNewScreen,
+      
+      //no found screen
       AppRoutes.notFoundScreen,
     ];
 
