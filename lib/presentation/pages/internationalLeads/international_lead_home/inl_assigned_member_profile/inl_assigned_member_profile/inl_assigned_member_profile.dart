@@ -4,7 +4,7 @@ import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
-import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/international_lead_assigned_member_profile_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_containers/custom_time_container.dart';
 import 'package:flutter/material.dart';
@@ -19,10 +19,10 @@ class INLAssignedMemberDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final assignedmemberprofileprovider =
-        Provider.of<AssignedMemberProfileProvider>(context);
+        Provider.of<InternationalLeadAssignedMemberProfileProvider>(context);
     return Scaffold(
       drawer: TabletMobileDrawer(),
-      appBar: CustomAppBar(title: "Assigned Profile"),
+      appBar: CustomAppBar(title: "INL Assigned Profile"),
       body: Column(
         children: [
           Stack(

@@ -2,8 +2,8 @@ import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/provider/internationallead_provider/add_international_leads_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/add_international_leads/international_lead_date_field_with_age.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_add_lead_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/inl_add_newlead/inl_date_field_with_age.dart';
 
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/Custom_date_field.dart';
@@ -15,13 +15,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-class AddInternationalLeads extends StatelessWidget {
-  AddInternationalLeads({super.key});
+class InlAddNewlead extends StatelessWidget {
+  InlAddNewlead({super.key});
   final _addleadformKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    final addleadprovider = Provider.of<AddInternationalLeadsProvider>(context);
+    final addleadprovider = Provider.of<InlAddLeadProvider>(context);
     return Scaffold(
       backgroundColor: Colors.white,
             drawer: TabletMobileDrawer(),
@@ -171,7 +171,7 @@ class AddInternationalLeads extends StatelessWidget {
                         ),
                         const SizedBox(height: 6),
                         //marriage Date
-                        InternationalLeadDateFieldWithAge(
+                        InlDateFieldWithAge(
                           controller: addleadprovider.marriageDateController,
                           hintText: "Select marriage date",
                           labelText: "Marriage at",

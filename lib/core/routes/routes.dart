@@ -17,10 +17,7 @@ class AppRoutes {
   static const domesticleaddata = '/domesticleaddata';
   static const bulkActionScreen = '/bulkactionscreen';
   static const assignedMemberProfileedithome = '/assignedmemberprofileedithome';
-  static const internationalLeadHome = '/internationalleadhome';
-  static const addInternationalLeadScreen = '/addinternationalleadhome';
-  static const importInternationalLeadScreen = '/importinternationalleadscreen';
-  static const internationalLeadBulkActionScreen = '/internationalleadbulkactionscreen';     
+
   static const convertToCustomerScreen = '/converttocustomerscreen';
   static const addNewTaskScreen = '/addnewtaskscreen';
   static const setLeadReminderScreen = '/setleadremindetrscreen';
@@ -28,12 +25,19 @@ class AppRoutes {
   //donorleads new -module
   static const donorLeadNewHome = '/donorLeadNewHome';
   static const adddonorLeadNewScreen = '/adddonorleadnewscreen';
+  //international lead -module
+  static const internationalLeadHome = '/internationalleadhome';
+  static const addInternationalLeadScreen = '/addinternationalleadhome';
+  static const importInternationalLeadScreen = '/importinternationalleadscreen';
+  static const internationalLeadBulkActionScreen ='/internationalleadbulkactionscreen';
+    static const inlConvertToCustomerScreen ='/inlconverttocustomerscreen';
+
 
   //enquiry screen
   static const enquiryHome = '/enquiryhome';
   static const enquiryAdd = '/addenquiry';
   //camp screen
-    static const campHome = '/camphome';
+  static const campHome = '/camphome';
   //not found screen
   static const notFoundScreen = '/notfoundscreen';
 }

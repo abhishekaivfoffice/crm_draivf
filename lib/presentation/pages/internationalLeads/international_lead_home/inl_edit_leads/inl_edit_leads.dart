@@ -2,8 +2,8 @@ import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/add_leads_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/new_leads/date_field_with_age.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_add_lead_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/Custom_date_field.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_with_search.dart';
@@ -29,13 +29,13 @@ class _INLEditLeadScreenState extends State<INLEditLeadScreen> {
     super.initState();
     /// Load dummy lead data into provider
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<AddLeadsProvider>(context, listen: false).loadDummyLead();
+      Provider.of<InlAddLeadProvider>(context, listen: false).loadDummyLead();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final addleadprovider = Provider.of<AddLeadsProvider>(context);
+    final addleadprovider = Provider.of<InlAddLeadProvider>(context);
 
     return Scaffold(
       backgroundColor: Colors.white,

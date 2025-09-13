@@ -2,13 +2,12 @@ import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/convert_to_customer_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_convert_to_customer_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_large_textfield.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:provider/provider.dart';
 
 class INLConvertToCustomerPage extends StatelessWidget {
@@ -16,11 +15,11 @@ class INLConvertToCustomerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final converttocustomerprovider = Provider.of<ConvertToCustomerProvider>(
+    final converttocustomerprovider = Provider.of<InlConvertToCustomerProvider>(
       context,
     );
     return Scaffold(
-      appBar: CustomAppBar(title: "convert to customer"),
+      appBar: CustomAppBar(title: " INL convert to customer"),
       drawer: TabletMobileDrawer(),
       body: SingleChildScrollView(
         child: Padding(

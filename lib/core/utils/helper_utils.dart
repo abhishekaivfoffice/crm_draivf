@@ -28,6 +28,7 @@ class HelperUtil {
       AppRoutes.importInternationalLeadScreen,
       AppRoutes.internationalLeadBulkActionScreen,
       AppRoutes.addInternationalLeadScreen,
+      AppRoutes.inlConvertToCustomerScreen,
 
       //enquiry screen
       AppRoutes.enquiryHome,

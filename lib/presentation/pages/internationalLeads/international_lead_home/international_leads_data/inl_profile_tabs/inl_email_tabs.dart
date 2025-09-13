@@ -5,8 +5,8 @@ import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_wit
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
-class INLTaskTabsEmailTabs extends StatelessWidget {
-  const INLTaskTabsEmailTabs({super.key});
+class INLEmailTabs extends StatelessWidget {
+  const INLEmailTabs({super.key});
 
   @override
   Widget build(BuildContext context) {

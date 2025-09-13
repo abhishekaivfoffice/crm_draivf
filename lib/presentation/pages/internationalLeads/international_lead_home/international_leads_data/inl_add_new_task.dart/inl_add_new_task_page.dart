@@ -2,7 +2,7 @@ import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/add_new_task_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_add_new_task_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_filechooser_field/custom_file_chooser_field.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/Custom_date_field.dart';
@@ -12,7 +12,6 @@ import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_textfield.da
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/multiselect_chip.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:provider/provider.dart';
 
 class INLAddNewTaskPage extends StatelessWidget {
@@ -20,9 +19,9 @@ class INLAddNewTaskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final addnewtaskprovider = Provider.of<AddNewTaskProvider>(context);
+    final addnewtaskprovider = Provider.of<InlAddNewTaskProvider>(context);
     return Scaffold(
-      appBar: CustomAppBar(title: "Add New Task"),
+      appBar: CustomAppBar(title: " INL Add New Task"),
       drawer: TabletMobileDrawer(),
       body: SingleChildScrollView(
         child: Padding(

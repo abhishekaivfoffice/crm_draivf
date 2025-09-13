@@ -3,7 +3,7 @@ import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 
-import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_edit_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/International_lead_assigned_member_profile_edit_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/segment_swipe_button.dart.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/Custom_date_field.dart';
@@ -42,9 +42,9 @@ class _INLAssignedMemberProfileEditHomeState
   @override
   Widget build(BuildContext context) {
     final assignedmemberprofileeditprovider =
-        Provider.of<AssignedMemberProfileEditProvider>(context);
+        Provider.of<InternationalLeadAssignedMemberProfileEditProvider>(context);
     return Scaffold(
-      appBar: CustomAppBar(title: "Profile Edit"),
+      appBar: CustomAppBar(title: " INL Profile Edit"),
       drawer: TabletMobileDrawer(),
       body: Column(
         children: [
@@ -66,8 +66,7 @@ class _INLAssignedMemberProfileEditHomeState
             child:
                 _isPage1Active
                     ?
-                    //////////////////////////////////////////////////////////////////////////////////////////////
-                    //////////////////////////////////////////////////////////////////////////////////////////////
+              
                     SingleChildScrollView(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
