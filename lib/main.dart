@@ -14,6 +14,7 @@ import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_home/
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/new_leads/add_leads.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/dln_donor_leads_new_home.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_new_leads/dln_add_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_convert_to_customer/inl_convert_to_customer_page.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/add_leads_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_edit_provider.dart';
@@ -38,13 +39,14 @@ import 'package:crm_draivfmobileapp/provider/enquiry_provider/edit_enquiry_provi
 import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_main_home/enquiry_home.dart';
 import 'package:crm_draivfmobileapp/provider/enquiry_provider/add_enquiry_provider.dart';
 
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/add_international_leads/add_international_leads.dart';
-import 'package:crm_draivfmobileapp/provider/internationallead_provider/add_international_leads_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/import_international_leads/import_international_leads.dart';
-import 'package:crm_draivfmobileapp/provider/internationallead_provider/import_international_leads_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_bulk_action/international_leads_bulk_action_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/inl_add_newlead/inl_add_newlead.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_add_lead_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/inl_import_leads/inl_import_leads.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_convert_to_customer_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_import_leads_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/inl_bulk_action/inl_bulk_action_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_home.dart';
-import 'package:crm_draivfmobileapp/provider/internationallead_provider/International_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/Inl_data_provider.dart';
 
 import 'package:crm_draivfmobileapp/provider/enquiry_provider/home_enquiry_provider.dart';
 
@@ -89,19 +91,20 @@ class MyApp extends StatelessWidget {
           create: (_) => AssignedMemberProfileEditProvider(),
         ),
         //////////////international leads provider
-        ChangeNotifierProvider(create: (_) => AddInternationalLeadsProvider()),
+        ChangeNotifierProvider(create: (_) => InlAddLeadProvider()),
         ChangeNotifierProvider(
-          create: (_) => ImportInternationalLeadsProvider(),
+          create: (_) => InlImportLeadsProvider(),
         ),
-        ChangeNotifierProvider(create: (_) => InternationalLeadsDataProvider()),  
+        ChangeNotifierProvider(create: (_) => InlDataProvider()),  
         ChangeNotifierProvider(create: (_) => EditEnquiryProvider()),
         ChangeNotifierProvider(create: (_) => ConvertScreenProvider()),
+         ChangeNotifierProvider(create: (_) => InlConvertToCustomerProvider()),
 
 
         //donor leads provider
         ChangeNotifierProvider(create: (_) => DLNDonorLeadsNewDataProvider()),
         ChangeNotifierProvider(create: (_) => DLNAddLeadsProvider()),
-
+ 
         //enquiry provider
         ChangeNotifierProvider(create: (_) => AddEnquiryProvider()),
         ChangeNotifierProvider(create: (_) => HomeEnquiryProvider()),
@@ -168,14 +171,6 @@ class MyApp extends StatelessWidget {
       case AppRoutes.enquiryHome:
         return EnquiryHome();
 
-      case AppRoutes.internationalLeadHome:
-        return InternationalLeadsHome();
-      case AppRoutes.addInternationalLeadScreen:
-        return AddInternationalLeads();
-      case AppRoutes.internationalLeadBulkActionScreen:
-        return InternationalLeadsBulkActionPage();
-      case AppRoutes.importInternationalLeadScreen:
-        return ImportInternationalLeads();
 
       case AppRoutes.campHome:
         return const CampHomeScreen();
@@ -206,7 +201,20 @@ class MyApp extends StatelessWidget {
         return DLNDonorLeadsNewHome();
         case AppRoutes.adddonorLeadNewScreen:
         return DLNAddLeadScreen();
+        //international lead screen
+   
 
+
+      case AppRoutes.internationalLeadHome:
+        return InternationalLeadsHome();
+      case AppRoutes.addInternationalLeadScreen:
+        return InlAddNewlead();
+      case AppRoutes.internationalLeadBulkActionScreen:
+        return InlBulkActionPage();
+      case AppRoutes.importInternationalLeadScreen:
+        return InlImportLeads();
+        case AppRoutes.inlConvertToCustomerScreen:
+        return INLConvertToCustomerPage();
       //not found screen
       case AppRoutes.notFoundScreen:
         return const NotFoundPage();

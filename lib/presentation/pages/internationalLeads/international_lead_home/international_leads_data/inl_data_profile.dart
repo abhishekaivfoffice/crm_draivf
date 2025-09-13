@@ -17,6 +17,18 @@ import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_le
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/reminders_tab.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/sms_tab.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/task_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/inl_assigned_member_profile/inl_assigned_member_profile/inl_assigned_member_profile.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_activity_log_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_attachment_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_call_recordings_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_email_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_marketing_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_notes_tab.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_payment_links_tab.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_profile_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_reminders_tab.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_sms_tab.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_task_tabs.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 
 import 'package:crm_draivfmobileapp/widgets/custom_popup/custom_confirm_dialogue.dart';
@@ -26,9 +38,9 @@ import 'package:get/get.dart';
 
 //////////////////////////////////////domestic lead profile detailed page///////////////
 
-class InterNationalLeadDataProfile extends StatelessWidget {
+class InlDataProfile extends StatelessWidget {
   final User user;
-  const InterNationalLeadDataProfile({super.key, required this.user});
+  const InlDataProfile({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +54,7 @@ class InterNationalLeadDataProfile extends StatelessWidget {
     return Scaffold(
       drawer: TabletMobileDrawer(),
 
-      appBar: CustomAppBar(title: "Data detailed page"),
+      appBar: CustomAppBar(title: " INL Data detailed page"),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: SingleChildScrollView(
@@ -94,7 +106,7 @@ class InterNationalLeadDataProfile extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                           builder:
-                                              (_) => AssignedMemberDetails(
+                                              (_) => INLAssignedMemberDetails(
                                                 member: m,
                                               ),
                                         ),
@@ -259,27 +271,27 @@ class InterNationalLeadDataProfile extends StatelessWidget {
                               index: tabController.index,
                               children: [
                                 // Tab 1
-                                ProfileTabs(user: user),
+                                INLTaskTabsProfileTabs(user: user),
                                 // Tab 2
-                                TaskTabs(),
+                                INLTaskTabs(),
                                 // Tab 3
-                                AttachmentTabs(),
+                                INLAttachmentTabs  (),
                                 //tab 4
-                                RemindersTab(),
+                                INLTaskTabsRemindersTab(),
                                 //tab 5
-                                PaymentLinksTab(),
+                                INLTaskTabsPaymentLinksTab(),
                                 //tab 6
-                                NotesTab(),
+                                INLNotesTab(),
                                 //tab 7
-                                ActivityLogTabs(),
+                                INLActivityLogTabs(),
                                 //tab 8
-                                MarketingTabs(),
+                                INLMarketingTabs(),
                                 //tab 9
-                                CallRecordingTabs(),
+                                INLCallRecordingTabs(),
                                 //tab 10
-                                SmsTab(),
+                                INLTaskTabsSmsTab(),
                                 //tab 11
-                                EmailTabs(),
+                                INLEmailTabs(),
                               ],
                             );
                           },

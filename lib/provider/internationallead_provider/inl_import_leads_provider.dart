@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 
-class ImportInternationalLeadsProvider with ChangeNotifier {
+class InlImportLeadsProvider with ChangeNotifier {
    // Table headers
   final List<String> headers = [
     "* Name",

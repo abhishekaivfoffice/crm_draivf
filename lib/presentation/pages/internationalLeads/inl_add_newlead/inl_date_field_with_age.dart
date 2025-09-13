@@ -1,18 +1,18 @@
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/provider/internationallead_provider/add_international_leads_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_add_lead_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-class InternationalLeadDateFieldWithAge extends StatelessWidget {
+class InlDateFieldWithAge extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final String labelText;
   final bool isMandatory;
   final String? Function(String?)? validator;
 
-  const InternationalLeadDateFieldWithAge({
+  const InlDateFieldWithAge({
     super.key,
     required this.controller,
     required this.hintText,
@@ -117,7 +117,7 @@ class InternationalLeadDateFieldWithAge extends StatelessWidget {
                       String formattedDate = DateFormat(
                         "dd-MM-yyyy",
                       ).format(pickedDate);
-                      final provider = context.read<AddInternationalLeadsProvider>();
+                      final provider = context.read<InlAddLeadProvider>();
                       provider.setMarriageDate(formattedDate);
                       state.didChange(formattedDate);
                     }

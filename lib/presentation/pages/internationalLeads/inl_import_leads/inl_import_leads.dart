@@ -2,16 +2,16 @@ import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/import_international_leads/import_international_lead_text.dart';
-import 'package:crm_draivfmobileapp/provider/internationallead_provider/import_international_leads_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/inl_import_leads/inl_import_lead_text.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_import_leads_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_filechooser_field/custom_file_chooser_field.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_with_search.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ImportInternationalLeads extends StatelessWidget {
-  ImportInternationalLeads({super.key});
+class InlImportLeads extends StatelessWidget {
+  InlImportLeads({super.key});
   final _importleadformKey = GlobalKey<FormState>();
   final headerStyle = TextStyle(
     fontSize: 14,
@@ -26,7 +26,7 @@ class ImportInternationalLeads extends StatelessWidget {
   );
   @override
   Widget build(BuildContext context) {
-    final importleadprovider = Provider.of<ImportInternationalLeadsProvider>(context);
+    final importleadprovider = Provider.of<InlImportLeadsProvider>(context);
     return Scaffold(
                drawer: TabletMobileDrawer(),
 
@@ -52,27 +52,27 @@ class ImportInternationalLeads extends StatelessWidget {
                     child: Column(
                       children: [
                         _buildRichText([
-                          ImportInternationalLeadText.point1Part1,
-                          ImportInternationalLeadText.utf8Part,
-                          ImportInternationalLeadText.point1Part2,
+                          InlImportLeadText.point1Part1,
+                          InlImportLeadText.utf8Part,
+                          InlImportLeadText.point1Part2,
                         ]),
                         const SizedBox(height: 8),
                         _buildRichText([
-                          ImportInternationalLeadText.point2Part1,
-                          ImportInternationalLeadText.dateFormat,
-                          ImportInternationalLeadText.point2Part2,
+                          InlImportLeadText.point2Part1,
+                          InlImportLeadText.dateFormat,
+                          InlImportLeadText.point2Part2,
                         ]),
                         const SizedBox(height: 8),
                         _buildRichText([
-                          ImportInternationalLeadText.point3Part1,
-                          ImportInternationalLeadText.uniqueValidation,
-                          ImportInternationalLeadText.point3Part2,
+                          InlImportLeadText.point3Part1,
+                          InlImportLeadText.uniqueValidation,
+                          InlImportLeadText.point3Part2,
                         ]),
                         const SizedBox(height: 6),
-                        _buildRichText([ImportInternationalLeadText.leadEmail]),
-                        _buildRichText([ImportInternationalLeadText.leadPhone]),
+                        _buildRichText([InlImportLeadText.leadEmail]),
+                        _buildRichText([InlImportLeadText.leadPhone]),
                         const SizedBox(height: 12),
-                        _buildRichText([ImportInternationalLeadText.note]),
+                        _buildRichText([InlImportLeadText.note]),
                       ],
                     ),
                   ),

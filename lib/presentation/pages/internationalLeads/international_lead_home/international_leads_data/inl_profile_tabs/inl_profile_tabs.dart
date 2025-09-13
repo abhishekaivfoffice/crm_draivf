@@ -31,7 +31,7 @@ class INLTaskTabsProfileTabs extends StatelessWidget {
                   width: 190,
                   text: "Convert to Customer",
                   onPressed: () {
-                   Get.toNamed(AppRoutes.convertToCustomerScreen);
+                   Get.toNamed(AppRoutes.inlConvertToCustomerScreen);
                   },
                 ),
                 Row(

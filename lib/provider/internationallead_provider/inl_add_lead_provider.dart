@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AddInternationalLeadsProvider extends ChangeNotifier {
+class InlAddLeadProvider extends ChangeNotifier {
   /////status option
   final List<String> _status = [
     "New Lead",
@@ -342,4 +342,50 @@ class AddInternationalLeadsProvider extends ChangeNotifier {
     passwordcontroller.dispose();
     super.dispose();
   }
+
+
+  ////dummy data for edit lead screen///
+    void loadDummyLead() {
+    wifeNameController.text = "Anitha";
+    wifeNumberController.text = "9876543210";
+    husbandNameController.text = "Ramesh";
+    husbandNumberController.text = "9876501234";
+    husbandAgeController.text = "35";
+    wifeAgeController.text = "32";  
+    addressController.text = "123, Anna Nagar, Chennai";
+    cityController.text = "Chennai";
+    stateController.text = "Tamil Nadu";
+    countryController.text = "India";
+    zipcodeController.text = "600040";
+    emailController.text = "anitha@example.com";
+    descriptionController.text = "Follow-up required for IVF treatment.";
+    wifemdrnumberController.text = "WDR12345";
+    husbandmdrnumberController.text = "HDR54321";
+    marriageDateController.text = "01-01-2015";
+    walkinDateController.text = "12-09-2025";
+
+    _selectedstatus = "Interested";
+    _selectedsources = "Google";
+    _selectedassigned = "Yamini 12767";
+    _selectedattribute = "Facebook";
+    _selectedpreferredlocation = "Chennai - Sholinganallur";
+    _selectedProfileGroup = "IVF";
+    _selectedForFertilityTreatment = "New";
+    _selectedPreferedTimeToCall = "7am to 11am";
+    _selectedPreferedLanguage = "Tamil";
+
+    _isWifeWhatsappAvailable = true;
+    _isHusbandWhatsappAvailable = false;
+    _isPublic = true;
+    _isContactedToday = true;
+
+    _selectedTags.clear();
+    _selectedTags.addAll(["Tag1", "Tag3"]);
+
+    marriedYearsController.text = "10";
+
+    notifyListeners();
+  }
+
+
 }

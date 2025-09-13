@@ -1,7 +1,7 @@
 import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/domestic_leads_data/international_leads_data.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_data.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -52,7 +52,7 @@ class InternationalLeadsHome extends StatelessWidget {
                 ],
               ),
             ),
-           InternationalLeadsData(),
+           InlData(),
           ],
         ),
       ),

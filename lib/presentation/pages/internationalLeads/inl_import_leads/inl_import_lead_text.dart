@@ -1,7 +1,7 @@
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:flutter/material.dart';
 
-class ImportInternationalLeadText {
+class InlImportLeadText {
   static const baseStyle = TextStyle(
     fontSize: 12,
     fontFamily: AppFonts.poppins,

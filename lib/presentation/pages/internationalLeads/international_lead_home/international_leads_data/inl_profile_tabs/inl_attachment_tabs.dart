@@ -3,8 +3,8 @@ import 'package:crm_draivfmobileapp/widgets/custom_filechooser_field/upload_box.
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class INLTaskTabsAttachmentTabs extends StatelessWidget {
-  const INLTaskTabsAttachmentTabs({super.key});
+class INLAttachmentTabs extends StatelessWidget {
+  const INLAttachmentTabs({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class INLTaskTabsMarketingTabs extends StatelessWidget {
-  const INLTaskTabsMarketingTabs({super.key});
+class INLMarketingTabs extends StatelessWidget {
+  const INLMarketingTabs({super.key});
 
   Widget buildInfoItem(String title, [String? value]) {
     return Padding(
