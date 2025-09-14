@@ -3,7 +3,7 @@ import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 
-import 'package:crm_draivfmobileapp/provider/internationallead_provider/International_lead_assigned_member_profile_edit_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/Inl_assigned_member_profile_edit_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/segment_swipe_button.dart.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/Custom_date_field.dart';
@@ -42,7 +42,7 @@ class _INLAssignedMemberProfileEditHomeState
   @override
   Widget build(BuildContext context) {
     final assignedmemberprofileeditprovider =
-        Provider.of<InternationalLeadAssignedMemberProfileEditProvider>(context);
+        Provider.of<InlAssignedMemberProfileEditProvider>(context);
     return Scaffold(
       appBar: CustomAppBar(title: " INL Profile Edit"),
       drawer: TabletMobileDrawer(),

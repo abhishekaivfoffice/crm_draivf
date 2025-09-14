@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class InternationalLeadAssignedMemberProfileEditProvider extends ChangeNotifier {
+class InlAssignedMemberProfileEditProvider extends ChangeNotifier {
   final emailController = TextEditingController();
   final firstNameController = TextEditingController();
 

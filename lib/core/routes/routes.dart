@@ -31,6 +31,10 @@ class AppRoutes {
   static const importInternationalLeadScreen = '/importinternationalleadscreen';
   static const internationalLeadBulkActionScreen ='/internationalleadbulkactionscreen';
     static const inlConvertToCustomerScreen ='/inlconverttocustomerscreen';
+  static const inlAddNewTaskScreen = '/inladdnewtaskscreen';
+  static const inlSetLeadReminderScreen = '/inlsetleadremindetrscreen';
+  static const inleditLeadScreen = '/inleditLeadScreen';
+static const inleditAssignedMember = '/inleditassignedmember';
 
 
   //enquiry screen

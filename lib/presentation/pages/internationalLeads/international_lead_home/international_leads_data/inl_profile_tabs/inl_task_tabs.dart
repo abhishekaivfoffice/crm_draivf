@@ -20,7 +20,7 @@ class INLTaskTabs extends StatelessWidget {
           width: 190,
           text: "New Task",
           onPressed: () {
-           Get.toNamed(AppRoutes.addNewTaskScreen);
+           Get.toNamed(AppRoutes.inlAddNewTaskScreen);
           },
         ),
         const SizedBox(height: 10),

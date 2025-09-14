@@ -14,7 +14,11 @@ import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_home/
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/new_leads/add_leads.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/dln_donor_leads_new_home.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_new_leads/dln_add_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/inl_assigned_member_profile/inl_assigned_member_profile/inl_assigned_member_profile_edithome.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/inl_edit_leads/inl_edit_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_add_new_task.dart/inl_add_new_task_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_convert_to_customer/inl_convert_to_customer_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_set_lead_reminders/inl_set_lead_reminders_page.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/add_leads_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_edit_provider.dart';
@@ -40,8 +44,11 @@ import 'package:crm_draivfmobileapp/presentation/pages/enquiry/enquiry_main_home
 import 'package:crm_draivfmobileapp/provider/enquiry_provider/add_enquiry_provider.dart';
 
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/inl_add_newlead/inl_add_newlead.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/Inl_assigned_member_profile_edit_provider.dart';
 import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_add_lead_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/inl_import_leads/inl_import_leads.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_add_new_task_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_assigned_member_profile_provider.dart';
 import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_convert_to_customer_provider.dart';
 import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_import_leads_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/inl_bulk_action/inl_bulk_action_page.dart';
@@ -54,6 +61,7 @@ import 'package:crm_draivfmobileapp/presentation/pages/login/login_provider.dart
 import 'package:crm_draivfmobileapp/presentation/pages/login/login_screen.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/splash_screen/splash_screen.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/teleDashboard/teledashboard_home/teledashboard_home.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_setlead_reminders_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -99,6 +107,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => EditEnquiryProvider()),
         ChangeNotifierProvider(create: (_) => ConvertScreenProvider()),
          ChangeNotifierProvider(create: (_) => InlConvertToCustomerProvider()),
+         ChangeNotifierProvider(create: (_) => InlAddNewTaskProvider()),
+         ChangeNotifierProvider(create: (_) => INLSetLeadRemindersProvider()),
+
 
 
         //donor leads provider
@@ -114,6 +125,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CampDetailsInsidePageProvider()),
         ChangeNotifierProvider(create: (_) => AddCampInsideProvider()),
         ChangeNotifierProvider(create: (_) => AddCampInsideActionProvider()),
+         ChangeNotifierProvider(create: (_) => InlAssignedMemberProfileProvider()),
+         ChangeNotifierProvider(create: (_) => InlAssignedMemberProfileEditProvider()),
 
       ],
       child: GetMaterialApp(
@@ -202,8 +215,6 @@ class MyApp extends StatelessWidget {
         case AppRoutes.adddonorLeadNewScreen:
         return DLNAddLeadScreen();
         //international lead screen
-   
-
 
       case AppRoutes.internationalLeadHome:
         return InternationalLeadsHome();
@@ -215,6 +226,15 @@ class MyApp extends StatelessWidget {
         return InlImportLeads();
         case AppRoutes.inlConvertToCustomerScreen:
         return INLConvertToCustomerPage();
+           case AppRoutes.inlAddNewTaskScreen:
+        return INLAddNewTaskPage();
+               case AppRoutes.inlSetLeadReminderScreen:
+        return INLSetLeadRemindersPage();
+               case AppRoutes.inleditLeadScreen:
+        return INLEditLeadScreen();   
+               case AppRoutes.inleditAssignedMember:
+        return INLAssignedMemberProfileEditHome();      
+
       //not found screen
       case AppRoutes.notFoundScreen:
         return const NotFoundPage();
