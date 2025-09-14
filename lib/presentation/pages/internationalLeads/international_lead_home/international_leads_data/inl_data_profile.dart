@@ -169,7 +169,7 @@ class InlDataProfile extends StatelessWidget {
                                 Color(0xFFBAC8E0), // light grayish blue
                               ],
                               onPressed: () {
-                                Get.toNamed(AppRoutes.editLeadScreen);
+                                Get.toNamed(AppRoutes.inleditLeadScreen);
                               },
                             ),
                           ),

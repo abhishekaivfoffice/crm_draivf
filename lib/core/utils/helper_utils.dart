@@ -29,7 +29,12 @@ class HelperUtil {
       AppRoutes.internationalLeadBulkActionScreen,
       AppRoutes.addInternationalLeadScreen,
       AppRoutes.inlConvertToCustomerScreen,
-
+      AppRoutes.inlAddNewTaskScreen,
+      
+      AppRoutes.inlSetLeadReminderScreen,
+      AppRoutes.inlSetLeadReminderScreen,
+      AppRoutes.inleditLeadScreen,
+      AppRoutes.inleditAssignedMember,
       //enquiry screen
       AppRoutes.enquiryHome,
       //donor lead new screen

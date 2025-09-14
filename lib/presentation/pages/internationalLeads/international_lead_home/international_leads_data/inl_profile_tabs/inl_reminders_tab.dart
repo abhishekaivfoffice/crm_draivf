@@ -19,7 +19,7 @@ class INLTaskTabsRemindersTab extends StatelessWidget {
           width: 190,
           text: "Set Lead reminders",
           onPressed: () {
-            Get.toNamed(AppRoutes.setLeadReminderScreen);
+            Get.toNamed(AppRoutes.inlSetLeadReminderScreen);
           },
         ),
         const SizedBox(height: 10),
