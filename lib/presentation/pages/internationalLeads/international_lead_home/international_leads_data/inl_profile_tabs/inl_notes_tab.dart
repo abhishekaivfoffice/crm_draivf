@@ -1,10 +1,10 @@
-import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/domestic_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/Inl_data_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_datefield_with_time.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_large_textfield.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-
+//international lead notes tab
 class INLNotesTab extends StatelessWidget {
   const INLNotesTab({super.key});
 
@@ -13,7 +13,7 @@ class INLNotesTab extends StatelessWidget {
             double screenWidth = MediaQuery.of(context).size.width;
 
     final domesticleaddataprofileprovider =
-        Provider.of<DomesticLeadsDataProvider>(context);
+        Provider.of<InlDataProvider>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,

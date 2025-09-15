@@ -10,7 +10,7 @@ import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdownfiel
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-
+//international leads data page
 class InlData extends StatelessWidget {
   const InlData({super.key});
 

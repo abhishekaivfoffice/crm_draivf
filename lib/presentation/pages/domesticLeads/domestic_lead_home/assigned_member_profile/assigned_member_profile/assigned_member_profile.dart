@@ -9,7 +9,6 @@ import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_butto
 import 'package:crm_draivfmobileapp/widgets/custom_containers/custom_time_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:provider/provider.dart';
 
 class AssignedMemberDetails extends StatelessWidget {

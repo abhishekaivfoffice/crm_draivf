@@ -1,15 +1,15 @@
-import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/domestic_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/Inl_data_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_filechooser_field/upload_box.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+//international lead attachment tabs
 class INLAttachmentTabs extends StatelessWidget {
   const INLAttachmentTabs({super.key});
 
   @override
   Widget build(BuildContext context) {
     final domesticleaddataprofileprovider =
-        Provider.of<DomesticLeadsDataProvider>(context);
+        Provider.of<InlDataProvider>(context);
     return Column(
       children: [
         const SizedBox(height: 10),
@@ -20,7 +20,7 @@ class INLAttachmentTabs extends StatelessWidget {
           },
         ),
         const SizedBox(height: 20),
-        Consumer<DomesticLeadsDataProvider>(
+        Consumer<InlDataProvider>(
           builder: (context, fileProvider, _) {
             if (fileProvider.selectedFiles.isEmpty) {
               return const Text("No files selected");

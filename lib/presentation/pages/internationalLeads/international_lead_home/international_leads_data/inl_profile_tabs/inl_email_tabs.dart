@@ -1,10 +1,11 @@
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/domestic_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/Inl_data_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_with_search.dart';
 
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-
+//international leads email tabs 
 class INLEmailTabs extends StatelessWidget {
   const INLEmailTabs({super.key});
 
@@ -13,7 +14,7 @@ class INLEmailTabs extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     final domesticleaddataprofileprovider =
-        Provider.of<DomesticLeadsDataProvider>(context);
+        Provider.of<InlDataProvider>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,

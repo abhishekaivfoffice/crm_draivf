@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
+
 class DLNAssignedMemberDetails extends StatelessWidget {
   final DLNAssignedMember member;
 
@@ -188,7 +189,7 @@ class DLNAssignedMemberDetails extends StatelessWidget {
                     icon: Icons.edit,
 
                     onPressed: () {
-                      Get.toNamed(AppRoutes.assignedMemberProfileedithome);
+                      Get.toNamed(AppRoutes.dlnassignedMemberProfileedithome);
                     },
                   ),
                   onTap: () {},

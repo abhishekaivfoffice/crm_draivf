@@ -2,7 +2,7 @@ import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/provider/donor_lead_new_provider/dln_domestic_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/provider/donor_lead_new_provider/dln_data_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_datefield_with_time.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_with_search.dart';
@@ -10,7 +10,7 @@ import 'package:crm_draivfmobileapp/widgets/custom_textfield/multiselect_chip.da
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-
+//domestic lead new bulk action page
 class DLNBulkActionPage extends StatelessWidget {
   const DLNBulkActionPage({super.key});
 

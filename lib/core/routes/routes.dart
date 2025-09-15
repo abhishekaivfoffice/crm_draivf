@@ -25,6 +25,11 @@ class AppRoutes {
   //donorleads new -module
   static const donorLeadNewHome = '/donorLeadNewHome';
   static const adddonorLeadNewScreen = '/adddonorleadnewscreen';
+static const donorLeadNewBulkActionScreen = '/donorleadbulkactionscreen';
+static const dlnassignedMemberProfileedithome = '/dlnassignedmemberprofileedithome';
+static const dlnConvertToCustomerScreen = '/dlnconverttocustomerscreen';
+
+  
   //international lead -module
   static const internationalLeadHome = '/internationalleadhome';
   static const addInternationalLeadScreen = '/addinternationalleadhome';
