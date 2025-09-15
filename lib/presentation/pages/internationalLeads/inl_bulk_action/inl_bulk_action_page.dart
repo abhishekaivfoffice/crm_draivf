@@ -10,7 +10,7 @@ import 'package:crm_draivfmobileapp/widgets/custom_textfield/multiselect_chip.da
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-
+//international lead bulk action page
 class InlBulkActionPage extends StatelessWidget {
   const InlBulkActionPage({super.key});
 
@@ -194,12 +194,12 @@ class InlBulkActionPage extends StatelessWidget {
 Get.back();                      },
                     ),
                   ),
-                  const SizedBox(width: 12), // space between buttons
+                  const SizedBox(width: 12), 
                   Expanded(
                     child: CustomGradientButton(
                       text: "Submit",
                       onPressed: () {
-                        // submit action
+                       
                       },
                     ),
                   ),

@@ -1,6 +1,6 @@
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:flutter/material.dart';
-
+//international lead import lead text
 class InlImportLeadText {
   static const baseStyle = TextStyle(
     fontSize: 12,

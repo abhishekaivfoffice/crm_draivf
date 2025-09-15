@@ -8,12 +8,11 @@ import 'package:crm_draivfmobileapp/widgets/custom_info_row.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_info_row_without_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
-
-class INLTaskTabsProfileTabs extends StatelessWidget {
+//international lead profile tabs
+class InlProfileTabs extends StatelessWidget {
   final User user;
 
-  const INLTaskTabsProfileTabs({super.key, required this.user});
+  const InlProfileTabs({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/data/models/donor_lead_new/dln_assigned_member_model.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/dln_assigned_member_profile/dln_assigned_member_profile/dln_assigned_member_profile.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/dln_assigned_member_profile/dln_assigned_member_profile.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_activity_log_tabs.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_attachment_tabs.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_call_recordings_tabs.dart';
@@ -42,7 +42,7 @@ class DLNDonorLeadNewDataProfile extends StatelessWidget {
     return Scaffold(
       drawer: TabletMobileDrawer(),
 
-      appBar: CustomAppBar(title: "Data detailed page"),
+      appBar: CustomAppBar(title: "DLN Data detailed page"),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: SingleChildScrollView(

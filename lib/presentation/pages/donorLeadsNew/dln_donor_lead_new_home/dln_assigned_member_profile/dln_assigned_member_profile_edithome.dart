@@ -14,17 +14,17 @@ import 'package:crm_draivfmobileapp/widgets/custom_textfield/multiselect_chip.da
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-
-class DLNAssignedMemberProfileEditHome extends StatefulWidget {
-  const DLNAssignedMemberProfileEditHome({super.key});
+//donor lead new assigned member profile 
+class DLNAssignedMemberProfileEdit extends StatefulWidget {
+  const DLNAssignedMemberProfileEdit({super.key});
 
   @override
-  State<DLNAssignedMemberProfileEditHome> createState() =>
-      _DLNAssignedMemberProfileEditHomeState();
+  State<DLNAssignedMemberProfileEdit> createState() =>
+      _DLNAssignedMemberProfileEditState();
 }
 
-class _DLNAssignedMemberProfileEditHomeState
-    extends State<DLNAssignedMemberProfileEditHome> {
+class _DLNAssignedMemberProfileEditState
+    extends State<DLNAssignedMemberProfileEdit> {
   bool _isPage1Active = true;
 
   void _onPage1() {

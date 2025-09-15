@@ -2,9 +2,9 @@ import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-class INLTaskTabsRemindersTab extends StatelessWidget {
-  const INLTaskTabsRemindersTab({super.key});
+//international leads reminder tabs
+class InlRemindersTab extends StatelessWidget {
+  const InlRemindersTab({super.key});
 
   @override
   Widget build(BuildContext context) {

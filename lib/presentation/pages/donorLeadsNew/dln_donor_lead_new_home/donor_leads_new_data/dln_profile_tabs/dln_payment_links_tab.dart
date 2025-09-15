@@ -1,6 +1,6 @@
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/provider/donor_lead_new_provider/dln_domestic_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/provider/donor_lead_new_provider/dln_data_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_large_textfield.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_textfield.dart';

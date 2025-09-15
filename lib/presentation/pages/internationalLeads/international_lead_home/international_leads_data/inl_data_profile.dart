@@ -5,18 +5,6 @@ import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/assigned_member_profile/assigned_member_profile/assigned_member_profile.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/activity_log_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/attachment_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/call_recordings_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/email_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/marketing_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/notes_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/payment_links_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/profile_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/reminders_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/sms_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/task_tabs.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/inl_assigned_member_profile/inl_assigned_member_profile/inl_assigned_member_profile.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_activity_log_tabs.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_attachment_tabs.dart';
@@ -36,7 +24,7 @@ import 'package:crm_draivfmobileapp/widgets/custom_popup/custom_confirm_dialogue
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-//////////////////////////////////////domestic lead profile detailed page///////////////
+//international lead profile detailed page
 
 class InlDataProfile extends StatelessWidget {
   final User user;
@@ -106,7 +94,7 @@ class InlDataProfile extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                           builder:
-                                              (_) => INLAssignedMemberDetails(
+                                              (_) => InlAssignedMemberProfile(
                                                 member: m,
                                               ),
                                         ),
@@ -271,15 +259,15 @@ class InlDataProfile extends StatelessWidget {
                               index: tabController.index,
                               children: [
                                 // Tab 1
-                                INLTaskTabsProfileTabs(user: user),
+                                InlProfileTabs(user: user),
                                 // Tab 2
                                 INLTaskTabs(),
                                 // Tab 3
                                 INLAttachmentTabs  (),
                                 //tab 4
-                                INLTaskTabsRemindersTab(),
+                                InlRemindersTab(),
                                 //tab 5
-                                INLTaskTabsPaymentLinksTab(),
+                                InlPaymentLinksTab(),
                                 //tab 6
                                 INLNotesTab(),
                                 //tab 7
@@ -289,7 +277,7 @@ class InlDataProfile extends StatelessWidget {
                                 //tab 9
                                 INLCallRecordingTabs(),
                                 //tab 10
-                                INLTaskTabsSmsTab(),
+                                InlSmsTab(),
                                 //tab 11
                                 INLEmailTabs(),
                               ],

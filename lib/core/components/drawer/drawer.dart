@@ -100,12 +100,12 @@ class TabletMobileDrawer extends StatelessWidget {
                           targetPage: AppRoutes.domesticLeadHome,
                           fontSize: navItemFontSize,
                         ),
-                        //   TabletAppbarNavigationBtn(
-                        //   leadingicon: Icons.done_outline_rounded,
-                        //   title: 'Donor Leads New',
-                        //   targetPage: AppRoutes.donorLeadNewHome,
-                        //   fontSize: navItemFontSize,
-                        // ),
+                          TabletAppbarNavigationBtn(
+                          leadingicon: Icons.done_outline_rounded,
+                          title: 'Donor Leads New',
+                          targetPage: AppRoutes.donorLeadNewHome,
+                          fontSize: navItemFontSize,
+                        ),
                          TabletAppbarNavigationBtn(
                           leadingicon: Icons.flight,
                           title: 'International Leads',

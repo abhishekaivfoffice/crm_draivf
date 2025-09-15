@@ -1,15 +1,14 @@
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/domestic_lead_data_profile.dart';
-import 'package:crm_draivfmobileapp/provider/donor_lead_new_provider/dln_domestic_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_donor_lead_new_data_profile.dart';
+import 'package:crm_draivfmobileapp/provider/donor_lead_new_provider/dln_data_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_daterange_field.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_with_search.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdownfield_with_selectall_option.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:provider/provider.dart';
 
 class DLNDonorLeadsNewData extends StatelessWidget {
@@ -113,7 +112,7 @@ class DLNDonorLeadsNewData extends StatelessWidget {
                 ////
                 GestureDetector(
                   onTap: () {
-                    Get.toNamed(AppRoutes.bulkActionScreen);
+                    Get.toNamed( AppRoutes.donorLeadNewBulkActionScreen);
                   },
                   child: Container(
                     decoration: BoxDecoration(
@@ -278,7 +277,7 @@ class DLNDonorLeadsNewData extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => DomesticLeadDataProfile(user: user),
+                      builder: (context) => DLNDonorLeadNewDataProfile(user: user),
                     ),
                   );
                 },

@@ -30,7 +30,7 @@ class HelperUtil {
       AppRoutes.addInternationalLeadScreen,
       AppRoutes.inlConvertToCustomerScreen,
       AppRoutes.inlAddNewTaskScreen,
-      
+
       AppRoutes.inlSetLeadReminderScreen,
       AppRoutes.inlSetLeadReminderScreen,
       AppRoutes.inleditLeadScreen,
@@ -40,7 +40,10 @@ class HelperUtil {
       //donor lead new screen
       AppRoutes.donorLeadNewHome,
       AppRoutes.adddonorLeadNewScreen,
-      
+      AppRoutes.donorLeadNewBulkActionScreen,
+      AppRoutes.dlnassignedMemberProfileedithome,
+      AppRoutes.dlnConvertToCustomerScreen,
+
       //no found screen
       AppRoutes.notFoundScreen,
     ];

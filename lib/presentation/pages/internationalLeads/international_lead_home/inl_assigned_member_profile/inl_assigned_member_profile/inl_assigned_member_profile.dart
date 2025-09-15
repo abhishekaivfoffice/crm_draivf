@@ -10,11 +10,11 @@ import 'package:crm_draivfmobileapp/widgets/custom_containers/custom_time_contai
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-
-class INLAssignedMemberDetails extends StatelessWidget {
+//international leads assigned member details
+class InlAssignedMemberProfile extends StatelessWidget {
   final AssignedMember member;
 
-  const INLAssignedMemberDetails({super.key, required this.member});
+  const InlAssignedMemberProfile({super.key, required this.member});
 
   @override
   Widget build(BuildContext context) {

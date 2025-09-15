@@ -1,7 +1,7 @@
 
 import 'dart:io';
 
-import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart' show AssignedMember, User;
+import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 

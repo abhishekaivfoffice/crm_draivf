@@ -6,9 +6,9 @@ import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_large_textfi
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-class INLTaskTabsPaymentLinksTab extends StatelessWidget {
-  const INLTaskTabsPaymentLinksTab({super.key});
+//international lead payment link tab
+class InlPaymentLinksTab extends StatelessWidget {
+  const InlPaymentLinksTab({super.key});
 
   @override
   Widget build(BuildContext context) {

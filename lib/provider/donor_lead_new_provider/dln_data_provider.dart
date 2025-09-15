@@ -1,7 +1,7 @@
 
 import 'dart:io';
 
-import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart' show AssignedMember, User;
+import 'package:crm_draivfmobileapp/data/models/donor_lead_new/dln_assigned_member_model.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
@@ -356,25 +356,25 @@ final List<User> _users = [
       phone: "73******91",
       dupe: 0,
        assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -394,25 +394,25 @@ final List<User> _users = [
       phone: "88******45",
       dupe: 1,
        assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -432,25 +432,25 @@ final List<User> _users = [
       phone: "98******23",
       dupe: 0,
       assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -470,25 +470,25 @@ final List<User> _users = [
       phone: "79******11",
       dupe: 0,
        assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -508,25 +508,25 @@ final List<User> _users = [
       phone: "91******66",
       dupe: 1,
       assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -546,25 +546,25 @@ final List<User> _users = [
       phone: "95******22",
       dupe: 0,
       assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -584,25 +584,25 @@ final List<User> _users = [
       phone: "99******33",
       dupe: 0,
       assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -622,25 +622,25 @@ final List<User> _users = [
       phone: "94******77",
       dupe: 0,
        assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -660,25 +660,25 @@ final List<User> _users = [
       phone: "97******88",
       dupe: 1,
        assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -698,25 +698,25 @@ final List<User> _users = [
       phone: "90******99",
       dupe: 0,
        assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -737,25 +737,25 @@ final List<User> _users = [
       phone: "98******55",
       dupe: 0,
        assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -775,25 +775,25 @@ final List<User> _users = [
       phone: "92******66",
       dupe: 0,
       assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -813,25 +813,25 @@ final List<User> _users = [
       phone: "93******44",
       dupe: 1,
      assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -851,25 +851,25 @@ final List<User> _users = [
       phone: "96******88",
       dupe: 0,
        assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -889,25 +889,25 @@ final List<User> _users = [
       phone: "97******33",
       dupe: 0,
      assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -927,25 +927,25 @@ final List<User> _users = [
       phone: "91******99",
       dupe: 1,
        assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -965,25 +965,25 @@ final List<User> _users = [
       phone: "98******22",
       dupe: 0,
        assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -1003,25 +1003,25 @@ final List<User> _users = [
       phone: "90******77",
       dupe: 0,
       assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -1041,25 +1041,25 @@ final List<User> _users = [
       phone: "94******55",
       dupe: 0,
       assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
@@ -1079,25 +1079,25 @@ final List<User> _users = [
       phone: "93******11",
       dupe: 0,
      assignedMembers: [
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/14.jpg",
       name: "Naveen Yadav",
       lastActiveDate: "2025-03-15",
       email: "naveen.yadav@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/22.jpg",
       name: "Ritika Verma",
       lastActiveDate: "2025-03-12",
       email: "ritika.verma@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/men/33.jpg",
       name: "Amit Singh",
       lastActiveDate: "2025-03-10",
       email: "amit.singh@example.com",
     ),
-    AssignedMember(
+    DLNAssignedMember(
       profileImage: "https://randomuser.me/api/portraits/women/45.jpg",
       name: "Shreya Kapoor",
       lastActiveDate: "2025-03-09",
