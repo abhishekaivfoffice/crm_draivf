@@ -2,7 +2,7 @@ import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_new_leads/dln_date_field_with_age.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_add_donor_lead/dln_date_field_with_age.dart';
 import 'package:crm_draivfmobileapp/provider/donor_lead_new_provider/dln_add_leads_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/Custom_date_field.dart';
@@ -99,14 +99,14 @@ class _DLNEditLeadScreenState extends State<DLNEditLeadScreen> {
                     ),
                     const SizedBox(height: 6),
 
-                    /// Tags
-                    CustomMultiSelectField(
-                      labelText: "Tag",
-                      options: addleadprovider.tags,
-                      selectedItems: addleadprovider.selectedTags,
-                      onItemToggle: addleadprovider.toggleItem,
-                    ),
-                    const SizedBox(height: 6),
+                    // /// Tags
+                    // CustomMultiSelectField(
+                    //   labelText: "Tag",
+                    //   options: addleadprovider.tags,
+                    //   selectedItems: addleadprovider.selectedTags,
+                    //   onItemToggle: addleadprovider.toggleItem,
+                    // ),
+                    // const SizedBox(height: 6),
 
                     /// Wife name
                     CustomTextField(
@@ -268,23 +268,23 @@ class _DLNEditLeadScreenState extends State<DLNEditLeadScreen> {
                     ),
                     const SizedBox(height: 6),
 
-                    /// Wife MDR
-                    CustomTextField(
-                      controller: addleadprovider.wifemdrnumberController,
-                      hintText: "Enter wife MDR number",
-                      labelText: "Wife MDR No",
-                      keyboardType: TextInputType.number,
-                    ),
-                    const SizedBox(height: 6),
+                    // /// Wife MDR
+                    // CustomTextField(
+                    //   controller: addleadprovider.wifemdrnumberController,
+                    //   hintText: "Enter wife MDR number",
+                    //   labelText: "Wife MDR No",
+                    //   keyboardType: TextInputType.number,
+                    // ),
+                    // const SizedBox(height: 6),
 
-                    /// Husband MDR
-                    CustomTextField(
-                      controller: addleadprovider.husbandmdrnumberController,
-                      hintText: "Enter husband MDR number",
-                      labelText: "Husband MDR No",
-                      keyboardType: TextInputType.number,
-                    ),
-                    const SizedBox(height: 6),
+                    // /// Husband MDR
+                    // CustomTextField(
+                    //   controller: addleadprovider.husbandmdrnumberController,
+                    //   hintText: "Enter husband MDR number",
+                    //   labelText: "Husband MDR No",
+                    //   keyboardType: TextInputType.number,
+                    // ),
+                    // const SizedBox(height: 6),
 
                     /// Walkin Date
                     CustomDateField(
@@ -322,10 +322,10 @@ class _DLNEditLeadScreenState extends State<DLNEditLeadScreen> {
                     CustomSearchDropdownWithSearch(
                       isMandatory: false,
                       labelText: "Prefered Time To Call",
-                      items: addleadprovider.preferedTimeToCall,
+                      items: addleadprovider.preferedTime,
                       selectedValue:
-                          addleadprovider.selectedPreferedTimeToCall,
-                      onChanged: addleadprovider.setSelectedPreferedTimeToCall,
+                          addleadprovider.selectedPreferedTime,
+                      onChanged: addleadprovider.setSelectedPreferedTime,
                       hintText: "Select time",
                     ),
                     const SizedBox(height: 6),
@@ -349,23 +349,23 @@ class _DLNEditLeadScreenState extends State<DLNEditLeadScreen> {
                     ),
                     const SizedBox(height: 6),
 
-                    Row(
-                      children: [
-                        Checkbox(
-                          value: addleadprovider.isPublic,
-                          onChanged: (val) =>
-                              addleadprovider.setIsPublic(val ?? false),
-                        ),
-                        const Text("Public"),
-                        const SizedBox(width: 16),
-                        Checkbox(
-                          value: addleadprovider.isContactedToday,
-                          onChanged: (val) =>
-                              addleadprovider.setIsContactedToday(val ?? false),
-                        ),
-                        const Text("Contacted Today"),
-                      ],
-                    ),
+                    // Row(
+                    //   children: [
+                    //     Checkbox(
+                    //       value: addleadprovider.isPublic,
+                    //       onChanged: (val) =>
+                    //           addleadprovider.setIsPublic(val ?? false),
+                    //     ),
+                    //     const Text("Public"),
+                    //     const SizedBox(width: 16),
+                    //     Checkbox(
+                    //       value: addleadprovider.isContactedToday,
+                    //       onChanged: (val) =>
+                    //           addleadprovider.setIsContactedToday(val ?? false),
+                    //     ),
+                    //     const Text("Contacted Today"),
+                    //   ],
+                    // ),
                   ],
                 ),
 
