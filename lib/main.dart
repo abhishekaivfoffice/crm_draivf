@@ -17,7 +17,7 @@ import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_l
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/dln_donor_leads_new_home.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_convert_to_customer/dln_convert_to_customer_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_donor_lead_new_data_profile.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_new_leads/dln_add_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_add_donor_lead/dln_add_donor_details.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/inl_assigned_member_profile/inl_assigned_member_profile/inl_assigned_member_profile_edithome.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/inl_edit_leads/inl_edit_leads.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_add_new_task.dart/inl_add_new_task_page.dart';
@@ -225,7 +225,7 @@ class MyApp extends StatelessWidget {
       case AppRoutes.donorLeadNewHome:
         return DLNDonorLeadsNewHome();
       case AppRoutes.adddonorLeadNewScreen:
-        return DLNAddLeadScreen();
+        return DLNAddDonorDetailsScreen();
       case AppRoutes.donorLeadNewBulkActionScreen:
         return DLNBulkActionPage();
       case AppRoutes.dlnassignedMemberProfileedithome:

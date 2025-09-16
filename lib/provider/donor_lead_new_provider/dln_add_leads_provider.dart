@@ -1,21 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class DLNAddLeadsProvider extends ChangeNotifier {
   /////status option
-  final List<String> _status = [
-    "New Lead",
-    "Interested",
-    "Walk-in/Video Scheduled",
-    "Walk-in/Video Done",
-    "Treatment Started",
-    "Treatment Done",
-    "Not Interested",
-    "Junk",
-    "Not Picked up",
-    "Call Later",
-    "Walk-in Dropped",
-    "Treatment Dropped",
-  ];
+  final List<String> _status = ["Donor"];
   List<String> get status => _status;
 
   /////sources options
@@ -85,6 +74,28 @@ class DLNAddLeadsProvider extends ChangeNotifier {
     "Erode",
   ];
   List<String> get preferredlocations => _preferredlocations;
+  ////simulation locations
+  final List<String> _simulationlocations = [
+    "Chennai - Sholinganallur",
+    "Chennai - Madipakkam",
+    "Chennai - Urapakkam",
+    "Kanchipuram",
+    "Hosur",
+    "Tiruppur",
+    "Erode",
+  ];
+  List<String> get simulationlocation => _simulationlocations;
+  ////case locations
+  final List<String> _caselocations = [
+    "Chennai - Sholinganallur",
+    "Chennai - Madipakkam",
+    "Chennai - Urapakkam",
+    "Kanchipuram",
+    "Hosur",
+    "Tiruppur",
+    "Erode",
+  ];
+  List<String> get caselocation => _caselocations;
 
   ///profile group
   final List<String> _profileGroup = [
@@ -102,13 +113,13 @@ class DLNAddLeadsProvider extends ChangeNotifier {
   List<String> get forFertilityTreatment => _forFertlityTreatment;
   //prefered time to call
   //for fertility treatment
-  final List<String> _preferedTimeToCall = [
+  final List<String> _preferedTime = [
     "7am to 11am",
     "11am to 3pm",
     "3pm to 7pm",
     "7pm to 11pm",
   ];
-  List<String> get preferedTimeToCall => _preferedTimeToCall;
+  List<String> get preferedTime => _preferedTime;
   //prefered language
   final List<String> _preferedLanguage = [
     "Tamil",
@@ -119,9 +130,9 @@ class DLNAddLeadsProvider extends ChangeNotifier {
     "Malayalam",
   ];
   List<String> get preferedLanguage => _preferedLanguage;
-  //Tags
-  final List<String> _tags = ["Tag1", "Tag2", "Tag3", "Tag4", "Tag5"];
-  List<String> get tags => _tags;
+  // //Tags
+  // final List<String> _tags = ["Tag1", "Tag2", "Tag3", "Tag4", "Tag5"];
+  // List<String> get tags => _tags;
 
   //controllers//
   final wifeNameController = TextEditingController();
@@ -138,10 +149,11 @@ class DLNAddLeadsProvider extends ChangeNotifier {
   final stateController = TextEditingController();
   final countryController = TextEditingController();
   final zipcodeController = TextEditingController();
-  final wifemdrnumberController = TextEditingController();
-  final husbandmdrnumberController = TextEditingController();
+  final agentnameController = TextEditingController();
+  final agentnumberController = TextEditingController();
   final walkinDateController = TextEditingController();
   final descriptionController = TextEditingController();
+  final lastcontactDateController = TextEditingController();
 
   /////////
   String? _selectedstatus;
@@ -159,22 +171,31 @@ class DLNAddLeadsProvider extends ChangeNotifier {
   bool get isWifeWhatsappAvailable => _isWifeWhatsappAvailable;
   bool _isHusbandWhatsappAvailable = false;
   bool get isHusbandWhatsappAvailable => _isHusbandWhatsappAvailable;
+  //prefered location
   String? _selectedpreferredlocation;
   String? get selectedpreferredlocation => _selectedpreferredlocation;
+  //simulation location
+  String? _selectedsimulationlocation;
+  String? get selectedsimulationlocation => _selectedsimulationlocation;
+
+  //case location
+  String? _selectedcaselocation;
+  String? get selectedcaselocation => _selectedcaselocation;
+
   String? _selectedProfileGroup;
   String? get selectedProfileGroup => _selectedProfileGroup;
   String? _selectedForFertilityTreatment;
   String? get selectedForFertilityTreatment => _selectedForFertilityTreatment;
-  String? _selectedPreferedTimeToCall;
-  String? get selectedPreferedTimeToCall => _selectedPreferedTimeToCall;
+  String? _selectedPreferedTime;
+  String? get selectedPreferedTime => _selectedPreferedTime;
   String? _selectedPreferedLanguage;
   String? get selectedPreferedLanguage => _selectedPreferedLanguage;
-  bool _isPublic = false;
-  bool get isPublic => _isPublic;
+  // bool _isPublic = false;
+  // bool get isPublic => _isPublic;
   bool _isContactedToday = false;
   bool get isContactedToday => _isContactedToday;
-  final List<String> _selectedTags = [];
-  List<String> get selectedTags => _selectedTags;
+  // final List<String> _selectedTags = [];
+  // List<String> get selectedTags => _selectedTags;
 
   //selected status//
   void setSelectedstatus(String? value) {
@@ -219,20 +240,36 @@ class DLNAddLeadsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //selected Assigned//
+  //selected prefered location//
   void setSelectedPreferredLocation(String? value) {
     _selectedpreferredlocation = value;
     print(_selectedpreferredlocation);
 
     notifyListeners();
   }
-  // ispublic//
 
-  void setIsPublic(bool value) {
-    _isPublic = value;
+  //selected simulation location//
+  void setSelectedsimulationLocation(String? value) {
+    _selectedsimulationlocation = value;
+    print(_selectedsimulationlocation);
+
     notifyListeners();
   }
-  // iscontactedtoday//
+
+  //selected case location//
+  void setSelectedcaseLocation(String? value) {
+    _selectedcaselocation = value;
+    print(_selectedcaselocation);
+
+    notifyListeners();
+  }
+
+  // // ispublic//
+  // void setIsPublic(bool value) {
+  //   _isPublic = value;
+  //   notifyListeners();
+  // }
+  // // iscontactedtoday//
 
   void setIsContactedToday(bool value) {
     _isContactedToday = value;
@@ -288,9 +325,9 @@ class DLNAddLeadsProvider extends ChangeNotifier {
   }
 
   //selected prefered time to call//
-  void setSelectedPreferedTimeToCall(String? value) {
-    _selectedPreferedTimeToCall = value;
-    print(_selectedPreferedTimeToCall);
+  void setSelectedPreferedTime(String? value) {
+    _selectedPreferedTime = value;
+    print(_selectedPreferedTime);
 
     notifyListeners();
   }
@@ -303,15 +340,15 @@ class DLNAddLeadsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  ///selected tags
-  void toggleItem(String item) {
-    if (_selectedTags.contains(item)) {
-      _selectedTags.remove(item);
-    } else {
-      _selectedTags.add(item);
-    }
-    notifyListeners();
-  }
+  // ///selected tags
+  // void toggleItem(String item) {
+  //   if (_selectedTags.contains(item)) {
+  //     _selectedTags.remove(item);
+  //   } else {
+  //     _selectedTags.add(item);
+  //   }
+  //   notifyListeners();
+  // }
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //controller for textfield//////////////////////dummy codeeeeeeeeee
@@ -343,15 +380,204 @@ class DLNAddLeadsProvider extends ChangeNotifier {
     super.dispose();
   }
 
+  ////second page controllers
+  final donornameController = TextEditingController();
+  final detailsofPreviousChildController = TextEditingController();
 
+  final donorageController = TextEditingController();
+  File? _selectedWifeImage;
+  File? get selectedWifeImage => _selectedWifeImage;
+  File? _selectedWifeAadharImage;
+  File? get selectedWifeAadharImage => _selectedWifeAadharImage;
+  File? _selectedHusbandImage;
+  File? get selectedHusbandImage => _selectedHusbandImage;
+  File? _selectedHusbandAadharImage;
+  File? get selectedHusbandAadharImage => _selectedHusbandAadharImage;
+  File? _selectedMarriageCertificate;
+  File? get selectedMarriageCertificate => _selectedMarriageCertificate;
+  File? _selectedDivorceCertificate;
+  File? get selectedDivorceCertificate => _selectedDivorceCertificate;
+  File? _selectedBirthCertificate;
+  File? get selectedBirthCertificate => _selectedBirthCertificate;
+  File? _selectedInsuranceDetails;
+  File? get selectedInsuranceDetails => _selectedInsuranceDetails;
+  bool _isEggDonor = false;
+  bool get isEggDonor => _isEggDonor;
+
+  void setIsEggDonor(bool value) {
+    _isEggDonor = value;
+    notifyListeners();
+  }
+
+  bool _isSpermDonor = false;
+  bool get isSpermDonor => _isSpermDonor;
+
+  void setIsSpermDonor(bool value) {
+    _isSpermDonor = value;
+    notifyListeners();
+  }
+
+  //choose wife image
+  void setWifeImage(File file) {
+    _selectedWifeImage = file;
+    notifyListeners();
+  }
+
+  //choose wife Aadhar Image
+  void setWifeAadharImage(File file) {
+    _selectedWifeAadharImage = file;
+    notifyListeners();
+  }
+
+  //choose Husband image
+  void setHusbandImage(File file) {
+    _selectedHusbandImage = file;
+    notifyListeners();
+  }
+
+  //choose Husband Aadhar Image
+  void setHusbandAadharImage(File file) {
+    _selectedHusbandAadharImage = file;
+    notifyListeners();
+  }
+
+  //choose Husband Aadhar Image
+  void setMarriageCertificate(File file) {
+    _selectedMarriageCertificate = file;
+    notifyListeners();
+  }
+
+  //choose Husband Aadhar Image
+  void setDivorceCertificate(File file) {
+    _selectedDivorceCertificate = file;
+    notifyListeners();
+  }
+
+  //choose birth certifiacate
+  void setBirthCertificate(File file) {
+    _selectedBirthCertificate = file;
+    notifyListeners();
+  }
+
+  //choose Insurance certifiacate
+  void setInsuranceDetails(File file) {
+    _selectedInsuranceDetails = file;
+    notifyListeners();
+  }
+  ////////////////////third screeen
+
+  final pancardController = TextEditingController();
+
+  final mrdNumberController = TextEditingController();
+
+  final artBankEnrollmentController = TextEditingController();
+
+  ///////////fourth screen
+  File? _selectedTvScan;
+  File? get selectedTvScan => _selectedTvScan;
+  File? _selectedSemenTest;
+  File? get selectedSemenTest => _selectedSemenTest;
+    File? _selectedSerology;
+  File? get selectedSerology => _selectedSerology;
+      File? _selectedbbt;
+  File? get selectedbbt => _selectedbbt;
+        File? _selectedtft;
+  File? get selectedtft => _selectedtft;
+          File? _selectedcardiacfitness;
+  File? get selectedcardiacfitness => _selectedcardiacfitness;
+            File? _selectedecg;
+  File? get selectedecg => _selectedecg;
+  //choose Tv Scan
+  void setTvScan(File file) {
+    _selectedTvScan = file;
+    notifyListeners();
+  }
+    //choose Semen Test
+  void setSemenTest(File file) {
+    _selectedSemenTest = file;
+    notifyListeners();
+  }
+      //choose Serology
+  void setSerology  (File file) {
+    _selectedSerology = file;
+    notifyListeners();
+  }
+        //choose BBT
+  void setBbt  (File file) {
+    _selectedbbt = file;
+    notifyListeners();
+  }
+          //choose TFT
+  void setTft  (File file) {
+    _selectedtft = file;
+    notifyListeners();
+  }
+            //choose cardiac fitness
+  void setCardiacFitness  (File file) {
+    _selectedcardiacfitness = file;
+    notifyListeners();
+  }
+              //choose ECG
+  void setEcg  (File file) {
+    _selectedecg = file;
+    notifyListeners();
+  }
+  ///////fifth screen
+   File? _selectedInformedConcent;
+  File? get selectedInformedConcent => _selectedInformedConcent;
+     File? _selectedArtDonorConcent;
+  File? get selectedArtDonorConcent => _selectedArtDonorConcent;
+     File? _selectedArtDonorBond;
+  File? get selectedArtDonorBond => _selectedArtDonorBond;
+
+
+
+    //choose informed concent
+  void setInformedConcent(File file) {
+    _selectedInformedConcent = file;
+    notifyListeners();
+  }
+     //choose ART Donor concent
+  void setARTDonorConcent(File file) {
+    _selectedArtDonorConcent = file;
+    notifyListeners();
+  }
+       //choose ART Donor Bond
+  void setARTDonorBond(File file) {
+    _selectedArtDonorBond = file;
+    notifyListeners();
+  }
+  ///sixth screen
+final reciepientNameController = TextEditingController();
+final reciepientMRDNameController = TextEditingController();
+////Recipient  locations
+  final List<String> _recipientlocations = [
+    "Chennai - Sholinganallur",
+    "Chennai - Madipakkam",
+    "Chennai - Urapakkam",
+    "Kanchipuram",
+    "Hosur",
+    "Tiruppur",
+    "Erode",
+  ];
+  List<String> get recipientlocation => _recipientlocations;
+   //Recipient location
+  String? _selectedRecipientLocation;
+  String? get selectedRecipientLocation => _selectedRecipientLocation;
+    //selected simulation location//
+  void setSelectedRecipientLocation(String? value) {
+    _selectedRecipientLocation = value;
+
+    notifyListeners();
+  }
   ////dummy data for edit lead screen///
-    void loadDummyLead() {
+  void loadDummyLead() {
     wifeNameController.text = "Anitha";
     wifeNumberController.text = "9876543210";
     husbandNameController.text = "Ramesh";
     husbandNumberController.text = "9876501234";
     husbandAgeController.text = "35";
-    wifeAgeController.text = "32";  
+    wifeAgeController.text = "32";
     addressController.text = "123, Anna Nagar, Chennai";
     cityController.text = "Chennai";
     stateController.text = "Tamil Nadu";
@@ -359,8 +585,8 @@ class DLNAddLeadsProvider extends ChangeNotifier {
     zipcodeController.text = "600040";
     emailController.text = "anitha@example.com";
     descriptionController.text = "Follow-up required for IVF treatment.";
-    wifemdrnumberController.text = "WDR12345";
-    husbandmdrnumberController.text = "HDR54321";
+    // wifemdrnumberController.text = "WDR12345";
+    // husbandmdrnumberController.text = "HDR54321";
     marriageDateController.text = "01-01-2015";
     walkinDateController.text = "12-09-2025";
 
@@ -371,21 +597,19 @@ class DLNAddLeadsProvider extends ChangeNotifier {
     _selectedpreferredlocation = "Chennai - Sholinganallur";
     _selectedProfileGroup = "IVF";
     _selectedForFertilityTreatment = "New";
-    _selectedPreferedTimeToCall = "7am to 11am";
+    _selectedPreferedTime = "7am to 11am";
     _selectedPreferedLanguage = "Tamil";
 
     _isWifeWhatsappAvailable = true;
     _isHusbandWhatsappAvailable = false;
-    _isPublic = true;
+    // _isPublic = true;
     _isContactedToday = true;
 
-    _selectedTags.clear();
-    _selectedTags.addAll(["Tag1", "Tag3"]);
+    // _selectedTags.clear();
+    // _selectedTags.addAll(["Tag1", "Tag3"]);
 
     marriedYearsController.text = "10";
 
     notifyListeners();
   }
-
-
 }

@@ -2,20 +2,20 @@ import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_new_leads/dln_date_field_with_age.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_add_donor_lead/dln_add_donor_second_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_add_donor_lead/dln_date_field_with_age.dart';
 import 'package:crm_draivfmobileapp/provider/donor_lead_new_provider/dln_add_leads_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/Custom_date_field.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_with_search.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_large_textfield.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_textfield.dart';
-import 'package:crm_draivfmobileapp/widgets/custom_textfield/multiselect_chip.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-class DLNAddLeadScreen extends StatelessWidget {
-  DLNAddLeadScreen({super.key});
+class DLNAddDonorDetailsScreen extends StatelessWidget {
+  DLNAddDonorDetailsScreen({super.key});
   final _addleadformKey = GlobalKey<FormState>();
 
   @override
@@ -23,9 +23,9 @@ class DLNAddLeadScreen extends StatelessWidget {
     final addleadprovider = Provider.of<DLNAddLeadsProvider>(context);
     return Scaffold(
       backgroundColor: Colors.white,
-            drawer: TabletMobileDrawer(),
+      drawer: TabletMobileDrawer(),
 
-      appBar: CustomAppBar(title: "DLN Add Leads"),
+      appBar: CustomAppBar(title: "DLN Add Donor Lead"),
 
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
@@ -36,10 +36,9 @@ class DLNAddLeadScreen extends StatelessWidget {
                 key: _addleadformKey,
                 child: Column(
                   children: [
-                  
-
                     const SizedBox(height: 24),
-
+                  Text("1 Personal Details",style: TextStyle(color: AppColor.blackColor,fontSize: 18,fontWeight: FontWeight.bold),),
+                        Divider(color: AppColor.primaryColor2,),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -88,15 +87,15 @@ class DLNAddLeadScreen extends StatelessWidget {
                           hintText: "Select Attribute",
                         ),
                         const SizedBox(height: 6),
-                        CustomMultiSelectField(
-                          labelText: "Tag",
-                          options: addleadprovider.tags,
-                          selectedItems: addleadprovider.selectedTags,
-                          onItemToggle:
-                              (val) => addleadprovider.toggleItem(val),
-                        ),
-                        const SizedBox(height: 6),
 
+                        // CustomMultiSelectField(
+                        //   labelText: "Tag",
+                        //   options: addleadprovider.tags,
+                        //   selectedItems: addleadprovider.selectedTags,
+                        //   onItemToggle:
+                        //       (val) => addleadprovider.toggleItem(val),
+                        // ),
+                        // const SizedBox(height: 6),
                         CustomTextField(
                           controller: addleadprovider.wifeNameController,
                           hintText: "Enter wife name",
@@ -139,6 +138,24 @@ class DLNAddLeadScreen extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 6),
+                        //agent name
+                        CustomTextField(
+                          controller: addleadprovider.agentnameController,
+                          hintText: "Enter agent name",
+                          labelText: "Agent Name",
+                          isMandatory: false,
+                          keyboardType: TextInputType.text,
+                        ),
+                        const SizedBox(height: 6),
+                        //agent number
+                        CustomTextField(
+                          controller: addleadprovider.agentnumberController,
+                          hintText: "Enter agent number",
+                          labelText: "Agent Number",
+                          isMandatory: false,
+                          keyboardType: TextInputType.number,
+                        ),
+                        const SizedBox(height: 6),
 
                         //preferred location
                         CustomSearchDropdownWithSearch(
@@ -150,6 +167,28 @@ class DLNAddLeadScreen extends StatelessWidget {
                           onChanged:
                               addleadprovider.setSelectedPreferredLocation,
                           hintText: "Select preferred location",
+                        ),
+                        const SizedBox(height: 6),
+                        //simulation location
+                        CustomSearchDropdownWithSearch(
+                          isMandatory: false,
+                          labelText: "Simulation Location",
+                          items: addleadprovider.simulationlocation,
+                          selectedValue:
+                              addleadprovider.selectedsimulationlocation,
+                          onChanged:
+                              addleadprovider.setSelectedsimulationLocation,
+                          hintText: "Select simulation location",
+                        ),
+                        const SizedBox(height: 6),
+                        //case location
+                        CustomSearchDropdownWithSearch(
+                          isMandatory: false,
+                          labelText: "Case Location",
+                          items: addleadprovider.caselocation,
+                          selectedValue: addleadprovider.selectedcaselocation,
+                          onChanged: addleadprovider.setSelectedcaseLocation,
+                          hintText: "Select case location",
                         ),
                         const SizedBox(height: 6),
 
@@ -284,34 +323,27 @@ class DLNAddLeadScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 6),
 
-                        //wife MDR Number
-                        CustomTextField(
-                          controller: addleadprovider.wifemdrnumberController,
-                          hintText: "Enter wife MDR number",
-                          labelText: "Wife MDR No",
-                          isMandatory: false,
-                          keyboardType: TextInputType.number,
-                        ),
-                        const SizedBox(height: 6),
+                        // //wife MDR Number
+                        // CustomTextField(
+                        //   controller: addleadprovider.wifemdrnumberController,
+                        //   hintText: "Enter wife MDR number",
+                        //   labelText: "Wife MDR No",
+                        //   isMandatory: false,
+                        //   keyboardType: TextInputType.number,
+                        // ),
+                        // const SizedBox(height: 6),
 
-                        //husband MDR Number
-                        CustomTextField(
-                          controller:
-                              addleadprovider.husbandmdrnumberController,
-                          hintText: "Enter husband MDR number",
-                          labelText: "Husband MDR No",
-                          isMandatory: false,
-                          keyboardType: TextInputType.number,
-                        ),
-                        const SizedBox(height: 6),
-                        //walkin date
-                        CustomDateField(
-                          controller: addleadprovider.walkinDateController,
-                          hintText: "Select walkin date",
-                          labelText: "Walkin Date",
-                          isMandatory: false,
-                        ),
-                        const SizedBox(height: 6),
+                        // //husband MDR Number
+                        // CustomTextField(
+                        //   controller:
+                        //       addleadprovider.husbandmdrnumberController,
+                        //   hintText: "Enter husband MDR number",
+                        //   labelText: "Husband MDR No",
+                        //   isMandatory: false,
+                        //   keyboardType: TextInputType.number,
+                        // ),
+                        // const SizedBox(height: 6),
+
                         //profile group
                         CustomSearchDropdownWithSearch(
                           isMandatory: false,
@@ -335,17 +367,23 @@ class DLNAddLeadScreen extends StatelessWidget {
                         ),
 
                         const SizedBox(height: 6),
+                        //walkin date
+                        CustomDateField(
+                          controller: addleadprovider.walkinDateController,
+                          hintText: "Select walkin date",
+                          labelText: "Walkin Date",
+                          isMandatory: false,
+                        ),
+                        const SizedBox(height: 6),
 
-                        //prefered language
+                        //prefered time
                         CustomSearchDropdownWithSearch(
                           isMandatory: false,
-                          labelText: "Prefered Time To Call",
-                          items: addleadprovider.preferedTimeToCall,
-                          selectedValue:
-                              addleadprovider.selectedPreferedTimeToCall,
-                          onChanged:
-                              addleadprovider.setSelectedPreferedTimeToCall,
-                          hintText: "Select prefered time to call",
+                          labelText: "Prefered Time",
+                          items: addleadprovider.preferedTime,
+                          selectedValue: addleadprovider.selectedPreferedTime,
+                          onChanged: addleadprovider.setSelectedPreferedTime,
+                          hintText: "Select prefered time",
                         ),
 
                         const SizedBox(height: 6),
@@ -371,55 +409,63 @@ class DLNAddLeadScreen extends StatelessWidget {
                         ),
 
                         const SizedBox(height: 6),
-                        Row(
-                          children: [
-                            Checkbox(
-                              value: addleadprovider.isPublic,
-                              onChanged: (bool? value) {
-                                addleadprovider.setIsPublic(value ?? false);
-                              },
-                              side: const BorderSide(
-                                color: Colors.black,
-                                width: 2,
-                              ),
-                              activeColor: AppColor.primaryColor2,
-                              checkColor: Colors.white,
-                            ),
-
-                            const Text(
-                              "Public",
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontFamily: AppFonts.poppins,
-                                color: AppColor.blackColor,
-                              ),
-                            ),
-                            const SizedBox(width: 6),
-                            Checkbox(
-                              value: addleadprovider.isContactedToday,
-                              onChanged: (bool? value) {
-                                addleadprovider.setIsContactedToday(
-                                  value ?? false,
-                                );
-                              },
-                              side: const BorderSide(
-                                color: Colors.black,
-                                width: 2,
-                              ),
-                              activeColor: AppColor.primaryColor2,
-                              checkColor: Colors.white,
-                            ),
-
-                            const Text(
-                              "Contacted Today",
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontFamily: AppFonts.poppins,
-                                color: AppColor.blackColor,
-                              ),
-                            ),
-                          ],
+                        //walkin date
+                        CustomDateField(
+                          controller: addleadprovider.lastcontactDateController,
+                          hintText: "Select last contact date",
+                          labelText: "Last Contact",
+                          isMandatory: false,
                         ),
+                        const SizedBox(height: 6),
+                        // Row(
+                        //   children: [
+                        //     Checkbox(
+                        //       value: addleadprovider.isPublic,
+                        //       onChanged: (bool? value) {
+                        //         addleadprovider.setIsPublic(value ?? false);
+                        //       },
+                        //       side: const BorderSide(
+                        //         color: Colors.black,
+                        //         width: 2,
+                        //       ),
+                        //       activeColor: AppColor.primaryColor2,
+                        //       checkColor: Colors.white,
+                        //     ),
+
+                        //     const Text(
+                        //       "Public",
+                        //       style: TextStyle(
+                        //         fontSize: 14,
+                        //         fontFamily: AppFonts.poppins,
+                        //         color: AppColor.blackColor,
+                        //       ),
+                        //     ),
+                        //     const SizedBox(width: 6),
+                        //     Checkbox(
+                        //       value: addleadprovider.isContactedToday,
+                        //       onChanged: (bool? value) {
+                        //         addleadprovider.setIsContactedToday(
+                        //           value ?? false,
+                        //         );
+                        //       },
+                        //       side: const BorderSide(
+                        //         color: Colors.black,
+                        //         width: 2,
+                        //       ),
+                        //       activeColor: AppColor.primaryColor2,
+                        //       checkColor: Colors.white,
+                        //     ),
+
+                        //     const Text(
+                        //       "Contacted Today",
+                        //       style: TextStyle(
+                        //         fontSize: 14,
+                        //         fontFamily: AppFonts.poppins,
+                        //         color: AppColor.blackColor,
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
                       ],
                     ),
 
@@ -446,7 +492,32 @@ class DLNAddLeadScreen extends StatelessWidget {
                         const SizedBox(width: 12), // space between buttons
                         Expanded(
                           child: CustomGradientButton(
-                            text: "Submit",
+                            text: "Next",
+                            textStyle: TextStyle(
+                              fontSize: 14,
+                              fontFamily: AppFonts.poppins,
+                              color: AppColor.blackColor,
+                            ),
+                            gradientColors: [
+                              Color(0xFF64B5F6), // light blue
+                              Color(0xFF2196F3), // bright blue
+                            ],
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder:
+                                      (context) =>
+                                          DLNAddDonorDetailsSecondScreen(),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        const SizedBox(width: 12), // space between buttons
+
+                        Expanded(
+                          child: CustomGradientButton(
+                            text: "Save Donor",
                             onPressed: () {
                               // submit action
                             },
