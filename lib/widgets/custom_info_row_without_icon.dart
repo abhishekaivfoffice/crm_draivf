@@ -20,7 +20,7 @@ class InfoRowWithoutIcon extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
       
@@ -28,19 +28,17 @@ class InfoRowWithoutIcon extends StatelessWidget {
             '$label : ',
             style: const TextStyle(
               fontFamily: AppFonts.poppins,
-              color: AppColor.blackColor,
+              color: Color.fromARGB(171, 0, 0, 0),
               fontSize: 16,
             ),
           ),
-          Expanded(
-            child: Text(
-              value,
-              style: const TextStyle(
-                fontFamily: AppFonts.poppins,
-                color: AppColor.blackColor,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
+          Text(
+            value,
+            style: const TextStyle(
+              fontFamily: AppFonts.poppins,
+              color: AppColor.blackColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
             ),
           ),
         ],

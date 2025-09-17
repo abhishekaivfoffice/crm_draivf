@@ -17,26 +17,36 @@ import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_l
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_reminders_tab.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_sms_tab.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_task_tabs.dart';
+import 'package:crm_draivfmobileapp/provider/donor_lead_new_provider/dln_data_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_segment_button.dart';
 
 import 'package:crm_draivfmobileapp/widgets/custom_popup/custom_confirm_dialogue.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 //////////////////////////////////////donor lead  new profile detailed page///////////////
 
 class DLNDonorLeadNewDataProfile extends StatelessWidget {
-  final User user;
-  const DLNDonorLeadNewDataProfile({super.key, required this.user});
+  final PatientRecord user;
+   DLNDonorLeadNewDataProfile({super.key, required this.user});
+
 
   @override
   Widget build(BuildContext context) {
+       final domestileaddataprovider = Provider.of<DLNDonorLeadsNewDataProvider>(
+      context,
+    );
     double avatarRadius = 30;
     double borderWidth = 2;
     double overlap = 40;
     int count = user.assignedMembers.length;
-
+ final List<Widget> pages = [
+  DLNProfileTabs(user: user),
+      DLNTaskTabs(),
+  ];
     double totalWidth =
         (avatarRadius * 2 + borderWidth * 2) + (overlap * (count - 1));
     return Scaffold(
@@ -69,7 +79,7 @@ class DLNDonorLeadNewDataProfile extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "${user.name}",
+                      "${user.wifeName}",
                       style: TextStyle(
                         color: AppColor.blackColor,
                         fontSize: 22,
@@ -127,7 +137,7 @@ class DLNDonorLeadNewDataProfile extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 10),
-
+          
                     Text(
                       "Access / Assigned",
                       style: TextStyle(
@@ -136,7 +146,7 @@ class DLNDonorLeadNewDataProfile extends StatelessWidget {
                         fontFamily: AppFonts.poppins,
                       ),
                     ),
-
+          
                     const SizedBox(height: 16),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -162,11 +172,11 @@ class DLNDonorLeadNewDataProfile extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 12),
-
+          
                           Expanded(
                             child: CustomGradientButton(
                               icon: Icons.delete,
-
+          
                               height: 40,
                               text: "Delete",
                               textStyle: TextStyle(
@@ -209,89 +219,42 @@ class DLNDonorLeadNewDataProfile extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-
-              const SizedBox(height: 8),
-
-              // TabBar + TabBarView
-              DefaultTabController(
-                length: 11,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+          
+         
+          
+              
+            Column(
+              children: [
+                Row(
                   children: [
-                    const TabBar(
-                      isScrollable: true,
-                      labelColor: AppColor.primaryColor2,
-
-                      unselectedLabelColor: Colors.grey,
-                      indicatorColor: AppColor.primaryColor1,
-                      labelStyle: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                    Expanded(
+                      child: CustomSegmentButton(
+                        text: "Basic Details",
+                        isSelected: domestileaddataprovider.selectedIndex == 0,
+                        onTap: () => domestileaddataprovider.setIndex(0),
                       ),
-                      unselectedLabelStyle: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal,
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: CustomSegmentButton(
+                        text: "Documents",
+                        isSelected: domestileaddataprovider.selectedIndex == 1,
+                        onTap: () => domestileaddataprovider.setIndex(1),
                       ),
-                      tabs: [
-                        Tab(text: " Profile "),
-                        Tab(text: "   Task   "),
-                        Tab(text: "Attachments"),
-                        Tab(text: " Reminders "),
-                        Tab(text: "Payment Links"),
-                        Tab(text: "  Notes  "),
-                        Tab(text: "Activity Log"),
-                        Tab(text: "Marketing"),
-                        Tab(text: "Call Recordings"),
-                        Tab(text: "   Sms   "),
-                        Tab(text: "   Email   "),
-                      ],
                     ),
-
-                    Builder(
-                      builder: (context) {
-                        final TabController tabController =
-                            DefaultTabController.of(context)!;
-
-                        return AnimatedBuilder(
-                          animation: tabController,
-                          builder: (context, _) {
-                            return IndexedStack(
-                              index: tabController.index,
-                              children: [
-                                // Tab 1
-                                DLNProfileTabs(user: user),
-                                // Tab 2
-                                DLNTaskTabs(),
-                                // Tab 3
-                                DLNAttachmentTabs(),
-                                //tab 4
-                                DLNRemindersTab(),
-                                //tab 5
-                                DLNPaymentLinksTab(),
-                                //tab 6
-                                DLNNotesTab(),
-                                //tab 7
-                                DLNActivityLogTabs(),
-                                //tab 8
-                                DLNMarketingTabs(),
-                                //tab 9
-                                DLNCallRecordingTabs(),
-                                //tab 10
-                                DLNSmsTab(),
-                                //tab 11
-                                DLNEmailTabs(),
-                              ],
-                            );
-                          },
-                        );
-                      },
-                    ),
+                   
                   ],
                 ),
-              ),
+                  const SizedBox(height: 10),
+          
+            // Display corresponding class
+            Center(child: pages[domestileaddataprovider.selectedIndex]),
 
-              // ],
-              const SizedBox(height: 12),
+
+              ],
+            ),
+          
+          
             ],
           ),
         ),

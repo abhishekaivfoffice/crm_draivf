@@ -1,9 +1,9 @@
- import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
+import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_add_donor_lead/dln_add_donor_eighth_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_add_donor_lead/dln_add_donor_fourth_page.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_add_donor_lead/dln_add_donor_seventh_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_add_donor_lead/dln_date_field_with_age.dart';
 import 'package:crm_draivfmobileapp/provider/donor_lead_new_provider/dln_add_leads_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
@@ -15,8 +15,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-class DLNAddDonorDetailsSixthScreen extends StatelessWidget {
-  DLNAddDonorDetailsSixthScreen({super.key});
+class DLNAddDonorDetailsSeventhScreen extends StatelessWidget {
+  DLNAddDonorDetailsSeventhScreen({super.key});
   final _addleadformKey = GlobalKey<FormState>();
 
   @override
@@ -26,7 +26,7 @@ class DLNAddDonorDetailsSixthScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       drawer: TabletMobileDrawer(),
 
-      appBar: CustomAppBar(title: "DLN Add Donor Lead 6th screen"),
+      appBar: CustomAppBar(title: "DLN Add Donor Lead 7th screen"),
 
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
@@ -38,7 +38,7 @@ class DLNAddDonorDetailsSixthScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     const SizedBox(height: 24),
-                        Text("6  Recipient Details",style: TextStyle(color: AppColor.blackColor,fontSize: 18,fontWeight: FontWeight.bold),),
+                        Text("7 Timeline Records",style: TextStyle(color: AppColor.blackColor,fontSize: 18,fontWeight: FontWeight.bold),),
                         Divider(color: AppColor.primaryColor2,),
 
 
@@ -49,31 +49,30 @@ class DLNAddDonorDetailsSixthScreen extends StatelessWidget {
               
                         //PAN CARD 
                         CustomTextField(
-                          controller: addleadprovider.reciepientNameController,
-                          hintText: "Enter recipient name",
-                          labelText: "Recipient Name",
+                          controller: addleadprovider.consultationDatesController,
+                          hintText: "Enter Consultation Dates",
+                          labelText: "Consultation Dates  ",
                           isMandatory: false,
               
                         ),
                         const SizedBox(height: 6),
                          //MRD Number 
                         CustomTextField(
-                          controller: addleadprovider.reciepientMRDNameController,
-                          hintText: "Enter recipient MRD number",
-                          labelText: "Recipient MRD Number",
+                          controller: addleadprovider.testDatesController,
+                          hintText: "Enter Test Dates",
+                          labelText: "Test Dates",
                           isMandatory: false,
                         ),
-                    
                         const SizedBox(height: 6),
-                           CustomSearchDropdownWithSearch(
+                             //ART bank enrollment number 
+                        CustomTextField(
+                          controller: addleadprovider.pharmacyMedicinesTimelineController,
+                          hintText: "Enter Pharmacy Medicine Timeline",
+                          labelText: "Pharmacy Medicine Timeline",
                           isMandatory: false,
-                          labelText: "Recipient Location",
-                          items: addleadprovider.recipientlocation,
-                          selectedValue: addleadprovider.selectedRecipientLocation,
-                          onChanged: addleadprovider.setSelectedRecipientLocation,
-                          hintText: "Select Recipient Location",
                         ),
                         const SizedBox(height: 6),
+                     
 
                  
                       
@@ -118,7 +117,7 @@ class DLNAddDonorDetailsSixthScreen extends StatelessWidget {
                                 MaterialPageRoute(
                                   builder:
                                       (context) =>
-                                          DLNAddDonorDetailsSeventhScreen(),
+                                          DLNAddDonorDetailsEighthhScreen(),
                                 ),
                               );
                             },

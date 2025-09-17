@@ -4,13 +4,14 @@ import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/data/models/donor_lead_new/dln_assigned_member_model.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_icon_button.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_profile_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_info_row.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_info_row_without_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DLNProfileTabs extends StatelessWidget {
-  final User user;
+  final PatientRecord user;
 
   const DLNProfileTabs({super.key, required this.user});
 
@@ -21,39 +22,6 @@ class DLNProfileTabs extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            const SizedBox(height: 10,)
-,             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CustomGradientButton(
-                  height: 40,
-                  width: 190,
-                  text: "Convert to Customer",
-                  onPressed: () {
-                   Get.toNamed(AppRoutes.convertToCustomerScreen);
-                  },
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomIconSquareButton(
-                      icon: Icons.edit, 
-                      onPressed: () {
-                      Get.toNamed(AppRoutes.editLeadScreen);
-                      },
-                    ),
-                    const SizedBox(width: 12),
-                    CustomIconSquareButton(
-                      icon: Icons.print,
-                      onPressed: () {
-                        print("Print pressed");
-                      },
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -93,17 +61,17 @@ class DLNProfileTabs extends StatelessWidget {
             InfoRow(
               iconPath: AppImages.nameicon,
               label: "Wife Name",
-              value: user.name,
+              value: user.wifeName,
             ),
             InfoRow(
               iconPath: AppImages.branchicon,
-              label: "Branch",
-              value: user.branch,
+              label: "Location",
+              value: user.location,
             ),
             InfoRow(
               iconPath: AppImages.phoneicon,
               label: "Wife Phone",
-              value: user.phone,
+              value: user.wifePhone,
             ),
             InfoRow(
               iconPath: AppImages.dupeicon,
@@ -127,7 +95,6 @@ class DLNProfileTabs extends StatelessWidget {
             ),
             /////////////////////////////
             Divider(color: AppColor.primaryColor2,),
-           
 
             InfoRowWithoutIcon(label: "Husband Name", value: "---"),
             InfoRowWithoutIcon(label: "Wife Number", value: "+91 9999 9999 54"),

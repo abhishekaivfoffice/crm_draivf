@@ -477,80 +477,88 @@ class DLNAddLeadsProvider extends ChangeNotifier {
   File? get selectedTvScan => _selectedTvScan;
   File? _selectedSemenTest;
   File? get selectedSemenTest => _selectedSemenTest;
-    File? _selectedSerology;
+  File? _selectedSerology;
   File? get selectedSerology => _selectedSerology;
-      File? _selectedbbt;
+  File? _selectedbbt;
   File? get selectedbbt => _selectedbbt;
-        File? _selectedtft;
+  File? _selectedtft;
   File? get selectedtft => _selectedtft;
-          File? _selectedcardiacfitness;
+  File? _selectedcardiacfitness;
   File? get selectedcardiacfitness => _selectedcardiacfitness;
-            File? _selectedecg;
+  File? _selectedecg;
   File? get selectedecg => _selectedecg;
   //choose Tv Scan
   void setTvScan(File file) {
     _selectedTvScan = file;
     notifyListeners();
   }
-    //choose Semen Test
+
+  //choose Semen Test
   void setSemenTest(File file) {
     _selectedSemenTest = file;
     notifyListeners();
   }
-      //choose Serology
-  void setSerology  (File file) {
+
+  //choose Serology
+  void setSerology(File file) {
     _selectedSerology = file;
     notifyListeners();
   }
-        //choose BBT
-  void setBbt  (File file) {
+
+  //choose BBT
+  void setBbt(File file) {
     _selectedbbt = file;
     notifyListeners();
   }
-          //choose TFT
-  void setTft  (File file) {
+
+  //choose TFT
+  void setTft(File file) {
     _selectedtft = file;
     notifyListeners();
   }
-            //choose cardiac fitness
-  void setCardiacFitness  (File file) {
+
+  //choose cardiac fitness
+  void setCardiacFitness(File file) {
     _selectedcardiacfitness = file;
     notifyListeners();
   }
-              //choose ECG
-  void setEcg  (File file) {
+
+  //choose ECG
+  void setEcg(File file) {
     _selectedecg = file;
     notifyListeners();
   }
+
   ///////fifth screen
-   File? _selectedInformedConcent;
+  File? _selectedInformedConcent;
   File? get selectedInformedConcent => _selectedInformedConcent;
-     File? _selectedArtDonorConcent;
+  File? _selectedArtDonorConcent;
   File? get selectedArtDonorConcent => _selectedArtDonorConcent;
-     File? _selectedArtDonorBond;
+  File? _selectedArtDonorBond;
   File? get selectedArtDonorBond => _selectedArtDonorBond;
 
-
-
-    //choose informed concent
+  //choose informed concent
   void setInformedConcent(File file) {
     _selectedInformedConcent = file;
     notifyListeners();
   }
-     //choose ART Donor concent
+
+  //choose ART Donor concent
   void setARTDonorConcent(File file) {
     _selectedArtDonorConcent = file;
     notifyListeners();
   }
-       //choose ART Donor Bond
+
+  //choose ART Donor Bond
   void setARTDonorBond(File file) {
     _selectedArtDonorBond = file;
     notifyListeners();
   }
+
   ///sixth screen
-final reciepientNameController = TextEditingController();
-final reciepientMRDNameController = TextEditingController();
-////Recipient  locations
+  final reciepientNameController = TextEditingController();
+  final reciepientMRDNameController = TextEditingController();
+  ////Recipient  locations
   final List<String> _recipientlocations = [
     "Chennai - Sholinganallur",
     "Chennai - Madipakkam",
@@ -561,15 +569,65 @@ final reciepientMRDNameController = TextEditingController();
     "Erode",
   ];
   List<String> get recipientlocation => _recipientlocations;
-   //Recipient location
+  //Recipient location
   String? _selectedRecipientLocation;
   String? get selectedRecipientLocation => _selectedRecipientLocation;
-    //selected simulation location//
+  //selected simulation location//
   void setSelectedRecipientLocation(String? value) {
     _selectedRecipientLocation = value;
 
     notifyListeners();
   }
+
+  //seventh screen
+  final consultationDatesController = TextEditingController();
+
+  final testDatesController = TextEditingController();
+
+  final pharmacyMedicinesTimelineController = TextEditingController();
+  //eighth Screen
+  final ivfDashboadNotesController = TextEditingController();
+  final intraOpDetailsController = TextEditingController();
+
+  final postOpDetailsController = TextEditingController();
+  File? _selectedOpuSummary;
+  File? get selectedOpuSummary => _selectedOpuSummary;
+  File? _selectedPrescriptions;
+  File? get selectedPrescriptions => _selectedPrescriptions;
+    File? _selectedEmbryoSummary;
+  File? get selectedEmbryoSummary => _selectedEmbryoSummary;
+    File? _selectedReports;
+  File? get selectedReports => _selectedReports;
+    File? _selectedInsuranceClaim;
+  File? get selectedInsuranceClain => _selectedInsuranceClaim;
+  
+  //choose OPU Summary
+  void setOpuSummary(File file) {
+    _selectedOpuSummary = file;
+    notifyListeners();
+  }
+  
+  //choose Prescriptions
+  void setPrescriptions(File file) {
+    _selectedPrescriptions = file;
+    notifyListeners();
+  }
+  //choose Embryo Summary
+  void setEmbryoSummary(File file) {
+    _selectedEmbryoSummary = file;
+    notifyListeners();
+  }
+    //choose Reports
+  void setReports(File file) {
+    _selectedReports = file;
+    notifyListeners();
+  }
+      //choose Insurance claims
+  void setInsuranceClaim(File file) {
+    _selectedInsuranceClaim = file;
+    notifyListeners();
+  }
+
   ////dummy data for edit lead screen///
   void loadDummyLead() {
     wifeNameController.text = "Anitha";

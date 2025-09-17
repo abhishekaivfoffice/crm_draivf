@@ -1,7 +1,7 @@
-import 'package:crm_draivfmobileapp/core/routes/routes.dart';
-import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
+import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
+import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_profile_button.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class DLNTaskTabs extends StatelessWidget {
   const DLNTaskTabs({super.key});
@@ -12,77 +12,281 @@ class DLNTaskTabs extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 18),
-        CustomGradientButton(
-          icon: Icons.add,
-          height: 40,
-          width: 190,
-          text: "New Task",
-          onPressed: () {
-           Get.toNamed(AppRoutes.addNewTaskScreen);
+        const SizedBox(height: 10),
+
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Wife Photo",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
           },
         ),
-        const SizedBox(height: 10),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal, // allow horizontal scroll
-          child: DataTable(
-            headingRowColor: MaterialStateProperty.all(Colors.grey.shade200),
-            border: TableBorder(
-              horizontalInside: BorderSide(
-                color: Colors.grey.shade300,
-                width: 1,
-              ),
-            ),
-            columns: const [
-              DataColumn(label: Text("#")),
-              DataColumn(label: Text("Name")),
-              DataColumn(label: Text("Status")),
-              DataColumn(label: Text("Start Date")),
-              DataColumn(label: Text("Due Date")),
-              DataColumn(label: Text("Assigned to")),
-              DataColumn(label: Text("Tags")),
-              DataColumn(label: Text("Priority")),
-            ],
-            rows: const [
-              DataRow(
-                cells: [
-                  DataCell(Text("1")),
-                  DataCell(Text("Project Alpha")),
-                  DataCell(Text("In Progress")),
-                  DataCell(Text("01-Sep-2025")),
-                  DataCell(Text("10-Sep-2025")),
-                  DataCell(Text("John Doe")),
-                  DataCell(Text("Frontend")),
-                  DataCell(Text("High")),
-                ],
-              ),
-              DataRow(
-                cells: [
-                  DataCell(Text("2")),
-                  DataCell(Text("Project Beta")),
-                  DataCell(Text("Not Started")),
-                  DataCell(Text("05-Sep-2025")),
-                  DataCell(Text("15-Sep-2025")),
-                  DataCell(Text("Jane Smith")),
-                  DataCell(Text("Backend")),
-                  DataCell(Text("Medium")),
-                ],
-              ),
-              DataRow(
-                cells: [
-                  DataCell(Text("3")),
-                  DataCell(Text("Project Gamma")),
-                  DataCell(Text("Completed")),
-                  DataCell(Text("20-Aug-2025")),
-                  DataCell(Text("30-Aug-2025")),
-                  DataCell(Text("Alice")),
-                  DataCell(Text("API")),
-                  DataCell(Text("Low")),
-                ],
-              ),
-            ],
-          ),
+        const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Husband Photo",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
         ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Aadhar (Wife)",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Aadhar (Husband)",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Marriage Certificate",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Divorce Document",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Birth Certificate",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Pan Card",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+        //  const Divider(height: 1),
+
+         Container(
+          width: double.infinity,
+          color: const Color.fromARGB(48, 68, 137, 255),
+          
+          child: Padding(
+           padding: const EdgeInsets.symmetric(vertical: 10),
+           child: Center(child: Text(" Clinical Details",style: TextStyle(fontSize: 18,fontFamily: AppFonts.poppins, fontWeight: FontWeight.bold,),)),
+         )),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "ART Enrollment",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "TV Scan",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Semen Test",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Serology",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "BBT",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "TFT",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Cardiac Fitness",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "ECG",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Informed Consent",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Donor Consent",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Donor Bond",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "OPU Summary",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Prescriptions",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+          const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Embryo Summary",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+          const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Reports",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+         const Divider(height: 1),
+        CustomProfileButton(
+          icon: Icons.credit_card,
+          title: "Insurance Claim",
+          onTap: () {
+            // Navigate to cards screen
+          },
+          onDownload: () {
+            print("Download tapped");
+          },
+        ),
+        
       ],
     );
   }
