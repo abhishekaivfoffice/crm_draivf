@@ -301,7 +301,7 @@ class DLNDonorLeadsNewData extends StatelessWidget {
                             children: [
                               // Name + Branch
                               Text(
-                                user.name,
+                                user.wifeName,
                                 style: const TextStyle(
                                   fontSize: 15,
                                   fontFamily: AppFonts.poppins,
@@ -357,7 +357,7 @@ class DLNDonorLeadsNewData extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Branch: ${user.branch}",
+                                "Branch: ${user.location}",
                                 style: const TextStyle(
                                   color: AppColor.blackColor,
                                 ),
@@ -371,7 +371,7 @@ class DLNDonorLeadsNewData extends StatelessWidget {
 
                           const Divider(),
                           CustomGradientButton(
-                            text: ("${user.phone}"),
+                            text: ("${user.wifePhone}"),
                             height: 33,
                             icon: Icons.call,
                             gradientColors: const [
