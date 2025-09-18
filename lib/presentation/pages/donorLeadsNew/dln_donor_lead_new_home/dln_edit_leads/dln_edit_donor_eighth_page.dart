@@ -12,9 +12,24 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-class DLNAddDonorDetailsEighthhScreen extends StatelessWidget {
-  DLNAddDonorDetailsEighthhScreen({super.key});
+class DLNEditDonorDetailsEighthhScreen extends StatefulWidget {
+  DLNEditDonorDetailsEighthhScreen({super.key});
+
+  @override
+  State<DLNEditDonorDetailsEighthhScreen> createState() => _DLNEditDonorDetailsEighthhScreenState();
+}
+
+class _DLNEditDonorDetailsEighthhScreenState extends State<DLNEditDonorDetailsEighthhScreen> {
   final _addleadformKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+    /// Load dummy lead data into provider
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<DLNAddLeadsProvider>(context, listen: false).loadDummyLead();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +38,7 @@ class DLNAddDonorDetailsEighthhScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       drawer: TabletMobileDrawer(),
 
-      appBar: CustomAppBar(title: "DLN Add Donor Lead 8th screen"),
+      appBar: CustomAppBar(title: "DLN Edit Donor Lead 8th screen"),
 
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
@@ -157,7 +172,30 @@ class DLNAddDonorDetailsEighthhScreen extends StatelessWidget {
                             },
                           ),
                         ),
-                   
+                        const SizedBox(width: 12), // space between buttons
+                        Expanded(
+                          child: CustomGradientButton(
+                            text: "Next",
+                            textStyle: TextStyle(
+                              fontSize: 14,
+                              fontFamily: AppFonts.poppins,
+                              color: AppColor.blackColor,
+                            ),
+                            gradientColors: [
+                              Color(0xFF64B5F6), // light blue
+                              Color(0xFF2196F3), // bright blue
+                            ],
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder:
+                                      (context) =>
+                                          DLNAddDonorDetailsFourthScreen(),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
                         const SizedBox(width: 12), // space between buttons
 
                         Expanded(

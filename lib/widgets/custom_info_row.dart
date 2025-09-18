@@ -48,7 +48,7 @@ class InfoRow extends StatelessWidget {
             style: const TextStyle(
               fontFamily: AppFonts.poppins,
               color: AppColor.blackColor,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w500,
               fontSize: 16,
             ),
           ),

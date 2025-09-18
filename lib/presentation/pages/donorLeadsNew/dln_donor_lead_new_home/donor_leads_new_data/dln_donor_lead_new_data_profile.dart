@@ -6,17 +6,8 @@ import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/data/models/donor_lead_new/dln_assigned_member_model.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/dln_assigned_member_profile/dln_assigned_member_profile.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_activity_log_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_attachment_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_call_recordings_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_email_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_marketing_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_notes_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_payment_links_tab.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_profile_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_reminders_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_sms_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_task_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_downloads_tabs.dart';
 import 'package:crm_draivfmobileapp/provider/donor_lead_new_provider/dln_data_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_segment_button.dart';
@@ -31,22 +22,18 @@ import 'package:provider/provider.dart';
 
 class DLNDonorLeadNewDataProfile extends StatelessWidget {
   final PatientRecord user;
-   DLNDonorLeadNewDataProfile({super.key, required this.user});
-
+  DLNDonorLeadNewDataProfile({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
-       final domestileaddataprovider = Provider.of<DLNDonorLeadsNewDataProvider>(
+    final domestileaddataprovider = Provider.of<DLNDonorLeadsNewDataProvider>(
       context,
     );
     double avatarRadius = 30;
     double borderWidth = 2;
     double overlap = 40;
     int count = user.assignedMembers.length;
- final List<Widget> pages = [
-  DLNProfileTabs(user: user),
-      DLNTaskTabs(),
-  ];
+    final List<Widget> pages = [DLNProfileTabs(user: user), DlnDownloadsTabs()];
     double totalWidth =
         (avatarRadius * 2 + borderWidth * 2) + (overlap * (count - 1));
     return Scaffold(
@@ -137,7 +124,7 @@ class DLNDonorLeadNewDataProfile extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 10),
-          
+
                     Text(
                       "Access / Assigned",
                       style: TextStyle(
@@ -146,7 +133,7 @@ class DLNDonorLeadNewDataProfile extends StatelessWidget {
                         fontFamily: AppFonts.poppins,
                       ),
                     ),
-          
+
                     const SizedBox(height: 16),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -167,16 +154,18 @@ class DLNDonorLeadNewDataProfile extends StatelessWidget {
                                 Color(0xFFBAC8E0), // light grayish blue
                               ],
                               onPressed: () {
-                                Get.toNamed(AppRoutes.editLeadScreen);
+                                Get.toNamed(
+                                  AppRoutes.dlneditDonorLeadNewScreen,
+                                );
                               },
                             ),
                           ),
                           const SizedBox(width: 12),
-          
+
                           Expanded(
                             child: CustomGradientButton(
                               icon: Icons.delete,
-          
+
                               height: 40,
                               text: "Delete",
                               textStyle: TextStyle(
@@ -196,8 +185,8 @@ class DLNDonorLeadNewDataProfile extends StatelessWidget {
                                             "Do you really want to delete the file?",
                                         message:
                                             "This action cannot be undone.",
-                                        confirmText: "Yes delete the file",
-                                        cancelText: "Cancel this time",
+                                        confirmText: "delete",
+                                        cancelText: "Cancel",
                                         svgAsset: AppImages.binicon,
                                         onConfirm: () {
                                           Navigator.of(context).pop();
@@ -219,42 +208,36 @@ class DLNDonorLeadNewDataProfile extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-          
-         
-          
-              
-            Column(
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: CustomSegmentButton(
-                        text: "Basic Details",
-                        isSelected: domestileaddataprovider.selectedIndex == 0,
-                        onTap: () => domestileaddataprovider.setIndex(0),
+
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CustomSegmentButton(
+                          text: "Basic Details",
+                          isSelected:
+                              domestileaddataprovider.selectedIndex == 0,
+                          onTap: () => domestileaddataprovider.setIndex(0),
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: CustomSegmentButton(
-                        text: "Documents",
-                        isSelected: domestileaddataprovider.selectedIndex == 1,
-                        onTap: () => domestileaddataprovider.setIndex(1),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: CustomSegmentButton(
+                          text: "Documents",
+                          isSelected:
+                              domestileaddataprovider.selectedIndex == 1,
+                          onTap: () => domestileaddataprovider.setIndex(1),
+                        ),
                       ),
-                    ),
-                   
-                  ],
-                ),
+                    ],
+                  ),
                   const SizedBox(height: 10),
-          
-            // Display corresponding class
-            Center(child: pages[domestileaddataprovider.selectedIndex]),
 
-
-              ],
-            ),
-          
-          
+                  // Display corresponding class
+                  Center(child: pages[domestileaddataprovider.selectedIndex]),
+                ],
+              ),
             ],
           ),
         ),

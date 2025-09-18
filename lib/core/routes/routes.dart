@@ -28,6 +28,7 @@ class AppRoutes {
 static const donorLeadNewBulkActionScreen = '/donorleadbulkactionscreen';
 static const dlnassignedMemberProfileedithome = '/dlnassignedmemberprofileedithome';
 static const dlnConvertToCustomerScreen = '/dlnconverttocustomerscreen';
+  static const dlneditDonorLeadNewScreen = '/editDonorLeadNewScreen';
 
   
   //international lead -module

@@ -43,7 +43,7 @@ class HelperUtil {
       AppRoutes.donorLeadNewBulkActionScreen,
       AppRoutes.dlnassignedMemberProfileedithome,
       AppRoutes.dlnConvertToCustomerScreen,
-
+      AppRoutes.dlneditDonorLeadNewScreen,
       //no found screen
       AppRoutes.notFoundScreen,
     ];

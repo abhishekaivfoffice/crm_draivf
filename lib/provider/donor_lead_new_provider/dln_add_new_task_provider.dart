@@ -6,9 +6,9 @@ class DLNAddNewTaskProvider extends ChangeNotifier {
   final subjectController = TextEditingController();
   final startDateController = TextEditingController();
   final dueDateController = TextEditingController();
-    final repeateverycountController = TextEditingController();
-        final totalcyclecountController = TextEditingController();
-    final taskDescriptionController = TextEditingController();
+  final repeateverycountController = TextEditingController();
+  final totalcyclecountController = TextEditingController();
+  final taskDescriptionController = TextEditingController();
   File? _selectedFile;
 
   File? get selectedFile => _selectedFile;
@@ -26,7 +26,6 @@ class DLNAddNewTaskProvider extends ChangeNotifier {
   //selected status//
   void setSelectedpriority(String? value) {
     _selectedpriority = value;
-
     notifyListeners();
   }
 
@@ -49,7 +48,7 @@ class DLNAddNewTaskProvider extends ChangeNotifier {
 
   void setSelectedrepeateveryoption(String? value) {
     _selectedrepeateveryoption = value;
-     // Check if "Custom" is selected
+    // Check if "Custom" is selected
     if (value == "Custom") {
       _isCustomSelected = true;
     } else {
@@ -65,26 +64,20 @@ class DLNAddNewTaskProvider extends ChangeNotifier {
     "Week(s)",
     "Month(s)",
     "Year(s)",
- 
   ];
   List<String> get repeateverycustomoptions => _repeateverycustomoptions;
   String? _selectedrepeateverycustomoption;
-  String? get selectedrepeateverycustomoption => _selectedrepeateverycustomoption;
+  String? get selectedrepeateverycustomoption =>
+      _selectedrepeateverycustomoption;
 
   void setSelectedrepeateverycustomoption(String? value) {
     _selectedrepeateverycustomoption = value;
 
-
     notifyListeners();
   }
- /////leads option
-  final List<String> _leadsoptions = [
-    "Lead 1",
-    "Lead 2",
-    "Lead 3",
-    "Lead 4",
- 
-  ];
+
+  /////leads option
+  final List<String> _leadsoptions = ["Lead 1", "Lead 2", "Lead 3", "Lead 4"];
   List<String> get leadsoptions => _leadsoptions;
   String? _selectedleadsoption;
   String? get selectedleadsoption => _selectedleadsoption;
@@ -92,16 +85,15 @@ class DLNAddNewTaskProvider extends ChangeNotifier {
   void setSelectedLeadsOption(String? value) {
     _selectedleadsoption = value;
 
-
     notifyListeners();
   }
-   /////Assignee  option
+
+  /////Assignee  option
   final List<String> _assigneeoptions = [
     "Follower 1",
     "Follower 2",
     "Follower 3",
     "Follower 4",
- 
   ];
   List<String> get assigneeoptions => _assigneeoptions;
   String? _assigneeoption;
@@ -110,24 +102,15 @@ class DLNAddNewTaskProvider extends ChangeNotifier {
   void setSelectedAssigneeOption(String? value) {
     _assigneeoption = value;
 
-
     notifyListeners();
   }
 
-
-
-
-
-
-
-
-   /////followers option
+  /////followers option
   final List<String> _followersoptions = [
     "Follower 1",
     "Follower 2",
     "Follower 3",
     "Follower 4",
- 
   ];
   List<String> get followeroptions => _followersoptions;
   String? _selectedfolloweroption;
@@ -136,15 +119,8 @@ class DLNAddNewTaskProvider extends ChangeNotifier {
   void setSelectedFollowerOption(String? value) {
     _selectedfolloweroption = value;
 
-
     notifyListeners();
   }
-
-
-
-
-
-
 
   bool _ispublic = false;
   bool get ispublic => _ispublic;
@@ -153,6 +129,7 @@ class DLNAddNewTaskProvider extends ChangeNotifier {
     _ispublic = value;
     notifyListeners();
   }
+
   bool _isInfinity = true;
   TextEditingController totalCyclesController = TextEditingController();
 
@@ -165,7 +142,8 @@ class DLNAddNewTaskProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
-   //Tags
+
+  //Tags
   final List<String> _tags = ["Tag1", "Tag2", "Tag3", "Tag4", "Tag5"];
   List<String> get tags => _tags;
   final List<String> _selectedTags = [];
@@ -180,7 +158,4 @@ class DLNAddNewTaskProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
-
-
-
 }
