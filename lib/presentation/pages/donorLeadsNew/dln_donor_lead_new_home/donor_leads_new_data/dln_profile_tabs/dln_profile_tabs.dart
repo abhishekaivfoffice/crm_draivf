@@ -1,14 +1,10 @@
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appimages.dart';
-import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/data/models/donor_lead_new/dln_assigned_member_model.dart';
-import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
-import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_icon_button.dart';
-import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_profile_button.dart';
+
 import 'package:crm_draivfmobileapp/widgets/custom_info_row.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_info_row_without_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class DLNProfileTabs extends StatelessWidget {
   final PatientRecord user;
@@ -60,8 +56,13 @@ class DLNProfileTabs extends StatelessWidget {
             ),
             InfoRow(
               iconPath: AppImages.nameicon,
-              label: "Wife Name",
+              label: "Donor Name",
               value: user.wifeName,
+            ),
+            InfoRow(
+              iconPath: AppImages.walkindateicon,
+              label: "Donor Age",
+              value: "33",
             ),
             InfoRow(
               iconPath: AppImages.branchicon,
@@ -94,66 +95,26 @@ class DLNProfileTabs extends StatelessWidget {
               value: user.lastContact,
             ),
             /////////////////////////////
-            Divider(color: AppColor.primaryColor2,),
+            Divider(color: AppColor.primaryColor2),
+
+            InfoRowWithoutIcon(label: "Created", value: "12-10-2025"),
+            InfoRowWithoutIcon(label: "Children details", value: "2 Baby"),
+            InfoRowWithoutIcon(label: "MRD Number", value: "B564AIVF"),
 
             InfoRowWithoutIcon(label: "Husband Name", value: "---"),
             InfoRowWithoutIcon(label: "Wife Number", value: "+91 9999 9999 54"),
-            InfoRowWithoutIcon(label: "Purpose", value: "Fertility Treatment"),
-            InfoRowWithoutIcon(label: "Hysband Number", value: "---"),
-            Row(
-              children: [
-                Expanded(
-                  child: InfoRowWithoutIcon(label: "Husband Age", value: "56"),
-                ),
-                Expanded(
-                  child: InfoRowWithoutIcon(label: "Wife Age", value: "47"),
-                ),
-              ],
-            ),
+
             InfoRowWithoutIcon(label: "Address", value: "---"),
             InfoRowWithoutIcon(label: "City", value: "---"),
             InfoRowWithoutIcon(label: "State", value: "---"),
             InfoRowWithoutIcon(label: "Country", value: "---"),
             InfoRowWithoutIcon(label: "Zipcode", value: "---"),
-            Row(
-              children: [
-                Expanded(
-                  child: InfoRowWithoutIcon(label: "Marriage at", value: "---"),
-                ),
-                Expanded(
-                  child: InfoRowWithoutIcon(
-                    label: "Married Years",
-                    value: "---",
-                  ),
-                ),
-              ],
-            ),
-            InfoRowWithoutIcon(label: "Profile Group", value: "---"),
-            InfoRowWithoutIcon(label: "For Fertility Treatment", value: "---"),
+
             InfoRowWithoutIcon(label: "Preferred Time To Call", value: "---"),
             InfoRowWithoutIcon(label: "Preferred Language", value: "---"),
             InfoRowWithoutIcon(label: "Description", value: "---"),
             InfoRowWithoutIcon(label: "Attribute", value: "---"),
             InfoRowWithoutIcon(label: "Assigned", value: "---"),
-            Row(
-              children: [
-                Expanded(
-                  child: InfoRowWithoutIcon(label: "Wife MDR no", value: "---"),
-                ),
-                Expanded(
-                  child: InfoRowWithoutIcon(
-                    label: "Husband MDR no",
-                    value: "---",
-                  ),
-                ),
-              ],
-            ),
-            InfoRowWithoutIcon(label: "Tags", value: "---"),
-            InfoRowWithoutIcon(label: "Created", value: "---"),
-            InfoRowWithoutIcon(label: "LastContact", value: "---"),
-            InfoRowWithoutIcon(label: "Public", value: "---"),
-            InfoRowWithoutIcon(label: "Preferred Location", value: "---"),
-            InfoRowWithoutIcon(label: "Walkin Date", value: "---"),
 
             const SizedBox(height: 16),
           ],

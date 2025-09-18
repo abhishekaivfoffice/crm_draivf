@@ -340,18 +340,7 @@ class DLNAddLeadsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // ///selected tags
-  // void toggleItem(String item) {
-  //   if (_selectedTags.contains(item)) {
-  //     _selectedTags.remove(item);
-  //   } else {
-  //     _selectedTags.add(item);
-  //   }
-  //   notifyListeners();
-  // }
-
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  //controller for textfield//////////////////////dummy codeeeeeeeeee
+  //controller for textfield//
   final passwordcontroller = TextEditingController();
 
   bool _isloading = false;
@@ -383,7 +372,6 @@ class DLNAddLeadsProvider extends ChangeNotifier {
   ////second page controllers
   final donornameController = TextEditingController();
   final detailsofPreviousChildController = TextEditingController();
-
   final donorageController = TextEditingController();
   File? _selectedWifeImage;
   File? get selectedWifeImage => _selectedWifeImage;
@@ -581,54 +569,54 @@ class DLNAddLeadsProvider extends ChangeNotifier {
 
   //seventh screen
   final consultationDatesController = TextEditingController();
-
   final testDatesController = TextEditingController();
-
   final pharmacyMedicinesTimelineController = TextEditingController();
   //eighth Screen
   final ivfDashboadNotesController = TextEditingController();
   final intraOpDetailsController = TextEditingController();
-
   final postOpDetailsController = TextEditingController();
   File? _selectedOpuSummary;
   File? get selectedOpuSummary => _selectedOpuSummary;
   File? _selectedPrescriptions;
   File? get selectedPrescriptions => _selectedPrescriptions;
-    File? _selectedEmbryoSummary;
+  File? _selectedEmbryoSummary;
   File? get selectedEmbryoSummary => _selectedEmbryoSummary;
-    File? _selectedReports;
+  File? _selectedReports;
   File? get selectedReports => _selectedReports;
-    File? _selectedInsuranceClaim;
+  File? _selectedInsuranceClaim;
   File? get selectedInsuranceClain => _selectedInsuranceClaim;
-  
+
   //choose OPU Summary
   void setOpuSummary(File file) {
     _selectedOpuSummary = file;
     notifyListeners();
   }
-  
+
   //choose Prescriptions
   void setPrescriptions(File file) {
     _selectedPrescriptions = file;
     notifyListeners();
   }
+
   //choose Embryo Summary
   void setEmbryoSummary(File file) {
     _selectedEmbryoSummary = file;
     notifyListeners();
   }
-    //choose Reports
+
+  //choose Reports
   void setReports(File file) {
     _selectedReports = file;
     notifyListeners();
   }
-      //choose Insurance claims
+
+  //choose Insurance claims
   void setInsuranceClaim(File file) {
     _selectedInsuranceClaim = file;
     notifyListeners();
   }
 
-  ////dummy data for edit lead screen///
+  //dummy data for edit lead screen//
   void loadDummyLead() {
     wifeNameController.text = "Anitha";
     wifeNumberController.text = "9876543210";
@@ -643,12 +631,9 @@ class DLNAddLeadsProvider extends ChangeNotifier {
     zipcodeController.text = "600040";
     emailController.text = "anitha@example.com";
     descriptionController.text = "Follow-up required for IVF treatment.";
-    // wifemdrnumberController.text = "WDR12345";
-    // husbandmdrnumberController.text = "HDR54321";
     marriageDateController.text = "01-01-2015";
     walkinDateController.text = "12-09-2025";
-
-    _selectedstatus = "Interested";
+    _selectedstatus = "Donor";
     _selectedsources = "Google";
     _selectedassigned = "Yamini 12767";
     _selectedattribute = "Facebook";
@@ -657,17 +642,21 @@ class DLNAddLeadsProvider extends ChangeNotifier {
     _selectedForFertilityTreatment = "New";
     _selectedPreferedTime = "7am to 11am";
     _selectedPreferedLanguage = "Tamil";
-
     _isWifeWhatsappAvailable = true;
     _isHusbandWhatsappAvailable = false;
-    // _isPublic = true;
     _isContactedToday = true;
-
-    // _selectedTags.clear();
-    // _selectedTags.addAll(["Tag1", "Tag3"]);
-
     marriedYearsController.text = "10";
-
+    //EIGHTH PAGE
+    ivfDashboadNotesController.text =
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.";
+    intraOpDetailsController.text =
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.";
+    postOpDetailsController.text =
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.";
+    _selectedOpuSummary = File("assets/document/dummypdf.pdf");
+    _selectedPrescriptions = File("assets/document/dummypdf.pdf");
+    _selectedEmbryoSummary = File("assets/document/dummypdf.pdf");
+    _selectedInsuranceClaim = File("assets/document/dummypdf.pdf");
     notifyListeners();
   }
 }

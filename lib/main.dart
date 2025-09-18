@@ -15,6 +15,7 @@ import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/new_leads/a
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_bulk_action/dln_bulk_action_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/dln_assigned_member_profile/dln_assigned_member_profile_edithome.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/dln_donor_leads_new_home.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/dln_edit_leads/dln_edit_donor_details.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_convert_to_customer/dln_convert_to_customer_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_donor_lead_new_data_profile.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_add_donor_lead/dln_add_donor_details.dart';
@@ -232,7 +233,8 @@ class MyApp extends StatelessWidget {
         return const DLNAssignedMemberProfileEdit();
          case AppRoutes.dlnConvertToCustomerScreen:
         return const DLNConvertToCustomerPage();
-
+        case AppRoutes.dlneditDonorLeadNewScreen:
+        return  DLNEditLeadScreen();
       //international lead screen
 
       case AppRoutes.internationalLeadHome:

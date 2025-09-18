@@ -3,8 +3,8 @@ import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_profile_button.dart';
 import 'package:flutter/material.dart';
 
-class DLNTaskTabs extends StatelessWidget {
-  const DLNTaskTabs({super.key});
+class DlnDownloadsTabs extends StatelessWidget {
+  const DlnDownloadsTabs({super.key});
 
   @override
   Widget build(BuildContext context) {
