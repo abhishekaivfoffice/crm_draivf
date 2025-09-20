@@ -41,7 +41,18 @@ static const dlnConvertToCustomerScreen = '/dlnconverttocustomerscreen';
   static const inlSetLeadReminderScreen = '/inlsetleadremindetrscreen';
   static const inleditLeadScreen = '/inleditLeadScreen';
 static const inleditAssignedMember = '/inleditassignedmember';
+//JOB LEADS
+static const jobLeadHome = '/jobleadhome';
+  static const jladdLeadScreen = '/jladdleadscreen';
+  static const jlimportLeadScreen = '/jlimportleadscreen';
+  static const jobleaddata = '/jobleaddata';
+  static const jlbulkActionScreen = '/jlbulkactionscreen';
+  static const jlassignedMemberProfileedithome = '/jlassignedmemberprofileedithome';
 
+  static const jlconvertToCustomerScreen = '/jlconverttocustomerscreen';
+  static const jladdNewTaskScreen = '/jladdnewtaskscreen';
+  static const jlsetLeadReminderScreen = '/jlsetleadremindetrscreen';
+  static const jleditLeadScreen = '/jleditLeadScreen';
 
   //enquiry screen
   static const enquiryHome = '/enquiryhome';

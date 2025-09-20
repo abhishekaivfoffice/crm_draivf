@@ -24,6 +24,16 @@ import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/intern
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_add_new_task.dart/inl_add_new_task_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_convert_to_customer/inl_convert_to_customer_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_set_lead_reminders/inl_set_lead_reminders_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/JL_bulk_action/jl_bulk_action_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/jl_import_leads/jl_import_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/jl_new_leads/jl_add_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/jl_assigned_member_profile/jl_assigned_member_profile_edithome.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/jl_edit_leads/jl_edit_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_add_new_task.dart/jl_add_new_task_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_convert_to_customer/jl_convert_to_customer_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_set_lead_reminders/jl_set_lead_reminders_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/job_leads_data.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_home.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/add_leads_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_edit_provider.dart';
@@ -70,11 +80,22 @@ import 'package:crm_draivfmobileapp/presentation/pages/login/login_screen.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/splash_screen/splash_screen.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/teleDashboard/teledashboard_home/teledashboard_home.dart';
 import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_setlead_reminders_provider.dart';
+import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_add_leads_provider.dart';
+import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_add_new_task_provider.dart';
+import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_assigned_member_profile_edit_provider.dart';
+import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_assigned_member_profile_provider.dart';
+import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_convert_to_customer_provider.dart';
+import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_import_leads_provider.dart';
+import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_job_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_set_lead_reminders_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:provider/provider.dart';
 
+//regionalithead@draravindsivf.in
+// 9363488086
+//Thank you for submitting your details Our concerned team will get in touch with you shortly Use this number for future reference: DR091920251935771518
 void main() async {
   runApp(const MyApp());
   Get.lazyPut<AppBarController>(() => AppBarController());
@@ -132,6 +153,21 @@ class MyApp extends StatelessWidget {
           create: (_) => DLNAssignedMemberProfileEditProvider(),
         ),
         ChangeNotifierProvider(create: (_) => DLNConvertToCustomerProvider()),
+        //job lead provider
+        ChangeNotifierProvider(create: (_) => JLAddLeadsProvider()),
+
+        ChangeNotifierProvider(create: (_) => JLAddNewTaskProvider()),
+        ChangeNotifierProvider(
+          create: (_) => JLAssignedMemberProfileEditProvider(),
+        ),
+
+        ChangeNotifierProvider(
+          create: (_) => JLAssignedMemberProfileProvider(),
+        ),
+        ChangeNotifierProvider(create: (_) => JlConvertToCustomerProvider()),
+        ChangeNotifierProvider(create: (_) => JlImportLeadsProvider()),
+        ChangeNotifierProvider(create: (_) => JlJobLeadsDataProvider()),
+        ChangeNotifierProvider(create: (_) => JLSetLeadRemindersProvider()),
 
         //enquiry provider
         ChangeNotifierProvider(create: (_) => AddEnquiryProvider()),
@@ -231,10 +267,10 @@ class MyApp extends StatelessWidget {
         return DLNBulkActionPage();
       case AppRoutes.dlnassignedMemberProfileedithome:
         return const DLNAssignedMemberProfileEdit();
-         case AppRoutes.dlnConvertToCustomerScreen:
+      case AppRoutes.dlnConvertToCustomerScreen:
         return const DLNConvertToCustomerPage();
-        case AppRoutes.dlneditDonorLeadNewScreen:
-        return  DLNEditLeadScreen();
+      case AppRoutes.dlneditDonorLeadNewScreen:
+        return DLNEditLeadScreen();
       //international lead screen
 
       case AppRoutes.internationalLeadHome:
@@ -255,6 +291,28 @@ class MyApp extends StatelessWidget {
         return INLEditLeadScreen();
       case AppRoutes.inleditAssignedMember:
         return INLAssignedMemberProfileEditHome();
+      //JOB LEAD SCREEN
+      case AppRoutes.jobLeadHome:
+        return JLDomesticLeadsHome();
+      case AppRoutes.jladdLeadScreen:
+        return JLAddLeadScreen();
+      case AppRoutes.jlimportLeadScreen:
+        return JLImportLeads();
+
+      case AppRoutes.jobleaddata:
+        return JobLeadsData();
+      case AppRoutes.jlbulkActionScreen:
+        return JLBulkActionPage();
+      case AppRoutes.jlassignedMemberProfileedithome:
+        return JLAssignedMemberProfileEditHome();
+      case AppRoutes.jlconvertToCustomerScreen:
+        return JLConvertToCustomerPage();
+      case AppRoutes.jladdNewTaskScreen:
+        return JLAddNewTaskPage();
+      case AppRoutes.jlsetLeadReminderScreen:
+        return JLSetLeadRemindersPage();
+      case AppRoutes.jleditLeadScreen:
+        return JLEditLeadScreen();
 
       //not found screen
       case AppRoutes.notFoundScreen:

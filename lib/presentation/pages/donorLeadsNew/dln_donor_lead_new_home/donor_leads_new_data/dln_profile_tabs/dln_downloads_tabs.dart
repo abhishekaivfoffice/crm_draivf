@@ -1,5 +1,6 @@
-import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
+
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/documents_detailed_page.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_profile_button.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ class DlnDownloadsTabs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -18,7 +20,12 @@ class DlnDownloadsTabs extends StatelessWidget {
           icon: Icons.credit_card,
           title: "Wife Photo",
           onTap: () {
-            // Navigate to cards screen
+          Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => CertificateDetailPage(fileUrl: "https://picsum.photos/400/600"),
+          ),
+        );
           },
           onDownload: () {
             print("Download tapped");
