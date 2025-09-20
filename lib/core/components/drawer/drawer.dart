@@ -112,18 +112,24 @@ class TabletMobileDrawer extends StatelessWidget {
                           targetPage: AppRoutes.internationalLeadHome,
                           fontSize: navItemFontSize,
                         ),
-                        // TabletAppbarNavigationBtn(
-                        //   leadingicon: Icons.home_work,
-                        //   title: 'Enquiry',
-                        //   targetPage: AppRoutes.enquiryHome,
-                        //   fontSize: navItemFontSize,
-                        // ),
-                        // TabletAppbarNavigationBtn(
-                        //   leadingicon: Icons.campaign,
-                        //   title: 'Camp Management',
-                        //   targetPage: AppRoutes.campHome,
-                        //   fontSize: navItemFontSize,
-                        // ),
+                           TabletAppbarNavigationBtn(
+                          leadingicon: Icons.nat_outlined,
+                          title: 'Job Leads',
+                          targetPage: AppRoutes.jobLeadHome ,
+                          fontSize: navItemFontSize,
+                        ),
+                        TabletAppbarNavigationBtn(
+                          leadingicon: Icons.home_work,
+                          title: 'Enquiry',
+                          targetPage: AppRoutes.enquiryHome,
+                          fontSize: navItemFontSize,
+                        ),
+                        TabletAppbarNavigationBtn(
+                          leadingicon: Icons.campaign,
+                          title: 'Camp Management',
+                          targetPage: AppRoutes.campHome,
+                          fontSize: navItemFontSize,
+                        ),
                        
                       ],
                     ),
