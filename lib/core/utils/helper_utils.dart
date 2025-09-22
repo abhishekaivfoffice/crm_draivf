@@ -55,6 +55,17 @@ class HelperUtil {
       AppRoutes.jladdNewTaskScreen,
       AppRoutes.jlsetLeadReminderScreen,
       AppRoutes.jleditLeadScreen,
+      //job leads new
+      AppRoutes.jobLeadNewHome,
+      AppRoutes.jlnaddLeadScreen,
+      AppRoutes.jlnimportLeadScreen,
+      AppRoutes.jobleadnewdata,
+      AppRoutes.jlnbulkActionScreen,
+      AppRoutes.jlnassignedMemberProfileedithome,
+       AppRoutes.jlnconvertToCustomerScreen,
+       AppRoutes.jlnaddNewTaskScreen,
+       AppRoutes.jlnsetLeadReminderScreen,
+        AppRoutes.jlneditLeadScreen,
       //no found screen
       AppRoutes.notFoundScreen,
     ];

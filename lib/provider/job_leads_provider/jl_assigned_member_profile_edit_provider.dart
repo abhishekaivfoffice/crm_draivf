@@ -1,4 +1,3 @@
-import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
 import 'package:flutter/cupertino.dart';
 
 class JLAssignedMemberProfileEditProvider extends ChangeNotifier {

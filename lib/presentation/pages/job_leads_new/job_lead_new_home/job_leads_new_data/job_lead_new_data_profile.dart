@@ -5,18 +5,18 @@ import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/assigned_member_profile/assigned_member_profile/assigned_member_profile.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_activity_log_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_attachment_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_call_recordings_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_email_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_marketing_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_notes_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_payment_links_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_profile_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_reminders_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_sms_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_task_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/jln_assigned_member_profile/jln_assigned_member_profile.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_activity_log_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_attachment_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_call_recordings_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_email_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_marketing_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_notes_tab.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_payment_links_tab.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_profile_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_reminders_tab.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_sms_tab.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_task_tabs.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 
 import 'package:crm_draivfmobileapp/widgets/custom_popup/custom_confirm_dialogue.dart';
@@ -24,7 +24,7 @@ import 'package:crm_draivfmobileapp/widgets/custom_popup/custom_confirm_dialogue
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-//////////////////////////////////////job lead profile detailed page///////////////
+//////////////////////////////////////job leads new profile detailed page///////////////
 
 class JOBLeadNewDataProfile extends StatelessWidget {
   final User user;
@@ -94,7 +94,7 @@ class JOBLeadNewDataProfile extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                           builder:
-                                              (_) => AssignedMemberDetails(
+                                              (_) => JLNAssignedMemberDetails(
                                                 member: m,
                                               ),
                                         ),
@@ -259,27 +259,27 @@ class JOBLeadNewDataProfile extends StatelessWidget {
                               index: tabController.index,
                               children: [
                                 // Tab 1
-                                JLProfileTabs(user: user),
+                                JLNProfileTabs(user: user),
                                 // Tab 2
-                                 JLTaskTabs(),
+                                 JLNTaskTabs(),
                                 // Tab 3
-                                 JLAttachmentTabs(),
+                                 JLNAttachmentTabs(),
                                 //tab 4
-                                 JLRemindersTab(),
+                                 JLNRemindersTab(),
                                 //tab 5
-                                 JLPaymentLinksTab(),
+                                 JLNPaymentLinksTab(),
                                 //tab 6
-                                 JLNotesTab(),
+                                 JLNNotesTab(),
                                 //tab 7
-                                 JLActivityLogTabs(),
+                                 JLNActivityLogTabs(),
                                 //tab 8
-                                 JLMarketingTabs(),
+                                 JLNMarketingTabs(),
                                 //tab 9
-                                 JLCallRecordingTabs(),
+                                 JLNCallRecordingTabs(),
                                 //tab 10
-                                 JLSmsTab(),
+                                 JLNSmsTab(),
                                 //tab 11
-                                 JLEmailTabs(),
+                                 JLNEmailTabs(),
                               ],
                             );
                           },

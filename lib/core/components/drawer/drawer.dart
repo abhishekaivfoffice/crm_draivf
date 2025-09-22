@@ -118,6 +118,12 @@ class TabletMobileDrawer extends StatelessWidget {
                           targetPage: AppRoutes.jobLeadHome ,
                           fontSize: navItemFontSize,
                         ),
+                          TabletAppbarNavigationBtn(
+                          leadingicon: Icons.nat_outlined,
+                          title: 'Job Leads New',
+                          targetPage: AppRoutes.jobLeadNewHome ,
+                          fontSize: navItemFontSize,
+                        ),
                         TabletAppbarNavigationBtn(
                           leadingicon: Icons.home_work,
                           title: 'Enquiry',

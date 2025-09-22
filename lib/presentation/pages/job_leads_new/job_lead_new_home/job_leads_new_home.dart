@@ -1,7 +1,7 @@
 import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/job_leads_data.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/job_leads_new_data.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,38 +22,37 @@ class JobLeadsNewHome extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: CustomGradientButton(
-                          height: 40,
-                          text: "New Lead",
-                          icon: Icons.add,
+                  // Row(
+                  //   children: [
+                  //     Expanded(
+                  //       child: CustomGradientButton(
+                  //         height: 40,
+                  //         text: "New Lead",
+                  //         icon: Icons.add,
 
-                          onPressed: () {
-                            Get.toNamed(AppRoutes.jladdLeadScreen);
-                          },
-                        ),
-                      ),
-                      const SizedBox(width: 12), // space between buttons
-                      Expanded(
-                        child: CustomGradientButton(
-                          height: 40,
-                          text: "Import Leads",
-                          icon: Icons.import_export_rounded,
+                  //         onPressed: () {
+                  //           Get.toNamed(AppRoutes.jladdLeadScreen);
+                  //         },
+                  //       ),
+                  //     ),
+                  //     const SizedBox(width: 12), // space between buttons
+                  //     Expanded(
+                  //       child: CustomGradientButton(
+                  //         height: 40,
+                  //         text: "Import Leads",
+                  //         icon: Icons.import_export_rounded,
 
-                          onPressed: () {
-                            Get.toNamed(AppRoutes.jlimportLeadScreen);
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
+                  //         onPressed: () {
+                  //           Get.toNamed(AppRoutes.jlimportLeadScreen);
+                  //         },
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               ),
             ),
-            JobLeadsData (),
+            JobLeadsNewData (),
           ],
         ),
       ),
