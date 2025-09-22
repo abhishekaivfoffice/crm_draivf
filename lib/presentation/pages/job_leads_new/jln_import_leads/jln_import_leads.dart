@@ -2,8 +2,8 @@ import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/jl_import_leads/jl_import_lead_text.dart';
-import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_import_leads_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/jln_import_leads/jln_import_lead_text.dart';
+import 'package:crm_draivfmobileapp/provider/job_leads_new_provider/jln_import_leads_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_filechooser_field/custom_file_chooser_field.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_with_search.dart';
@@ -26,7 +26,7 @@ class JLNImportLeads extends StatelessWidget {
   );
   @override
   Widget build(BuildContext context) {
-    final importleadprovider = Provider.of<JlImportLeadsProvider>(context);
+    final importleadprovider = Provider.of<JlNImportLeadsProvider>(context);
     return Scaffold(
       drawer: TabletMobileDrawer(),
 
@@ -52,27 +52,27 @@ class JLNImportLeads extends StatelessWidget {
                     child: Column(
                       children: [
                         _buildRichText([
-                          JLImportLeadTexts.point1Part1,
-                          JLImportLeadTexts.utf8Part,
-                          JLImportLeadTexts.point1Part2,
+                          JLNImportLeadTexts.point1Part1,
+                          JLNImportLeadTexts.utf8Part,
+                          JLNImportLeadTexts.point1Part2,
                         ]),
                         const SizedBox(height: 8),
                         _buildRichText([
-                          JLImportLeadTexts.point2Part1,
-                          JLImportLeadTexts.dateFormat,
-                          JLImportLeadTexts.point2Part2,
+                          JLNImportLeadTexts.point2Part1,
+                          JLNImportLeadTexts.dateFormat,
+                          JLNImportLeadTexts.point2Part2,
                         ]),
                         const SizedBox(height: 8),
                         _buildRichText([
-                          JLImportLeadTexts.point3Part1,
-                          JLImportLeadTexts.uniqueValidation,
-                          JLImportLeadTexts.point3Part2,
+                          JLNImportLeadTexts.point3Part1,
+                          JLNImportLeadTexts.uniqueValidation,
+                          JLNImportLeadTexts.point3Part2,
                         ]),
                         const SizedBox(height: 6),
-                        _buildRichText([JLImportLeadTexts.leadEmail]),
-                        _buildRichText([JLImportLeadTexts.leadPhone]),
+                        _buildRichText([JLNImportLeadTexts.leadEmail]),
+                        _buildRichText([JLNImportLeadTexts.leadPhone]),
                         const SizedBox(height: 12),
-                        _buildRichText([JLImportLeadTexts.note]),
+                        _buildRichText([JLNImportLeadTexts.note]),
                       ],
                     ),
                   ),

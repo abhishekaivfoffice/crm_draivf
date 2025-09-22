@@ -1,4 +1,4 @@
-import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_job_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/provider/job_leads_new_provider/jln_job_leads_data_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_filechooser_field/upload_box.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +9,7 @@ class JLNAttachmentTabs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final domesticleaddataprofileprovider =
-        Provider.of<JlJobLeadsDataProvider>(context);
+        Provider.of<JlNJobLeadsDataProvider>(context);
     return Column(
       children: [
         const SizedBox(height: 10),
@@ -20,7 +20,7 @@ class JLNAttachmentTabs extends StatelessWidget {
           },
         ),
         const SizedBox(height: 20),
-        Consumer<JlJobLeadsDataProvider>(
+        Consumer<JlNJobLeadsDataProvider>(
           builder: (context, fileProvider, _) {
             if (fileProvider.selectedFiles.isEmpty) {
               return const Text("No files selected");

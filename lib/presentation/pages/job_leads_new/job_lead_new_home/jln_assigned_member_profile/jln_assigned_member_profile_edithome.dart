@@ -2,8 +2,7 @@ import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-
-import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_assigned_member_profile_edit_provider.dart';
+import 'package:crm_draivfmobileapp/provider/job_leads_new_provider/jln_assigned_member_profile_edit_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/segment_swipe_button.dart.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/Custom_date_field.dart';
@@ -42,7 +41,7 @@ class _JLNAssignedMemberProfileEditHomeState
   @override
   Widget build(BuildContext context) {
     final assignedmemberprofileeditprovider =
-        Provider.of<JLAssignedMemberProfileEditProvider>(context);
+        Provider.of<JLNAssignedMemberProfileEditProvider>(context);
     return Scaffold(
       appBar: CustomAppBar(title: "Job leads new Profile Edit"),
       drawer: TabletMobileDrawer(),

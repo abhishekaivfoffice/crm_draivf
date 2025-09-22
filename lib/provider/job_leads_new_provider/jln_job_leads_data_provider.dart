@@ -6,6 +6,8 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 class JlNJobLeadsDataProvider extends ChangeNotifier {
+    final joiningDateController = TextEditingController();
+
   int currentPage = 0;
   int pageSize = 10;
   bool get hasNextPage => (currentPage + 1) * pageSize < users.length;
@@ -180,6 +182,36 @@ class JlNJobLeadsDataProvider extends ChangeNotifier {
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////filter values
+ final List<String> _jobtitle = [
+  "Admin",
+  "Lab Technician",
+  "MBBS Doctor",
+  "Jr. HR Executive",
+  "HR Trainee",
+  "Staff Nurse",
+  "Business Head (Business, Operations, P&L & Strategy)",
+  "Jr. Embryologist",
+  "Billing Executive",
+  "Maintenance Executive",
+  "Receptionist",
+  "BEMS-Doctors",
+  "Purchase Executive",
+  "Couple Coordinator",
+  "Pharmacist",
+  "OT Technicians",
+  "Social Media Executive",
+  "Head Lab Technician",
+  "HR Executive",
+];
+  List<String> get jobtitle => _jobtitle;
+    List<String> _selectedJobTitle = [];
+  List<String> get selectedJobTitle => _selectedJobTitle;
+    //setjobtitle
+  void setJobTitle(List<String> job) {
+    _selectedJobTitle = job;
+    notifyListeners();
+  }
+
   final List<String> _filterzones = [
     "CHENNAI",
     "KARNATAKA",

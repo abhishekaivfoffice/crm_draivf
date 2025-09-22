@@ -1,4 +1,4 @@
-import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_job_leads_data_provider.dart';
+import 'package:crm_draivfmobileapp/provider/job_leads_new_provider/jln_job_leads_data_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_with_search.dart';
 
@@ -13,21 +13,21 @@ class JLNEmailTabs extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     final domesticleaddataprofileprovider =
-        Provider.of<JlJobLeadsDataProvider>(context);
+        Provider.of<JlNJobLeadsDataProvider>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const SizedBox(height: 10),
-        CustomSearchDropdownWithSearch(
-          isMandatory: false,
-          labelText: "Language",
-          items: domesticleaddataprofileprovider.language,
-          selectedValue: domesticleaddataprofileprovider.selectedLanguage,
-          onChanged: domesticleaddataprofileprovider.setSelectedLanguage,
-          hintText: "Select language",
-        ),
-         const SizedBox(height: 10),
+        // CustomSearchDropdownWithSearch(
+        //   isMandatory: false,
+        //   labelText: "Language",
+        //   items: domesticleaddataprofileprovider.language,
+        //   selectedValue: domesticleaddataprofileprovider.selectedLanguage,
+        //   onChanged: domesticleaddataprofileprovider.setSelectedLanguage,
+        //   hintText: "Select language",
+        // ),
+        //  const SizedBox(height: 10),
         CustomSearchDropdownWithSearch(
           isMandatory: false,
           labelText: "Template",
