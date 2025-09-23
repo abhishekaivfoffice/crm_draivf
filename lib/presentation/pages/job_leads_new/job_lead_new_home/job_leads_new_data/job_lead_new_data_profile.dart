@@ -95,7 +95,7 @@ class JOBLeadNewDataProfile extends StatelessWidget {
                                         MaterialPageRoute(
                                           builder:
                                               (_) => JLNAssignedMemberDetails(
-                                                member: m,
+                                                // member: m,
                                               ),
                                         ),
                                       );
