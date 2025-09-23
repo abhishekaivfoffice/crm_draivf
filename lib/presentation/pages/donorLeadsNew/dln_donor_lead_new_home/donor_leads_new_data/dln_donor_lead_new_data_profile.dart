@@ -9,7 +9,6 @@ import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_l
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_profile_tabs.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_profile_tabs/dln_downloads_tabs.dart';
 import 'package:crm_draivfmobileapp/provider/donor_lead_new_provider/dln_data_provider.dart';
-import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_segment_button.dart';
 
 import 'package:crm_draivfmobileapp/widgets/custom_popup/custom_confirm_dialogue.dart';
@@ -57,23 +56,61 @@ class DLNDonorLeadNewDataProfile extends StatelessWidget {
                 child: Column(
                   children: [
                     const SizedBox(height: 10),
-                    Text(
-                      "${user.id}",
-                      style: TextStyle(
-                        color: AppColor.blackColor,
-                        fontSize: 16,
-                        fontFamily: AppFonts.poppins,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  showDialog(
+                                    context: context,
+                                    builder:
+                                        (context) => CustomConfirmDialog(
+                                          title:
+                                              "Do you really want to delete the file?",
+                                          message:
+                                              "This action cannot be undone.",
+                                          confirmText: "delete",
+                                          cancelText: "Cancel",
+                                          svgAsset: AppImages.binicon,
+                                          onConfirm: () {
+                                            Navigator.of(context).pop();
+                                            // delete logic
+                                          },
+                                          onCancel: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                        ),
+                                  );
+                                },
+                                icon: Icon(
+                                  Icons.delete,
+                                  color: Colors.red,
+                                  size: 30,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              IconButton(
+                                onPressed: () {
+                                  Get.toNamed(
+                                    AppRoutes.dlneditDonorLeadNewScreen,
+                                  );
+                                },
+                                icon: Icon(
+                                  Icons.edit,
+                                  color: Colors.blueAccent,
+                                  size: 30,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                    Text(
-                      "${user.wifeName}",
-                      style: TextStyle(
-                        color: AppColor.blackColor,
-                        fontSize: 22,
-                        fontFamily: AppFonts.poppins,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
+
                     Center(
                       child: SizedBox(
                         height: avatarRadius * 2 + borderWidth * 2,
@@ -133,77 +170,29 @@ class DLNDonorLeadNewDataProfile extends StatelessWidget {
                         fontFamily: AppFonts.poppins,
                       ),
                     ),
-
-                    const SizedBox(height: 16),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: CustomGradientButton(
-                              icon: Icons.edit,
-                              height: 40,
-                              text: "Edit",
-                              textStyle: TextStyle(
-                                fontFamily: AppFonts.poppins,
-                                color: AppColor.whiteColor,
-                              ),
-                              gradientColors: [
-                                Color(0xFF6A85B6), // soft blue
-                                Color(0xFFBAC8E0), // light grayish blue
-                              ],
-                              onPressed: () {
-                                Get.toNamed(
-                                  AppRoutes.dlneditDonorLeadNewScreen,
-                                );
-                              },
-                            ),
+                    Divider(color: const Color.fromARGB(44, 0, 0, 0)),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "${user.wifeName}",
+                          style: TextStyle(
+                            color: AppColor.blackColor,
+                            fontSize: 22,
+                            fontFamily: AppFonts.poppins,
                           ),
-                          const SizedBox(width: 12),
-
-                          Expanded(
-                            child: CustomGradientButton(
-                              icon: Icons.delete,
-
-                              height: 40,
-                              text: "Delete",
-                              textStyle: TextStyle(
-                                fontFamily: AppFonts.poppins,
-                                color: AppColor.whiteColor,
-                              ),
-                              gradientColors: [
-                                Color(0xFFEB3349), // bright red
-                                Color(0xFFF45C43), // orange-red
-                              ],
-                              onPressed: () {
-                                showDialog(
-                                  context: context,
-                                  builder:
-                                      (context) => CustomConfirmDialog(
-                                        title:
-                                            "Do you really want to delete the file?",
-                                        message:
-                                            "This action cannot be undone.",
-                                        confirmText: "delete",
-                                        cancelText: "Cancel",
-                                        svgAsset: AppImages.binicon,
-                                        onConfirm: () {
-                                          Navigator.of(context).pop();
-                                          // delete logic
-                                        },
-                                        onCancel: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                      ),
-                                );
-                              },
-                            ),
+                        ),
+                        Text(
+                          "ID : ${user.id}",
+                          style: TextStyle(
+                            color: AppColor.blackColor,
+                            fontSize: 16,
+                            fontFamily: AppFonts.poppins,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 16),
                   ],
                 ),
               ),

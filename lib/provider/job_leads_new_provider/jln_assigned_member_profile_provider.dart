@@ -12,7 +12,12 @@ JLNAssignedMemberProfileProvider extends ChangeNotifier {
   String? get selectedAction => _selectedAction;
   final List<String> _actionItems = ["Excel", "CSV", "Pdf", "Print"];
 
-  
+      bool _showFilters = false;
+  bool get showFilters => _showFilters;
+  void toggleFilters() {
+    _showFilters = !_showFilters;
+    notifyListeners();
+  }
   List<String> get actionItems => _actionItems;
   void setPageSize(int newSize) {
     pageSize = newSize;
