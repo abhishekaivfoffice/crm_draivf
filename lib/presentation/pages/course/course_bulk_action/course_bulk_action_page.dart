@@ -1,0 +1,216 @@
+import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
+import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
+import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
+import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/Inl_data_provider.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_datefield_with_time.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_with_search.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_textfield/multiselect_chip.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+//international lead bulk action page
+class CourseBulkActionPage extends StatelessWidget {
+  const CourseBulkActionPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final internationalleaddataprovider = Provider.of<InlDataProvider>(
+      context,
+    );
+
+    return Scaffold(
+           drawer: TabletMobileDrawer(),
+
+      appBar: CustomAppBar(title: "Course Lead Bulk Action"),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(16),
+
+          child: Column(
+            children: [
+              //mark as delete
+              Row(
+                children: [
+                  Checkbox(
+                    value: internationalleaddataprovider.isMassDeleteChecked,
+                    onChanged: (bool? value) {
+                      internationalleaddataprovider.setIsMassDeleteChecked(
+                        value ?? false,
+                      );
+                    },
+                    side: const BorderSide(color: Colors.black, width: 2),
+                    activeColor: AppColor.primaryColor2,
+                    checkColor: Colors.white,
+                  ),
+
+                  const Text(
+                    "Mass Delete",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: AppFonts.poppins,
+                      color: AppColor.blackColor,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 6),
+              Divider(),
+              //mark as lost
+              Row(
+                children: [
+                  Checkbox(
+                    value: internationalleaddataprovider.isMarkAsLostChecked,
+                    onChanged: (bool? value) {
+                      internationalleaddataprovider.setMarkAsLostChecked(
+                        value ?? false,
+                      );
+                    },
+                    side: const BorderSide(color: Colors.black, width: 2),
+                    activeColor: AppColor.primaryColor2,
+                    checkColor: Colors.white,
+                  ),
+
+                  const Text(
+                    "Mark As Lost",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: AppFonts.poppins,
+                      color: AppColor.blackColor,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 6),
+              //////////SELECT CHANGE STATUS/////////
+              CustomSearchDropdownWithSearch(
+                isMandatory: true,
+                labelText: "Change Status",
+                items: internationalleaddataprovider.status,
+                selectedValue: internationalleaddataprovider.selectedstatus,
+                onChanged: internationalleaddataprovider.setSelectedstatus,
+                hintText: "Change status",
+              ),
+              const SizedBox(height: 6),
+
+              //////////SELECT change SOURCE/////////
+              CustomSearchDropdownWithSearch(
+                isMandatory: false,
+                labelText: "Lead Source",
+                items: internationalleaddataprovider.sources,
+                selectedValue: internationalleaddataprovider.selectedsources,
+                onChanged: internationalleaddataprovider.setSelectedsources,
+                hintText: "Select Lead Source",
+              ),
+              const SizedBox(height: 6),
+              //Last Contact  date and time
+              CustomDateFieldWithTime(
+                controller:
+                    internationalleaddataprovider.lastcontactdatetimeController,
+                hintText: "Select last contact date",
+                labelText: "Last Contact",
+                isMandatory: false,
+              ),
+              const SizedBox(height: 6),
+              //////////SELECT ASSIGNED/////////
+              CustomSearchDropdownWithSearch(
+                isMandatory: false,
+                labelText: "Assigned",
+                items: internationalleaddataprovider.assignedPerson,
+                selectedValue: internationalleaddataprovider.selectedassignedperson,
+                onChanged: internationalleaddataprovider.setSelectedassignedPerson,
+                hintText: "Select Assigned",
+              ),
+              const SizedBox(height: 6),
+
+              ///tags
+              CustomMultiSelectField(
+                labelText: "Tag",
+                options: internationalleaddataprovider.tags,
+                selectedItems: internationalleaddataprovider.selectedTags,
+                onItemToggle: (val) => internationalleaddataprovider.toggleItem(val),
+              ),
+              const SizedBox(height: 6),
+              Divider(),
+              //public   private //
+              Row(
+                children: [
+                  Checkbox(
+                    value: internationalleaddataprovider.isPublic,
+                    onChanged: (bool? value) {
+                      internationalleaddataprovider.setIsPublic(value ?? false);
+                    },
+                    side: const BorderSide(color: Colors.black, width: 2),
+                    activeColor: AppColor.primaryColor2,
+                    checkColor: Colors.white,
+                  ),
+
+                  const Text(
+                    "Public",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: AppFonts.poppins,
+                      color: AppColor.blackColor,
+                    ),
+                  ),
+                  const SizedBox(width: 6),
+                  Checkbox(
+                    value: internationalleaddataprovider.isPrivate,
+                    onChanged: (bool? value) {
+                      internationalleaddataprovider.setIsPrivate(value ?? false);
+                    },
+                    side: const BorderSide(color: Colors.black, width: 2),
+                    activeColor: AppColor.primaryColor2,
+                    checkColor: Colors.white,
+                  ),
+
+                  const Text(
+                    "Private",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: AppFonts.poppins,
+                      color: AppColor.blackColor,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Row(
+                children: [
+                  Expanded(
+                    child: CustomGradientButton(
+                      text: "Cancel",
+                      textStyle: TextStyle(
+                        fontSize: 14,
+                        fontFamily: AppFonts.poppins,
+                        color: AppColor.blackColor,
+                      ),
+                      gradientColors: [
+                        const Color.fromARGB(255, 200, 200, 200),
+                        const Color.fromARGB(255, 224, 224, 224),
+                      ],
+                      onPressed: () {
+Get.back();                      },
+                    ),
+                  ),
+                  const SizedBox(width: 12), 
+                  Expanded(
+                    child: CustomGradientButton(
+                      text: "Submit",
+                      onPressed: () {
+                       
+                      },
+                    ),
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 10),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

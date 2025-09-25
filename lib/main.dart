@@ -9,6 +9,14 @@ import 'package:crm_draivfmobileapp/presentation/pages/camp_management/camp_deta
 import 'package:crm_draivfmobileapp/presentation/pages/camp_management/camp_management_screens/camp_home_screen.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/camp_management/camp_zone_userdetails_screen/camp_userdetails_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/camp_management/new_comp_add/new_camp_provider.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_add_newlead/course_add_newlead.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_bulk_action/course_bulk_action_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_assigned_member_profile/course_assigned_member_profile_edithome.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_edit_leads/course_edit_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_data/course_add_new_task.dart/course_add_new_task_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_data/course_convert_to_customer/course_convert_to_customer_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_data/course_set_lead_reminders/course_set_lead_reminders_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_home.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_charts/dashborad_chart_provider/chart1_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_home/dashboard_screen.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/new_leads/add_leads.dart';
@@ -17,7 +25,6 @@ import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_l
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/dln_donor_leads_new_home.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/dln_edit_leads/dln_edit_donor_details.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_convert_to_customer/dln_convert_to_customer_page.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_lead_new_home/donor_leads_new_data/dln_donor_lead_new_data_profile.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_add_donor_lead/dln_add_donor_details.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/inl_assigned_member_profile/inl_assigned_member_profile/inl_assigned_member_profile_edithome.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/inl_edit_leads/inl_edit_leads.dart';
@@ -44,6 +51,12 @@ import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_ne
 import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_set_lead_reminders/jln_set_lead_reminders_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/job_leads_new_data.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_home.dart';
+import 'package:crm_draivfmobileapp/provider/course_provider/course_add_lead_provider.dart';
+import 'package:crm_draivfmobileapp/provider/course_provider/course_add_new_task_provider.dart';
+import 'package:crm_draivfmobileapp/provider/course_provider/course_convert_to_customer_provider.dart';
+import 'package:crm_draivfmobileapp/provider/course_provider/course_data_provider.dart';
+import 'package:crm_draivfmobileapp/provider/course_provider/course_import_leads_provider.dart';
+import 'package:crm_draivfmobileapp/provider/course_provider/course_setlead_reminders_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/add_leads_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_edit_provider.dart';
@@ -186,7 +199,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => JlImportLeadsProvider()),
         ChangeNotifierProvider(create: (_) => JlJobLeadsDataProvider()),
         ChangeNotifierProvider(create: (_) => JLSetLeadRemindersProvider()),
- //job lead new provider
+        //job lead new provider
         ChangeNotifierProvider(create: (_) => JLNAddLeadsProvider()),
 
         ChangeNotifierProvider(create: (_) => JLNAddNewTaskProvider()),
@@ -201,6 +214,21 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => JlNImportLeadsProvider()),
         ChangeNotifierProvider(create: (_) => JlNJobLeadsDataProvider()),
         ChangeNotifierProvider(create: (_) => JLNSetLeadRemindersProvider()),
+        //////////////course leads provider
+        ChangeNotifierProvider(create: (_) => CourseAddLeadProvider()),
+        ChangeNotifierProvider(create: (_) => CourseImportLeadsProvider()),
+        ChangeNotifierProvider(create: (_) => CourseDataProvider()),
+        ChangeNotifierProvider(
+          create: (_) => CourseConvertToCustomerProvider(),
+        ),
+        ChangeNotifierProvider(create: (_) => CourseAddNewTaskProvider()),
+        ChangeNotifierProvider(create: (_) => CourseSetleadRemindersProvider()),
+        ChangeNotifierProvider(
+          create: (_) => InlAssignedMemberProfileProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => InlAssignedMemberProfileEditProvider(),
+        ),
         //enquiry provider
         ChangeNotifierProvider(create: (_) => AddEnquiryProvider()),
         ChangeNotifierProvider(create: (_) => HomeEnquiryProvider()),
@@ -345,7 +373,7 @@ class MyApp extends StatelessWidget {
         return JLSetLeadRemindersPage();
       case AppRoutes.jleditLeadScreen:
         return JLEditLeadScreen();
-    //JOB LEAD NEW SCREEN
+      //JOB LEAD NEW SCREEN
       case AppRoutes.jobLeadNewHome:
         return JobLeadsNewHome();
       case AppRoutes.jlnaddLeadScreen:
@@ -367,8 +395,25 @@ class MyApp extends StatelessWidget {
         return JLNSetLeadRemindersPage();
       case AppRoutes.jlneditLeadScreen:
         return JLNEditLeadScreen();
+ //COURSE lead screen
 
-        
+      case AppRoutes.courseLeadHome:
+        return CourseLeadsHome();
+      case AppRoutes.addCourseLeadScreen:
+        return CourseAddNewlead();
+      case AppRoutes.courseLeadBulkActionScreen:
+        return CourseBulkActionPage();
+  
+      case AppRoutes.courseConvertToCustomerScreen:
+        return CourseConvertToCustomerPage();
+      case AppRoutes.courseAddNewTaskScreen:
+        return CourseAddNewTaskPage();
+      case AppRoutes.courseSetLeadReminderScreen:
+        return CourseSetLeadRemindersPage();
+      case AppRoutes.courseeditLeadScreen:
+        return CourseEditLeadScreen();
+      case AppRoutes.courseeditAssignedMember:
+        return CourseAssignedMemberProfileEditHome();
       //not found screen
       case AppRoutes.notFoundScreen:
         return const NotFoundPage();

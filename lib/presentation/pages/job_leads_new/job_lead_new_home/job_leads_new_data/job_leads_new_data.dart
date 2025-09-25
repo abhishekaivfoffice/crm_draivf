@@ -242,7 +242,7 @@ class JobLeadsNewData extends StatelessWidget {
                         Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => JLNAssignedMemberDetails(),
+                      builder: (context) => JOBLeadNewDataProfile(),
                     ),
                   );
                 },

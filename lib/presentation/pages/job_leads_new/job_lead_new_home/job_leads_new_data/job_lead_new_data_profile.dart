@@ -1,299 +1,258 @@
+
 import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
-import 'package:crm_draivfmobileapp/core/constatnts/AppImages.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
+import 'package:crm_draivfmobileapp/core/constatnts/appimages.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/core/routes/routes.dart';
-import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/jln_assigned_member_profile/jln_assigned_member_profile.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_activity_log_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_attachment_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_call_recordings_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_email_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_marketing_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_notes_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_payment_links_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_profile_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_reminders_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_sms_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_profile_tabs/jln_task_tabs.dart';
-import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
-
-import 'package:crm_draivfmobileapp/widgets/custom_popup/custom_confirm_dialogue.dart';
-
+import 'package:crm_draivfmobileapp/provider/job_leads_new_provider/jln_assigned_member_profile_provider.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_info_row.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-//////////////////////////////////////job leads new profile detailed page///////////////
+import 'package:provider/provider.dart';
 
 class JOBLeadNewDataProfile extends StatelessWidget {
-  final User user;
-  const JOBLeadNewDataProfile({super.key, required this.user});
+  // final AssignedMember member;
+
+  const JOBLeadNewDataProfile({
+    super.key,
+    //  required this.member
+  });
+  final List<Map<String, String>> users = const [
+    {"name": "ALEX GREY", "username": "@username"},
+    {"name": "ALEX SMITH", "username": "@username"},
+    {"name": "BEN GREEN", "username": "@username"},
+    {"name": "DESMOND WHITE", "username": "@username"},
+  ];
 
   @override
   Widget build(BuildContext context) {
-    double avatarRadius = 30;
-    double borderWidth = 2;
-    double overlap = 40;
-    int count = user.assignedMembers.length;
-
-    double totalWidth =
-        (avatarRadius * 2 + borderWidth * 2) + (overlap * (count - 1));
+    final assignedmemberprofileprovider =
+        Provider.of<JLNAssignedMemberProfileProvider>(context);
     return Scaffold(
       drawer: TabletMobileDrawer(),
-
-      appBar: CustomAppBar(title: "JOB LEAD Data detailed page"),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  border: Border.all(color: const Color.fromARGB(44, 0, 0, 0)),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10),
+      appBar: CustomAppBar(title: "Job lead new Assigned Profile"),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              alignment: Alignment.center,
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  height: 140,
+                  decoration: const BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(255, 212, 78, 177),
+                        Color.fromARGB(255, 252, 115, 165),
+                      ],
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                    ),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(30),
+                    ),
                   ),
                 ),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 10),
-                    Text(
-                      "${user.id}",
-                      style: TextStyle(
-                        color: AppColor.blackColor,
-                        fontSize: 16,
-                        fontFamily: AppFonts.poppins,
+                Positioned(
+                  bottom: -60, // push outside the container
+                  child: CircleAvatar(
+                    radius: 60,
+                    backgroundColor: Colors.white,
+                    child: CircleAvatar(
+                      radius: 56,
+                      backgroundImage: NetworkImage(
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Placeholder_Person.jpg/500px-Placeholder_Person.jpg",
                       ),
                     ),
-                    Text(
-                      "${user.name}",
-                      style: TextStyle(
-                        color: AppColor.blackColor,
-                        fontSize: 22,
-                        fontFamily: AppFonts.poppins,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Center(
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 70),
+
+            // Name
+            Text(
+              "Laxmi Sharma",
+              // member.name,
+              style: const TextStyle(
+                fontSize: 20,
+                fontFamily: AppFonts.poppins,
+                color: AppColor.blackColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 4),
+
+            Text(
+              "DRAIVF23245",
+              // member.name,
+              style: const TextStyle(
+                fontSize: 14,
+                fontFamily: AppFonts.poppins,
+                color: AppColor.blackColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 10),
+
+            ////////////////////////////
+            const SizedBox(height: 10),
+            const Divider(thickness: 1),
+
+            // Options
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                children: [
+                  //
+                  InfoRow(
+                    iconPath: AppImages.idicon,
+                    label: "Job Id",
+                    value: 'DRAIVF56563',
+                  ),
+                  InfoRow(
+                    iconPath: AppImages.nameicon,
+                    label: "Name",
+                    value: 'Laxmi Sharma',
+                  ),
+                  InfoRow(
+                    iconPath: AppImages.phoneicon,
+                    label: "Job Title",
+                    value: "Staff Nurse",
+                  ),
+                  InfoRow(
+                    iconPath: AppImages.branchicon,
+                    label: "Location",
+                    value: "Chennai",
+                  ),
+                  InfoRow(
+                    iconPath: AppImages.phoneicon,
+                    label: "Phone",
+                    value: "+91 8787 54653",
+                  ),
+                  InfoRow(
+                    iconPath: AppImages.dupeicon,
+                    label: "Total No. of Experience",
+                    value: "03",
+                  ),
+                  InfoRow(
+                    iconPath: AppImages.walkindateicon,
+                    label: "Applied on",
+                    value: "25-07-2025",
+                  ),
+                  InfoRow(
+                    iconPath: AppImages.walkindateicon,
+                    label: "Interview Date",
+                    value: "25-07-2025",
+                  ),
+                  InfoRow(
+                    iconPath: AppImages.walkindateicon,
+                    label: "Joining Date",
+                    value: "25-07-2025",
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      assignedmemberprofileprovider.toggleFilters();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
                       child: SizedBox(
-                        height: avatarRadius * 2 + borderWidth * 2,
-                        width: totalWidth,
-                        child: Stack(
-                          children:
-                              user.assignedMembers.asMap().entries.map((entry) {
-                                int index = entry.key;
-                                var m = entry.value;
-                                return Positioned(
-                                  left: index * overlap,
-                                  child: InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder:
-                                              (_) => JLNAssignedMemberDetails(
-                                                // member: m,
-                                              ),
-                                        ),
-                                      );
-                                    },
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                          color: const Color.fromARGB(
-                                            255,
-                                            230,
-                                            133,
-                                            194,
-                                          ),
-                                          width: borderWidth,
-                                        ),
-                                      ),
-                                      child: CircleAvatar(
-                                        radius: avatarRadius,
-                                        backgroundImage: NetworkImage(
-                                          m.profileImage,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              }).toList(),
+                        height: 35,
+                        child: Center(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                               Text(
+                                " Assigned / Access ",
+                                style: TextStyle(
+                                  fontFamily: AppFonts.poppins,
+                                  color: AppColor.blueaccent,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              Icon(Icons.arrow_drop_down,size: 30, color: AppColor.blueaccent,),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                  ),
 
-                    Text(
-                      "Access / Assigned",
-                      style: TextStyle(
-                        color: AppColor.blackColor,
-                        fontSize: 14,
-                        fontFamily: AppFonts.poppins,
-                      ),
-                    ),
-
-                    const SizedBox(height: 16),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: CustomGradientButton(
-                              icon: Icons.edit,
-                              height: 40,
-                              text: "Edit",
-                              textStyle: TextStyle(
-                                fontFamily: AppFonts.poppins,
-                                color: AppColor.whiteColor,
-                              ),
-                              gradientColors: [
-                                Color(0xFF6A85B6), // soft blue
-                                Color(0xFFBAC8E0), // light grayish blue
-                              ],
-                              onPressed: () {
-                                Get.toNamed(AppRoutes.jleditLeadScreen);
-                              },
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-
-                          Expanded(
-                            child: CustomGradientButton(
-                              icon: Icons.delete,
-
-                              height: 40,
-                              text: "Delete",
-                              textStyle: TextStyle(
-                                fontFamily: AppFonts.poppins,
-                                color: AppColor.whiteColor,
-                              ),
-                              gradientColors: [
-                                Color(0xFFEB3349), // bright red
-                                Color(0xFFF45C43), // orange-red
-                              ],
-                              onPressed: () {
-                                showDialog(
-                                  context: context,
-                                  builder:
-                                      (context) => CustomConfirmDialog(
-                                        title:
-                                            "Do you really want to delete the file?",
-                                        message:
-                                            "This action cannot be undone.",
-                                        confirmText: "delete",
-                                        cancelText: "Cancel",
-                                        svgAsset: AppImages.binicon,
-                                        onConfirm: () {
-                                          Navigator.of(context).pop();
-                                          // delete logic
-                                        },
-                                        onCancel: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                      ),
-                                );
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 16),
-
-              const SizedBox(height: 8),
-
-              // TabBar + TabBarView
-              DefaultTabController(
-                length: 11,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const TabBar(
-                      isScrollable: true,
-                      labelColor: AppColor.primaryColor2,
-
-                      unselectedLabelColor: Colors.grey,
-                      indicatorColor: AppColor.primaryColor1,
-                      labelStyle: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      unselectedLabelStyle: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal,
-                      ),
-                      tabs: [
-                        Tab(text: " Profile "),
-                        Tab(text: "   Task   "),
-                        Tab(text: "Attachments"),
-                        Tab(text: " Reminders "),
-                        Tab(text: "Payment Links"),
-                        Tab(text: "  Notes  "),
-                        Tab(text: "Activity Log"),
-                        Tab(text: "Marketing"),
-                        Tab(text: "Call Recordings"),
-                        Tab(text: "   Sms   "),
-                        Tab(text: "   Email   "),
-                      ],
-                    ),
-
-                    Builder(
-                      builder: (context) {
-                        final TabController tabController =
-                            DefaultTabController.of(context)!;
-
-                        return AnimatedBuilder(
-                          animation: tabController,
-                          builder: (context, _) {
-                            return IndexedStack(
-                              index: tabController.index,
-                              children: [
-                                // Tab 1
-                                JLNProfileTabs(user: user),
-                                // Tab 2
-                                 JLNTaskTabs(),
-                                // Tab 3
-                                 JLNAttachmentTabs(),
-                                //tab 4
-                                 JLNRemindersTab(),
-                                //tab 5
-                                 JLNPaymentLinksTab(),
-                                //tab 6
-                                 JLNNotesTab(),
-                                //tab 7
-                                 JLNActivityLogTabs(),
-                                //tab 8
-                                 JLNMarketingTabs(),
-                                //tab 9
-                                 JLNCallRecordingTabs(),
-                                //tab 10
-                                 JLNSmsTab(),
-                                //tab 11
-                                 JLNEmailTabs(),
-                              ],
-                            );
+                  /// SHOW FILTERS ONLY IF ENABLED
+                  if (assignedmemberprofileprovider.showFilters) ...[
+                    ListView.separated(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: users.length,
+                      separatorBuilder:
+                          (context, index) => const Divider(height: 1),
+                      itemBuilder: (context, index) {
+                        final user = users[index];
+                        return GestureDetector(
+                          onTap: (){
+                  //            Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => JLNAssignedMemberDetails(member: user,),
+                  //   ),
+                  // );
                           },
+                          child: Container(
+                            padding: const EdgeInsets.all(8), // container padding
+                            color: Colors.white, // background color
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  width: 60, // same as 2 * radius (40 * 2)
+                                  height: 60,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(
+                                      12,
+                                    ), // square with rounded corners
+                                  ),
+                                  clipBehavior: Clip.hardEdge,
+                                  child: Image.network(
+                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Placeholder_Person.jpg/500px-Placeholder_Person.jpg",
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                          
+                                Column(
+                                  children: [
+                                    Text(
+                                      user["name"]!,
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black87,
+                                      ),
+                                    ),
+                                    Text(
+                                      user["username"]!,
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black87,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                          
+                               
+                              ],
+                            ),
+                          ),
                         );
                       },
                     ),
                   ],
-                ),
+                ],
               ),
-
-              // ],
-              const SizedBox(height: 12),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

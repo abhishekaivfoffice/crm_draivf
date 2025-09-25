@@ -124,6 +124,12 @@ class TabletMobileDrawer extends StatelessWidget {
                           targetPage: AppRoutes.jobLeadNewHome ,
                           fontSize: navItemFontSize,
                         ),
+                          TabletAppbarNavigationBtn(
+                          leadingicon: Icons.nat_outlined,
+                          title: 'Course',
+                          targetPage: AppRoutes.courseLeadHome ,
+                          fontSize: navItemFontSize,
+                        ),
                         TabletAppbarNavigationBtn(
                           leadingicon: Icons.home_work,
                           title: 'Enquiry',
