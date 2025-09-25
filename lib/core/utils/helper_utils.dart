@@ -62,10 +62,21 @@ class HelperUtil {
       AppRoutes.jobleadnewdata,
       AppRoutes.jlnbulkActionScreen,
       AppRoutes.jlnassignedMemberProfileedithome,
-       AppRoutes.jlnconvertToCustomerScreen,
-       AppRoutes.jlnaddNewTaskScreen,
-       AppRoutes.jlnsetLeadReminderScreen,
-        AppRoutes.jlneditLeadScreen,
+      AppRoutes.jlnconvertToCustomerScreen,
+      AppRoutes.jlnaddNewTaskScreen,
+      AppRoutes.jlnsetLeadReminderScreen,
+      AppRoutes.jlneditLeadScreen,
+      //course lead screen
+      AppRoutes.courseLeadHome,
+      AppRoutes.importCourseLeadScreen,
+      AppRoutes.courseLeadBulkActionScreen,
+      AppRoutes.addCourseLeadScreen,
+      AppRoutes.courseConvertToCustomerScreen,
+      AppRoutes.courseAddNewTaskScreen,
+      AppRoutes.courseSetLeadReminderScreen,
+      AppRoutes.courseeditLeadScreen,
+      AppRoutes.courseeditAssignedMember,
+
       //no found screen
       AppRoutes.notFoundScreen,
     ];

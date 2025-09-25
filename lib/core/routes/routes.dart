@@ -25,46 +25,60 @@ class AppRoutes {
   //donorleads new -module
   static const donorLeadNewHome = '/donorLeadNewHome';
   static const adddonorLeadNewScreen = '/adddonorleadnewscreen';
-static const donorLeadNewBulkActionScreen = '/donorleadbulkactionscreen';
-static const dlnassignedMemberProfileedithome = '/dlnassignedmemberprofileedithome';
-static const dlnConvertToCustomerScreen = '/dlnconverttocustomerscreen';
+  static const donorLeadNewBulkActionScreen = '/donorleadbulkactionscreen';
+  static const dlnassignedMemberProfileedithome =
+      '/dlnassignedmemberprofileedithome';
+  static const dlnConvertToCustomerScreen = '/dlnconverttocustomerscreen';
   static const dlneditDonorLeadNewScreen = '/editDonorLeadNewScreen';
 
-  
   //international lead -module
   static const internationalLeadHome = '/internationalleadhome';
   static const addInternationalLeadScreen = '/addinternationalleadhome';
   static const importInternationalLeadScreen = '/importinternationalleadscreen';
-  static const internationalLeadBulkActionScreen ='/internationalleadbulkactionscreen';
-    static const inlConvertToCustomerScreen ='/inlconverttocustomerscreen';
+  static const internationalLeadBulkActionScreen =
+      '/internationalleadbulkactionscreen';
+  static const inlConvertToCustomerScreen = '/inlconverttocustomerscreen';
   static const inlAddNewTaskScreen = '/inladdnewtaskscreen';
   static const inlSetLeadReminderScreen = '/inlsetleadremindetrscreen';
   static const inleditLeadScreen = '/inleditLeadScreen';
-static const inleditAssignedMember = '/inleditassignedmember';
-//JOB LEADS
-static const jobLeadHome = '/jobleadhome';
+  static const inleditAssignedMember = '/inleditassignedmember';
+  //JOB LEADS
+  static const jobLeadHome = '/jobleadhome';
   static const jladdLeadScreen = '/jladdleadscreen';
   static const jlimportLeadScreen = '/jlimportleadscreen';
   static const jobleaddata = '/jobleaddata';
   static const jlbulkActionScreen = '/jlbulkactionscreen';
-  static const jlassignedMemberProfileedithome = '/jlassignedmemberprofileedithome';
+  static const jlassignedMemberProfileedithome =
+      '/jlassignedmemberprofileedithome';
 
   static const jlconvertToCustomerScreen = '/jlconverttocustomerscreen';
   static const jladdNewTaskScreen = '/jladdnewtaskscreen';
   static const jlsetLeadReminderScreen = '/jlsetleadremindetrscreen';
   static const jleditLeadScreen = '/jleditLeadScreen';
-//JOB LEADS
-static const jobLeadNewHome = '/jobleadnewhome';
+  //JOB LEADS
+  static const jobLeadNewHome = '/jobleadnewhome';
   static const jlnaddLeadScreen = '/jlnaddleadscreen';
   static const jlnimportLeadScreen = '/jlnimportleadscreen';
   static const jobleadnewdata = '/jobleadnewdata';
   static const jlnbulkActionScreen = '/jlnbulkactionscreen';
-  static const jlnassignedMemberProfileedithome = '/jlnassignedmemberprofileedithome';
+  static const jlnassignedMemberProfileedithome =
+      '/jlnassignedmemberprofileedithome';
 
   static const jlnconvertToCustomerScreen = '/jlnconverttocustomerscreen';
   static const jlnaddNewTaskScreen = '/jlnaddnewtaskscreen';
   static const jlnsetLeadReminderScreen = '/jlnsetleadremindetrscreen';
   static const jlneditLeadScreen = '/jlneditLeadScreen';
+  //COURSE lead -module
+  static const courseLeadHome = '/courseleadhome';
+  static const addCourseLeadScreen = '/addCourseleadhome';
+  static const importCourseLeadScreen = '/importcourseleadscreen';
+  static const courseLeadBulkActionScreen =
+      '/courseleadbulkactionscreen';
+  static const courseConvertToCustomerScreen = '/courseconverttocustomerscreen';
+  static const courseAddNewTaskScreen = '/courseaddnewtaskscreen';
+  static const courseSetLeadReminderScreen = '/coursesetleadremindetrscreen';
+  static const courseeditLeadScreen = '/courseeditLeadScreen';
+  static const courseeditAssignedMember = '/courseeditassignedmember';
   //enquiry screen
   static const enquiryHome = '/enquiryhome';
   static const enquiryAdd = '/addenquiry';
