@@ -1,299 +1,199 @@
 import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
-import 'package:crm_draivfmobileapp/core/constatnts/AppImages.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
+import 'package:crm_draivfmobileapp/core/constatnts/appimages.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/core/routes/routes.dart';
-import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/inl_assigned_member_profile/inl_assigned_member_profile/inl_assigned_member_profile.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_activity_log_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_attachment_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_call_recordings_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_email_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_marketing_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_notes_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_payment_links_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_profile_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_reminders_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_sms_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_task_tabs.dart';
-import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
-
-import 'package:crm_draivfmobileapp/widgets/custom_popup/custom_confirm_dialogue.dart';
-
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_data/access_assigned_tabs/assigned_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_data/access_assigned_tabs/access_tabs.dart';
+import 'package:crm_draivfmobileapp/provider/course_provider/course_data_provider.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_segment_button.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_info_row.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-//course lead profile detailed page
+import 'package:provider/provider.dart';
 
 class CourseDataProfile extends StatelessWidget {
-  final User user;
-  const CourseDataProfile({super.key, required this.user});
+   
+  const CourseDataProfile({
+    super.key,
+  });
+  final List<Map<String, String>> users = const [
+    {"name": "ALEX GREY", "username": "@username"},
+    {"name": "ALEX SMITH", "username": "@username"},
+    {"name": "BEN GREEN", "username": "@username"},
+    {"name": "DESMOND WHITE", "username": "@username"},
+  ];
 
   @override
   Widget build(BuildContext context) {
-    double avatarRadius = 30;
-    double borderWidth = 2;
-    double overlap = 40;
-    int count = user.assignedMembers.length;
-
-    double totalWidth =
-        (avatarRadius * 2 + borderWidth * 2) + (overlap * (count - 1));
+    final courseleaddataprovider = Provider.of<CourseDataProvider>(context);
+    final List<Widget> pages = [AccessTabs(), AssignedTabs()];
     return Scaffold(
       drawer: TabletMobileDrawer(),
-
-      appBar: CustomAppBar(title: " INL Data detailed page"),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  border: Border.all(color: const Color.fromARGB(44, 0, 0, 0)),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10),
+      appBar: CustomAppBar(title: "course lead Assigned Profile"),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              alignment: Alignment.center,
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  height: 140,
+                  decoration: const BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(255, 212, 78, 177),
+                        Color.fromARGB(255, 252, 115, 165),
+                      ],
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                    ),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(30),
+                    ),
                   ),
                 ),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 10),
-                    Text(
-                      "${user.id}",
-                      style: TextStyle(
-                        color: AppColor.blackColor,
-                        fontSize: 16,
-                        fontFamily: AppFonts.poppins,
-                      ),
-                    ),
-                    Text(
-                      "${user.name}",
-                      style: TextStyle(
-                        color: AppColor.blackColor,
-                        fontSize: 22,
-                        fontFamily: AppFonts.poppins,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Center(
-                      child: SizedBox(
-                        height: avatarRadius * 2 + borderWidth * 2,
-                        width: totalWidth,
-                        child: Stack(
-                          children:
-                              user.assignedMembers.asMap().entries.map((entry) {
-                                int index = entry.key;
-                                var m = entry.value;
-                                return Positioned(
-                                  left: index * overlap,
-                                  child: InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder:
-                                              (_) => InlAssignedMemberProfile(
-                                                member: m,
-                                              ),
-                                        ),
-                                      );
-                                    },
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                          color: const Color.fromARGB(
-                                            255,
-                                            230,
-                                            133,
-                                            194,
-                                          ),
-                                          width: borderWidth,
-                                        ),
-                                      ),
-                                      child: CircleAvatar(
-                                        radius: avatarRadius,
-                                        backgroundImage: NetworkImage(
-                                          m.profileImage,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              }).toList(),
+                Positioned(
+                  bottom: -60, // push outside the container
+                  child: Container(
+                    width: 120, // 2 * radius
+                    height: 120,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(
+                        0,
+                      ), // square (use 12 for rounded corners)
+                      border: Border.all(color: Colors.grey.shade300, width: 4),
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Placeholder_Person.jpg/500px-Placeholder_Person.jpg",
                         ),
+                        fit: BoxFit.cover, // makes image cover the whole square
                       ),
                     ),
-                    const SizedBox(height: 10),
+                  ),
+                ),
+              ],
+            ),
 
-                    Text(
-                      "Access / Assigned",
-                      style: TextStyle(
-                        color: AppColor.blackColor,
-                        fontSize: 14,
-                        fontFamily: AppFonts.poppins,
-                      ),
-                    ),
+            const SizedBox(height: 70),
 
-                    const SizedBox(height: 16),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+            // Name
+            Text(
+              "Laxmi Sharma",
+              // member.name,
+              style: const TextStyle(
+                fontSize: 20,
+                fontFamily: AppFonts.poppins,
+                color: AppColor.blackColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 4),
+
+            Text(
+              "DRAIVF23245",
+              // member.name,
+              style: const TextStyle(
+                fontSize: 14,
+                fontFamily: AppFonts.poppins,
+                color: AppColor.blackColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 10),
+
+            ////////////////////////////
+            const SizedBox(height: 10),
+            const Divider(thickness: 1),
+
+            // Options
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                children: [
+                  //
+                  InfoRow(
+                    iconPath: AppImages.idicon,
+                    label: "Job Id",
+                    value: 'DRAIVF56563',
+                  ),
+                  InfoRow(
+                    iconPath: AppImages.idicon,
+                    label: "Emp Id",
+                    value: 'DRAIVF56563',
+                  ),
+
+                  InfoRow(
+                    iconPath: AppImages.phoneicon,
+                    label: "Phone",
+                    value: "+91 9074 1234",
+                  ),
+                  InfoRow(
+                    iconPath: AppImages.branchicon,
+                    label: "Location",
+                    value: "Chennai - Vadapalani",
+                  ),
+                  InfoRow(
+                    iconPath: AppImages.phoneicon,
+                    label: "Qualification",
+                    value: "bsc Nursing",
+                  ),
+                  InfoRow(
+                    iconPath: AppImages.dupeicon,
+                    label: "Course ",
+                    value:
+                        "Affiliate Portals,Affiliate Portals,Affiliate Portals",
+                  ),
+                  InfoRow(
+                    iconPath: AppImages.dupeicon,
+                    label: "Source ",
+                    value: "Affiliate Portals",
+                  ),
+
+                  InfoRow(
+                    iconPath: AppImages.walkindateicon,
+                    label: "Created Date",
+                    value: "25-07-2025",
+                  ),
+                  const SizedBox(height: 10),
+
+                  Column(
+                    children: [
+                      Row(
                         children: [
                           Expanded(
-                            child: CustomGradientButton(
-                              icon: Icons.edit,
-                              height: 40,
-                              text: "Edit",
-                              textStyle: TextStyle(
-                                fontFamily: AppFonts.poppins,
-                                color: AppColor.whiteColor,
-                              ),
-                              gradientColors: [
-                                Color(0xFF6A85B6), // soft blue
-                                Color(0xFFBAC8E0), // light grayish blue
-                              ],
-                              onPressed: () {
-                                Get.toNamed(AppRoutes.inleditLeadScreen);
-                              },
+                            child: CustomSegmentButton(
+                              text: "Access",
+                              isSelected:
+                                  courseleaddataprovider.selectedIndex == 0,
+                              onTap: () => courseleaddataprovider.setIndex(0),
                             ),
                           ),
-                          const SizedBox(width: 12),
-
+                          const SizedBox(width: 8),
                           Expanded(
-                            child: CustomGradientButton(
-                              icon: Icons.delete,
-
-                              height: 40,
-                              text: "Delete",
-                              textStyle: TextStyle(
-                                fontFamily: AppFonts.poppins,
-                                color: AppColor.whiteColor,
-                              ),
-                              gradientColors: [
-                                Color(0xFFEB3349), // bright red
-                                Color(0xFFF45C43), // orange-red
-                              ],
-                              onPressed: () {
-                                showDialog(
-                                  context: context,
-                                  builder:
-                                      (context) => CustomConfirmDialog(
-                                        title:
-                                            "Do you really want to delete the file?",
-                                        message:
-                                            "This action cannot be undone.",
-                                        confirmText: "Yes delete the file",
-                                        cancelText: "Cancel this time",
-                                        svgAsset: AppImages.binicon,
-                                        onConfirm: () {
-                                          Navigator.of(context).pop();
-                                          // delete logic
-                                        },
-                                        onCancel: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                      ),
-                                );
-                              },
+                            child: CustomSegmentButton(
+                              text: "Assigned",
+                              isSelected:
+                                  courseleaddataprovider.selectedIndex == 1,
+                              onTap: () => courseleaddataprovider.setIndex(1),
                             ),
                           ),
                         ],
                       ),
-                    ),
-                    const SizedBox(height: 16),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 16),
+                      const SizedBox(height: 10),
 
-              const SizedBox(height: 8),
-
-              // TabBar + TabBarView
-              DefaultTabController(
-                length: 11,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const TabBar(
-                      isScrollable: true,
-                      labelColor: AppColor.primaryColor2,
-
-                      unselectedLabelColor: Colors.grey,
-                      indicatorColor: AppColor.primaryColor1,
-                      labelStyle: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                      // Display corresponding class
+                      Center(
+                        child: pages[courseleaddataprovider.selectedIndex],
                       ),
-                      unselectedLabelStyle: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal,
-                      ),
-                      tabs: [
-                        Tab(text: " Profile "),
-                        Tab(text: "   Task   "),
-                        Tab(text: "Attachments"),
-                        Tab(text: " Reminders "),
-                        Tab(text: "Payment Links"),
-                        Tab(text: "  Notes  "),
-                        Tab(text: "Activity Log"),
-                        Tab(text: "Marketing"),
-                        Tab(text: "Call Recordings"),
-                        Tab(text: "   Sms   "),
-                        Tab(text: "   Email   "),
-                      ],
-                    ),
-
-                    Builder(
-                      builder: (context) {
-                        final TabController tabController =
-                            DefaultTabController.of(context)!;
-
-                        return AnimatedBuilder(
-                          animation: tabController,
-                          builder: (context, _) {
-                            return IndexedStack(
-                              index: tabController.index,
-                              children: [
-                                // Tab 1
-                                InlProfileTabs(user: user),
-                                // Tab 2
-                                INLTaskTabs(),
-                                // Tab 3
-                                INLAttachmentTabs  (),
-                                //tab 4
-                                InlRemindersTab(),
-                                //tab 5
-                                InlPaymentLinksTab(),
-                                //tab 6
-                                INLNotesTab(),
-                                //tab 7
-                                INLActivityLogTabs(),
-                                //tab 8
-                                INLMarketingTabs(),
-                                //tab 9
-                                INLCallRecordingTabs(),
-                                //tab 10
-                                InlSmsTab(),
-                                //tab 11
-                                INLEmailTabs(),
-                              ],
-                            );
-                          },
-                        );
-                      },
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
+                ],
               ),
-
-              // ],
-              const SizedBox(height: 12),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

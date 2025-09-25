@@ -60,7 +60,7 @@ import 'package:crm_draivfmobileapp/provider/course_provider/course_setlead_remi
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/add_leads_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_edit_provider.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/assigned_member_profile/assigned_member_profile/assigned_member_profile_edithome.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/assigned_member_profile/assigned_member_profile_edithome.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/bulk_action/bulk_action_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/add_new_task.dart/add_new_task_page.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/add_new_task_provider.dart';

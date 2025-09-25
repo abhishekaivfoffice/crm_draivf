@@ -1,3 +1,4 @@
+
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:flutter/material.dart';
@@ -20,16 +21,17 @@ class InfoRow extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          /// Left side (icon + label)
           Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
               SvgPicture.asset(
                 iconPath,
                 width: 22.0,
                 height: 22.0,
-                color: Color.fromARGB(171, 0, 0, 0),
+                color: const Color.fromARGB(171, 0, 0, 0),
               ),
               const SizedBox(width: 8),
               Text(
@@ -43,13 +45,21 @@ class InfoRow extends StatelessWidget {
             ],
           ),
 
-          Text(
-            value,
-            style: const TextStyle(
-              fontFamily: AppFonts.poppins,
-              color: AppColor.blackColor,
-              fontWeight: FontWeight.w500,
-              fontSize: 16,
+          const SizedBox(width: 8),
+
+          /// Right side (value text) — flexible to avoid overflow
+          Expanded(
+            child: Text(
+              value,
+              textAlign: TextAlign.right,
+              softWrap: true,
+              overflow: TextOverflow.visible,
+              style: const TextStyle(
+                fontFamily: AppFonts.poppins,
+                color: AppColor.blackColor,
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
+              ),
             ),
           ),
         ],
