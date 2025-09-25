@@ -1,6 +1,7 @@
 import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_data/course_data.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_data.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +53,7 @@ class CourseLeadsHome extends StatelessWidget {
                 ],
               ),
             ),
-           InlData(),
+           CourseData(),
           ],
         ),
       ),

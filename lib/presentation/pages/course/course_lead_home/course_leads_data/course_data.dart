@@ -1,25 +1,25 @@
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
+import 'package:crm_draivfmobileapp/core/constatnts/appimages.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_data_profile.dart';
-import 'package:crm_draivfmobileapp/provider/internationallead_provider/Inl_data_provider.dart';
-import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_data/course_data_profile.dart';
+import 'package:crm_draivfmobileapp/provider/course_provider/course_data_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_daterange_field.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_with_search.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdownfield_with_selectall_option.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+
 //course leads data page
 class CourseData extends StatelessWidget {
   const CourseData({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final domestileaddataprovider = Provider.of<InlDataProvider>(
-      context,
-    );
-    final users = domestileaddataprovider.currentPageUsers;
+    final courseleaddataprovider = Provider.of<CourseDataProvider>(context);
+    final users = courseleaddataprovider.currentPageUsers;
 
     return Column(
       children: [
@@ -39,7 +39,7 @@ class CourseData extends StatelessWidget {
                     child: SizedBox(
                       height: 35,
                       child: DropdownButton<int>(
-                        value: domestileaddataprovider.pageSize,
+                        value: courseleaddataprovider.pageSize,
                         underline: const SizedBox(),
                         items:
                             [5, 10, 15, 20].map((e) {
@@ -57,7 +57,7 @@ class CourseData extends StatelessWidget {
                             }).toList(),
                         onChanged: (val) {
                           if (val != null) {
-                            domestileaddataprovider.setPageSize(val);
+                            courseleaddataprovider.setPageSize(val);
                           }
                         },
                       ),
@@ -78,7 +78,7 @@ class CourseData extends StatelessWidget {
                     child: SizedBox(
                       height: 35,
                       child: DropdownButton<String>(
-                        value: domestileaddataprovider.selectedAction,
+                        value: courseleaddataprovider.selectedAction,
                         underline: const SizedBox(),
                         hint: const Text(
                           " Export",
@@ -89,7 +89,7 @@ class CourseData extends StatelessWidget {
                           ),
                         ),
                         items:
-                            domestileaddataprovider.actionItems.map((e) {
+                            courseleaddataprovider.actionItems.map((e) {
                               return DropdownMenuItem(
                                 value: e,
                                 child: Text(
@@ -103,7 +103,7 @@ class CourseData extends StatelessWidget {
                               );
                             }).toList(),
                         onChanged: (val) {
-                          domestileaddataprovider.setSelectedAction(val);
+                          courseleaddataprovider.setSelectedAction(val);
                         },
                       ),
                     ),
@@ -144,7 +144,7 @@ class CourseData extends StatelessWidget {
                 ////
                 GestureDetector(
                   onTap: () {
-                    domestileaddataprovider.toggleFilters();
+                    courseleaddataprovider.toggleFilters();
                   },
                   child: Container(
                     decoration: BoxDecoration(
@@ -175,7 +175,7 @@ class CourseData extends StatelessWidget {
         ),
 
         /// SHOW FILTERS ONLY IF ENABLED
-        if (domestileaddataprovider.showFilters) ...[
+        if (courseleaddataprovider.showFilters) ...[
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
             child: Column(
@@ -183,76 +183,74 @@ class CourseData extends StatelessWidget {
                 SelectAllMultiSelectTextfield(
                   labelText: "Zone",
                   hintText: "Select zone",
-                  items: domestileaddataprovider.filterzones,
-                  selectedValues: domestileaddataprovider.selectedFilterZones,
+                  items: courseleaddataprovider.filterzones,
+                  selectedValues: courseleaddataprovider.selectedFilterZones,
                   onChanged:
-                      (vals) => domestileaddataprovider.setFilterZones(vals),
+                      (vals) => courseleaddataprovider.setFilterZones(vals),
                   isMandatory: false,
                 ),
                 const SizedBox(height: 6),
                 SelectAllMultiSelectTextfield(
                   labelText: "Branches",
                   hintText: "Select branches",
-                  items: domestileaddataprovider.branches,
-                  selectedValues:
-                      domestileaddataprovider.selectedFilterBranches,
+                  items: courseleaddataprovider.branches,
+                  selectedValues: courseleaddataprovider.selectedFilterBranches,
                   onChanged:
-                      (vals) => domestileaddataprovider.setFilterBranches(vals),
+                      (vals) => courseleaddataprovider.setFilterBranches(vals),
                   isMandatory: false,
                 ),
                 const SizedBox(height: 6),
                 SelectAllMultiSelectTextfield(
                   labelText: "Status",
                   hintText: "Select Status",
-                  items: domestileaddataprovider.filterstatus,
-                  selectedValues: domestileaddataprovider.selectedFilterStatus,
+                  items: courseleaddataprovider.filterstatus,
+                  selectedValues: courseleaddataprovider.selectedFilterStatus,
                   onChanged:
-                      (vals) => domestileaddataprovider.setFilterStatus(vals),
+                      (vals) => courseleaddataprovider.setFilterStatus(vals),
                   isMandatory: false,
                 ),
                 const SizedBox(height: 6),
                 CustomSearchDropdownWithSearch(
                   isMandatory: false,
                   labelText: "Assigned",
-                  items: domestileaddataprovider.filteragentName,
-                  selectedValue:
-                      domestileaddataprovider.selectedFilterAgentName,
-                  onChanged: domestileaddataprovider.setFilterAgentNames,
+                  items: courseleaddataprovider.filteragentName,
+                  selectedValue: courseleaddataprovider.selectedFilterAgentName,
+                  onChanged: courseleaddataprovider.setFilterAgentNames,
                   hintText: "Select Assigned",
                 ),
                 const SizedBox(height: 6),
                 CustomSearchDropdownWithSearch(
                   isMandatory: false,
                   labelText: "Social media",
-                  items: domestileaddataprovider.filtersocialMedia,
+                  items: courseleaddataprovider.filtersocialMedia,
                   selectedValue:
-                      domestileaddataprovider.selectedFilterSocialMedia,
-                  onChanged: domestileaddataprovider.setFilterSocialMedia,
+                      courseleaddataprovider.selectedFilterSocialMedia,
+                  onChanged: courseleaddataprovider.setFilterSocialMedia,
                   hintText: "Select social media",
                 ),
                 const SizedBox(height: 6),
                 CustomSearchDropdownWithSearch(
                   isMandatory: false,
                   labelText: "Digital media",
-                  items: domestileaddataprovider.filterdigitalmedia,
+                  items: courseleaddataprovider.filterdigitalmedia,
                   selectedValue:
-                      domestileaddataprovider.selectedFilterDigitalMedia,
-                  onChanged: domestileaddataprovider.setFilterDigitalMedia,
+                      courseleaddataprovider.selectedFilterDigitalMedia,
+                  onChanged: courseleaddataprovider.setFilterDigitalMedia,
                   hintText: "Select digital media",
                 ),
                 const SizedBox(height: 6),
                 CustomSearchDropdownWithSearch(
                   isMandatory: false,
                   labelText: "Date filter",
-                  items: domestileaddataprovider.filterdateFilter,
+                  items: courseleaddataprovider.filterdateFilter,
                   selectedValue:
-                      domestileaddataprovider.selectedFilterDateFilter,
-                  onChanged: domestileaddataprovider.setFilterDateFilter,
+                      courseleaddataprovider.selectedFilterDateFilter,
+                  onChanged: courseleaddataprovider.setFilterDateFilter,
                   hintText: "Select date filter",
                 ),
                 const SizedBox(height: 6),
                 CustomDateRangeField(
-                  controller: domestileaddataprovider.dateRangeController,
+                  controller: courseleaddataprovider.dateRangeController,
                   hintText: "Select Date Range",
                   labelText: "Date Range",
                   isMandatory: false,
@@ -267,137 +265,241 @@ class CourseData extends StatelessWidget {
         ListView.builder(
           physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(0),
           itemCount: users.length + 1, // extra for pagination buttons
           itemBuilder: (context, index) {
             if (index < users.length) {
               final user = users[index];
               return GestureDetector(
-                onTap: () {
+                           onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => InlDataProfile(user: user),
+                      builder: (context) => CourseDataProfile(),
                     ),
                   );
                 },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 6),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      border: Border.all(color: Colors.black26),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // Header Row
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Container(
+                  margin: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
                             children: [
-                              // Name + Branch
+                              // Name and reviews count
+                              Row(
+                                children: [
+                                  SvgPicture.asset(
+                                    AppImages.idicon,
+                                    width: 20.0,
+                                    height: 20.0,
+                                    color: Color.fromARGB(171, 0, 0, 0),
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    user.name,
+                                    style: const TextStyle(
+                                      fontFamily: AppFonts.poppins,
+                                      color: Color.fromARGB(171, 0, 0, 0),
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                
+                              SizedBox(height: 4),
+                              Row(
+                                children: [
+                                  SvgPicture.asset(
+                                    AppImages.phoneicon,
+                                    width: 20.0,
+                                    height: 20.0,
+                                    color: Color.fromARGB(171, 0, 0, 0),
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    user.phone,
+                                    style: const TextStyle(
+                                      fontFamily: AppFonts.poppins,
+                                      color: Color.fromARGB(171, 0, 0, 0),
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 4),
                               Text(
-                                user.name,
+                                user.city,
                                 style: const TextStyle(
-                                  fontSize: 15,
                                   fontFamily: AppFonts.poppins,
-                                  color: AppColor.blackColor,
-                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(171, 0, 0, 0),
+                                  fontSize: 14,
                                 ),
                               ),
-
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 4,
+                
+                              SizedBox(height: 4),
+                
+                              Text(
+                                user.qualification,
+                                style: const TextStyle(
+                                  fontFamily: AppFonts.poppins,
+                                  color: Color.fromARGB(171, 0, 0, 0),
+                                  fontSize: 14,
                                 ),
-                                decoration: BoxDecoration(
-                                  color:
-                                      user.status == "Query"
-                                          ? Colors.green.shade100
-                                          : user.status == "Pending"
-                                          ? Colors.orange.shade100
-                                          : user.status == "Closed"
-                                          ? Colors.red.shade100
-                                          : Colors.blue.shade100,
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
+                              ),
+                
+                              SizedBox(height: 16),
+                
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Center(
+                                    child: Text(
+                                      user.createdDate,
+                                      style: const TextStyle(
+                                        fontFamily: AppFonts.poppins,
+                                        color: Color.fromARGB(171, 0, 0, 0),
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ),
+                
+                                  SizedBox(width: 8),
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.orange,
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: Text(
+                                      user.status,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                        fontFamily: AppFonts.poppins,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                
+                      // Right side - Profile image
+                      Column(
+                        children: [
+                          Container(
+                            width: 120,
+                            height: 160,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(12),
+                              ),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(12),
+                              ),
+                              child: Image.network(
+                                "${user.photo}",
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return Container(
+                                    color: Colors.grey[300],
+                                    child: Icon(
+                                      Icons.person,
+                                      size: 50,
+                                      color: Colors.grey[600],
+                                    ),
+                                  );
+                                },
+                                loadingBuilder: (
+                                  context,
+                                  child,
+                                  loadingProgress,
+                                ) {
+                                  if (loadingProgress == null) return child;
+                                  return Container(
+                                    color: Colors.grey[200],
+                                    child: Center(
+                                      child: CircularProgressIndicator(
+                                        value:
+                                            loadingProgress.expectedTotalBytes !=
+                                                    null
+                                                ? loadingProgress
+                                                        .cumulativeBytesLoaded /
+                                                    loadingProgress
+                                                        .expectedTotalBytes!
+                                                : null,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 120,
+                
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(137, 201, 201, 201),
+                              borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(12),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 2),
+                              child: Center(
                                 child: Text(
-                                  user.status,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
+                                  user.empId,
+                                  style: TextStyle(
+                                    color: AppColor.blackColor,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
-                          const SizedBox(height: 8),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "# ID: ${user.id}",
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 14,
-                                  color: AppColor.blackColor,
-                                ),
-                              ),
-                                  Text(
-                                "${user.source}",
-                                style: const TextStyle(color: Colors.grey),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Branch: ${user.branch}",
-                                style: const TextStyle(
-                                  color: AppColor.blackColor,
-                                ),
-                              ),
-                              Text(
-                                "${user.created}",
-                                style: const TextStyle(color: Colors.grey),
-                              ),
-                            ],
-                          ),
-
-                          const Divider(),
-                          CustomGradientButton(
-                            text: ("${user.phone}"),
-                            height: 33,
-                            icon: Icons.call,
-                            gradientColors: const [
-                              Color(0xFF42A5F5), // Sky Blue
-                              Color(0xFF1565C0), // Rich Blue
-                            ],
-
-                            onPressed: () {
-                              // cancel action
-                            },
+                            ),
                           ),
                         ],
                       ),
-                    ),
+                    ],
                   ),
                 ),
               );
+             
             } else {
               // Show pagination controls (Next + Back) at the bottom
               return Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if (domestileaddataprovider
+                  if (courseleaddataprovider
                       .hasPreviousPage) // Show Back only if not on first page
                     ElevatedButton(
-                      onPressed: domestileaddataprovider.previousPage,
+                      onPressed: courseleaddataprovider.previousPage,
 
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.grey.shade600,
@@ -408,10 +510,10 @@ class CourseData extends StatelessWidget {
                       child: const Text("← Back"),
                     ),
                   const SizedBox(width: 12),
-                  if (domestileaddataprovider
+                  if (courseleaddataprovider
                       .hasNextPage) // Show Next if more pages
                     ElevatedButton(
-                      onPressed: domestileaddataprovider.nextPage,
+                      onPressed: courseleaddataprovider.nextPage,
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
