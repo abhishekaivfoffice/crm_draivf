@@ -1,12 +1,11 @@
 import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_data/course_data.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_data.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_data.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+//course lead home screen
 class CourseLeadsHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -34,18 +33,7 @@ class CourseLeadsHome extends StatelessWidget {
                           },
                         ),
                       ),
-                      // const SizedBox(width: 12), // space between buttons
-                      // Expanded(
-                      //   child: CustomGradientButton(
-                      //     height: 40,
-                      //     text: "Import Leads",
-                      //     icon: Icons.import_export_rounded,
-
-                      //     onPressed: () {
-                      //       Get.toNamed(AppRoutes.importCourseLeadScreen);
-                      //     },
-                      //   ),
-                      // ),
+                  
                     ],
                   ),
                   const SizedBox(height: 12),

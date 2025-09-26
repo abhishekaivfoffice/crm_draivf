@@ -1,4 +1,5 @@
 
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_assigned_member_profile/course_assigned_member_profile.dart';
 import 'package:flutter/material.dart';
 //course lead profile tabs
 class AccessTabs extends StatelessWidget {
@@ -29,12 +30,12 @@ class AccessTabs extends StatelessWidget {
                         final user = users[index];
                         return GestureDetector(
                           onTap: () {
-                            //            Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => JLNAssignedMemberDetails(member: user,),
-                            //   ),
-                            // );
+                                       Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CourseAssignedMemberProfile(),
+                              ),
+                            );
                           },
                           child: Container(
                             padding: const EdgeInsets.all(

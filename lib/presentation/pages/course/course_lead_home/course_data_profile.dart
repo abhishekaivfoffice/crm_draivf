@@ -3,16 +3,16 @@ import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appimages.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_data/access_assigned_tabs/assigned_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_data/access_assigned_tabs/access_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/access_assigned_tabs/assigned_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/access_assigned_tabs/access_tabs.dart';
 import 'package:crm_draivfmobileapp/provider/course_provider/course_data_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_segment_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_info_row.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+//profile sectiob  of course leads
 class CourseDataProfile extends StatelessWidget {
-   
+     
   const CourseDataProfile({
     super.key,
   });
@@ -29,7 +29,7 @@ class CourseDataProfile extends StatelessWidget {
     final List<Widget> pages = [AccessTabs(), AssignedTabs()];
     return Scaffold(
       drawer: TabletMobileDrawer(),
-      appBar: CustomAppBar(title: "course lead Assigned Profile"),
+      appBar: CustomAppBar(title: "course  data Profile"),
       body: SingleChildScrollView(
         child: Column(
           children: [

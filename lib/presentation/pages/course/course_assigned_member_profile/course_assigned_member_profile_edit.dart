@@ -2,8 +2,8 @@ import 'package:crm_draivfmobileapp/core/components/appbar/appbar.dart';
 import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
+import 'package:crm_draivfmobileapp/provider/course_provider/course_assigned_member_profile_edit_provider.dart';
 
-import 'package:crm_draivfmobileapp/provider/internationallead_provider/Inl_assigned_member_profile_edit_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/segment_swipe_button.dart.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/Custom_date_field.dart';
@@ -14,17 +14,18 @@ import 'package:crm_draivfmobileapp/widgets/custom_textfield/multiselect_chip.da
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-//course lead asiigned member profile
-class CourseAssignedMemberProfileEditHome extends StatefulWidget {
-  const CourseAssignedMemberProfileEditHome({super.key});
+
+//course lead - asigned member profile edit page
+class CourseAssignedMemberProfileEdit extends StatefulWidget {
+  const CourseAssignedMemberProfileEdit({super.key});
 
   @override
-  State<CourseAssignedMemberProfileEditHome> createState() =>
-      _CourseAssignedMemberProfileEditHomeState();
+  State<CourseAssignedMemberProfileEdit> createState() =>
+      _CourseAssignedMemberProfileEditState();
 }
 
-class _CourseAssignedMemberProfileEditHomeState
-    extends State<CourseAssignedMemberProfileEditHome> {
+class _CourseAssignedMemberProfileEditState
+    extends State<CourseAssignedMemberProfileEdit> {
   bool _isPage1Active = true;
 
   void _onPage1() {
@@ -42,9 +43,9 @@ class _CourseAssignedMemberProfileEditHomeState
   @override
   Widget build(BuildContext context) {
     final assignedmemberprofileeditprovider =
-        Provider.of<InlAssignedMemberProfileEditProvider>(context);
+        Provider.of<CourseAssignedMemberProfileEditProvider>(context);
     return Scaffold(
-      appBar: CustomAppBar(title: " Course Profile Edit"),
+      appBar: CustomAppBar(title: "Course Profile Edit"),
       drawer: TabletMobileDrawer(),
       body: Column(
         children: [
@@ -65,9 +66,7 @@ class _CourseAssignedMemberProfileEditHomeState
           Expanded(
             child:
                 _isPage1Active
-                    ?
-              
-                    SingleChildScrollView(
+                    ? SingleChildScrollView(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 16,
@@ -328,189 +327,198 @@ class _CourseAssignedMemberProfileEditHomeState
                                       .setSelectedRole,
                               hintText: "Select Attribute",
                             ),
-                            Divider(),
-                            const SizedBox(height: 8),
+                            const SizedBox(height: 10),
 
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "  Reports",
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    color: AppColor.blackColor,
-                                    fontFamily: AppFonts.poppins,
-                                  ),
-                                ),
-                              ],
-                            ),
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Checkbox(
-                                  value:
-                                      assignedmemberprofileeditprovider
-                                          .isReportsEnabled,
-                                  onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
-                                        .setIsReportEnabled(value ?? false);
-                                  },
-                                  side: const BorderSide(
-                                    color: Colors.black,
-                                    width: 2,
-                                  ),
-                                  activeColor: AppColor.primaryColor2,
-                                  checkColor: Colors.white,
-                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Reports",
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        color: AppColor.blackColor,
+                                        fontFamily: AppFonts.poppins,
+                                      ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Checkbox(
+                                          value:
+                                              assignedmemberprofileeditprovider
+                                                  .isReportsEnabled,
+                                          onChanged: (bool? value) {
+                                            assignedmemberprofileeditprovider
+                                                .setIsReportEnabled(
+                                                  value ?? false,
+                                                );
+                                          },
+                                          side: const BorderSide(
+                                            color: Colors.black,
+                                            width: 2,
+                                          ),
+                                          activeColor: AppColor.primaryColor2,
+                                          checkColor: Colors.white,
+                                        ),
 
-                                const Text(
-                                  "Enabled",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontFamily: AppFonts.poppins,
-                                    color: AppColor.blackColor,
-                                  ),
+                                        const Text(
+                                          "Enabled",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontFamily: AppFonts.poppins,
+                                            color: AppColor.blackColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Payment Link",
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        color: AppColor.blackColor,
+                                        fontFamily: AppFonts.poppins,
+                                      ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Checkbox(
+                                          value:
+                                              assignedmemberprofileeditprovider
+                                                  .isPaymentLinkEnabled,
+                                          onChanged: (bool? value) {
+                                            assignedmemberprofileeditprovider
+                                                .setIsPaymentLinkEnabled(
+                                                  value ?? false,
+                                                );
+                                          },
+                                          side: const BorderSide(
+                                            color: Colors.black,
+                                            width: 2,
+                                          ),
+                                          activeColor: AppColor.primaryColor2,
+                                          checkColor: Colors.white,
+                                        ),
+
+                                        const Text(
+                                          "Enabled",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontFamily: AppFonts.poppins,
+                                            color: AppColor.blackColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
-                            Divider(),
+
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Call Data",
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        color: AppColor.blackColor,
+                                        fontFamily: AppFonts.poppins,
+                                      ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Checkbox(
+                                          value:
+                                              assignedmemberprofileeditprovider
+                                                  .isCallDataEnabled,
+                                          onChanged: (bool? value) {
+                                            assignedmemberprofileeditprovider
+                                                .setIsCallDataEnabled(
+                                                  value ?? false,
+                                                );
+                                          },
+                                          side: const BorderSide(
+                                            color: Colors.black,
+                                            width: 2,
+                                          ),
+                                          activeColor: AppColor.primaryColor2,
+                                          checkColor: Colors.white,
+                                        ),
+
+                                        const Text(
+                                          "Enabled",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontFamily: AppFonts.poppins,
+                                            color: AppColor.blackColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Camp",
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        color: AppColor.blackColor,
+                                        fontFamily: AppFonts.poppins,
+                                      ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Checkbox(
+                                          value:
+                                              assignedmemberprofileeditprovider
+                                                  .isCampEnabled,
+                                          onChanged: (bool? value) {
+                                            assignedmemberprofileeditprovider
+                                                .setIsCampEnabled(
+                                                  value ?? false,
+                                                );
+                                          },
+                                          side: const BorderSide(
+                                            color: Colors.black,
+                                            width: 2,
+                                          ),
+                                          activeColor: AppColor.primaryColor2,
+                                          checkColor: Colors.white,
+                                        ),
+
+                                        const Text(
+                                          "Enabled",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontFamily: AppFonts.poppins,
+                                            color: AppColor.blackColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
 
                             const SizedBox(height: 6),
-
-                            /////////////////////////////
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "  Payment Link",
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    color: AppColor.blackColor,
-                                    fontFamily: AppFonts.poppins,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Checkbox(
-                                  value:
-                                      assignedmemberprofileeditprovider
-                                          .isPaymentLinkEnabled,
-                                  onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
-                                        .setIsPaymentLinkEnabled(
-                                          value ?? false,
-                                        );
-                                  },
-                                  side: const BorderSide(
-                                    color: Colors.black,
-                                    width: 2,
-                                  ),
-                                  activeColor: AppColor.primaryColor2,
-                                  checkColor: Colors.white,
-                                ),
-
-                                const Text(
-                                  "Enabled",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontFamily: AppFonts.poppins,
-                                    color: AppColor.blackColor,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Divider(),
-
-                            const SizedBox(height: 6),
-                            /////////////////////////////
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "  Call Data",
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    color: AppColor.blackColor,
-                                    fontFamily: AppFonts.poppins,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Checkbox(
-                                  value:
-                                      assignedmemberprofileeditprovider
-                                          .isCallDataEnabled,
-                                  onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
-                                        .setIsCallDataEnabled(value ?? false);
-                                  },
-                                  side: const BorderSide(
-                                    color: Colors.black,
-                                    width: 2,
-                                  ),
-                                  activeColor: AppColor.primaryColor2,
-                                  checkColor: Colors.white,
-                                ),
-
-                                const Text(
-                                  "Enabled",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontFamily: AppFonts.poppins,
-                                    color: AppColor.blackColor,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Divider(),
-
-                            const SizedBox(height: 6),
-                            /////////////////////////////
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "  Camp",
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    color: AppColor.blackColor,
-                                    fontFamily: AppFonts.poppins,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Checkbox(
-                                  value:
-                                      assignedmemberprofileeditprovider
-                                          .isCampEnabled,
-                                  onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
-                                        .setIsCampEnabled(value ?? false);
-                                  },
-                                  side: const BorderSide(
-                                    color: Colors.black,
-                                    width: 2,
-                                  ),
-                                  activeColor: AppColor.primaryColor2,
-                                  checkColor: Colors.white,
-                                ),
-
-                                const Text(
-                                  "Enabled",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontFamily: AppFonts.poppins,
-                                    color: AppColor.blackColor,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Divider(),
+                            Divider(color: AppColor.primaryColor2),
 
                             const SizedBox(height: 6),
                             CustomMultiSelectField(
@@ -525,7 +533,6 @@ class _CourseAssignedMemberProfileEditHomeState
                                   (val) => assignedmemberprofileeditprovider
                                       .setSelectedEnquiryList(val),
                             ),
-                            Divider(color: AppColor.primaryColor2,),
 
                             const SizedBox(height: 6),
 
@@ -587,102 +594,109 @@ class _CourseAssignedMemberProfileEditHomeState
                               isMandatory: false,
                             ),
 
-                            Divider(color: AppColor.primaryColor2,),
+                            Divider(color: AppColor.primaryColor2),
 
                             const SizedBox(height: 6),
                             /////////////////////////////
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "  International Leads",
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    color: AppColor.blackColor,
-                                    fontFamily: AppFonts.poppins,
-                                  ),
-                                ),
-                              ],
-                            ),
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Checkbox(
-                                  value:
-                                      assignedmemberprofileeditprovider
-                                          .isInternationalLeadEnabled,
-                                  onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
-                                        .setIsInternationalLeadEnabled(
-                                          value ?? false,
-                                        );
-                                  },
-                                  side: const BorderSide(
-                                    color: Colors.black,
-                                    width: 2,
-                                  ),
-                                  activeColor: AppColor.primaryColor2,
-                                  checkColor: Colors.white,
-                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "International Leads",
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        color: AppColor.blackColor,
+                                        fontFamily: AppFonts.poppins,
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Checkbox(
+                                          value:
+                                              assignedmemberprofileeditprovider
+                                                  .isInternationalLeadEnabled,
+                                          onChanged: (bool? value) {
+                                            assignedmemberprofileeditprovider
+                                                .setIsInternationalLeadEnabled(
+                                                  value ?? false,
+                                                );
+                                          },
+                                          side: const BorderSide(
+                                            color: Colors.black,
+                                            width: 2,
+                                          ),
+                                          activeColor: AppColor.primaryColor2,
+                                          checkColor: Colors.white,
+                                        ),
 
-                                const Text(
-                                  "Enabled",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontFamily: AppFonts.poppins,
-                                    color: AppColor.blackColor,
-                                  ),
+                                        const Text(
+                                          "Enabled",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontFamily: AppFonts.poppins,
+                                            color: AppColor.blackColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Job Leads",
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        color: AppColor.blackColor,
+                                        fontFamily: AppFonts.poppins,
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+
+                                      children: [
+                                        Checkbox(
+                                          value:
+                                              assignedmemberprofileeditprovider
+                                                  .isJobLeadsLeadEnabled,
+                                          onChanged: (bool? value) {
+                                            assignedmemberprofileeditprovider
+                                                .setIsJobLeadEnabled(
+                                                  value ?? false,
+                                                );
+                                          },
+                                          side: const BorderSide(
+                                            color: Colors.black,
+                                            width: 2,
+                                          ),
+                                          activeColor: AppColor.primaryColor2,
+                                          checkColor: Colors.white,
+                                        ),
+
+                                        const Text(
+                                          "Enabled",
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontFamily: AppFonts.poppins,
+                                            color: AppColor.blackColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
-                            Divider(),
-
                             const SizedBox(height: 6),
-                            /////////////////////////////
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "  Job Leads",
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    color: AppColor.blackColor,
-                                    fontFamily: AppFonts.poppins,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Checkbox(
-                                  value:
-                                      assignedmemberprofileeditprovider
-                                          .isJobLeadsLeadEnabled,
-                                  onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
-                                        .setIsJobLeadEnabled(value ?? false);
-                                  },
-                                  side: const BorderSide(
-                                    color: Colors.black,
-                                    width: 2,
-                                  ),
-                                  activeColor: AppColor.primaryColor2,
-                                  checkColor: Colors.white,
-                                ),
-
-                                const Text(
-                                  "Enabled",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontFamily: AppFonts.poppins,
-                                    color: AppColor.blackColor,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Divider(),
-
-                            const SizedBox(height: 6),
-                            /////////////////////////////
                             const Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
@@ -724,7 +738,7 @@ class _CourseAssignedMemberProfileEditHomeState
                                 ),
                               ],
                             ),
-                            Divider(color: AppColor.primaryColor2,),
+                            Divider(color: AppColor.primaryColor2),
 
                             const SizedBox(height: 6),
                             CustomMultiSelectField(
@@ -816,7 +830,7 @@ class _CourseAssignedMemberProfileEditHomeState
                                       .setSelectedAcademyLeadCource(vals),
                               isMandatory: false,
                             ),
-                             Divider(color: AppColor.primaryColor2,),
+                            Divider(color: AppColor.primaryColor2),
                             const SizedBox(height: 16),
                             Row(
                               children: [
@@ -852,8 +866,6 @@ class _CourseAssignedMemberProfileEditHomeState
                             ),
 
                             const SizedBox(height: 30),
-
-                            /////////////////////////////
                           ],
                         ),
                       ),
