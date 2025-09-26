@@ -3,23 +3,21 @@ import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
-import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
-import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_assigned_member_profile_provider.dart';
+import 'package:crm_draivfmobileapp/provider/course_provider/course_assigned_member_profile_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_containers/custom_time_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-//course leads assigned member details
-class CourseAssignedMemberProfile extends StatelessWidget {
-  final AssignedMember member;
 
-  const CourseAssignedMemberProfile({super.key, required this.member});
+//course leads assigned member profile
+class CourseAssignedMemberProfile extends StatelessWidget {
+  const CourseAssignedMemberProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
     final assignedmemberprofileprovider =
-        Provider.of<InlAssignedMemberProfileProvider>(context);
+        Provider.of<CourseAssignedMemberProfileProvider>(context);
     return Scaffold(
       drawer: TabletMobileDrawer(),
       appBar: CustomAppBar(title: "course Assigned Profile"),
@@ -27,7 +25,7 @@ class CourseAssignedMemberProfile extends StatelessWidget {
         children: [
           Stack(
             alignment: Alignment.center,
-            clipBehavior: Clip.none, 
+            clipBehavior: Clip.none,
             children: [
               Container(
                 height: 140,
@@ -53,7 +51,9 @@ class CourseAssignedMemberProfile extends StatelessWidget {
                   backgroundColor: Colors.white,
                   child: CircleAvatar(
                     radius: 56,
-                    backgroundImage: NetworkImage(member.profileImage),
+                    backgroundImage: NetworkImage(
+                      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Placeholder_Person.jpg/500px-Placeholder_Person.jpg",
+                    ),
                   ),
                 ),
               ),
@@ -64,7 +64,7 @@ class CourseAssignedMemberProfile extends StatelessWidget {
 
           // Name
           Text(
-            member.name,
+            "Laxmi Sharma",
             style: const TextStyle(
               fontSize: 20,
               fontFamily: AppFonts.poppins,
@@ -91,7 +91,7 @@ class CourseAssignedMemberProfile extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      member.email,
+                      "laxmisharma@gmail.com",
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: AppFonts.poppins,
@@ -113,7 +113,7 @@ class CourseAssignedMemberProfile extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      member.lastActiveDate,
+                      "12-08-2025",
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: AppFonts.poppins,
@@ -188,7 +188,7 @@ class CourseAssignedMemberProfile extends StatelessWidget {
                     icon: Icons.edit,
 
                     onPressed: () {
-                      Get.toNamed(AppRoutes.inleditAssignedMember);
+                      Get.toNamed(AppRoutes.courseeditAssignedMember);
                     },
                   ),
                   onTap: () {},

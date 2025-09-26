@@ -72,16 +72,13 @@ class AppRoutes {
   static const courseLeadHome = '/courseleadhome';
   static const addCourseLeadScreen = '/addCourseleadhome';
   static const importCourseLeadScreen = '/importcourseleadscreen';
-  static const courseLeadBulkActionScreen =
-      '/courseleadbulkactionscreen';
-  static const courseConvertToCustomerScreen = '/courseconverttocustomerscreen';
-  static const courseAddNewTaskScreen = '/courseaddnewtaskscreen';
-  static const courseSetLeadReminderScreen = '/coursesetleadremindetrscreen';
-  static const courseeditLeadScreen = '/courseeditLeadScreen';
   static const courseeditAssignedMember = '/courseeditassignedmember';
   //enquiry screen
   static const enquiryHome = '/enquiryhome';
   static const enquiryAdd = '/addenquiry';
+  //payment link screen
+    static const paymentLinkScreen = '/paymentLinkScreen';
+
   //camp screen
   static const campHome = '/camphome';
   //not found screen

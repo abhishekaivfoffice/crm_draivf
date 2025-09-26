@@ -1,15 +1,13 @@
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appimages.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/core/routes/routes.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_data/course_data_profile.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_data_profile.dart';
 import 'package:crm_draivfmobileapp/provider/course_provider/course_data_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_daterange_field.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_with_search.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdownfield_with_selectall_option.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 //course leads data page
@@ -110,9 +108,11 @@ class CourseData extends StatelessWidget {
                   ),
                 ),
                 ////
+              
+                ////
                 GestureDetector(
                   onTap: () {
-                    Get.toNamed(AppRoutes.bulkActionScreen);
+                    courseleaddataprovider.toggleFilters();
                   },
                   child: Container(
                     decoration: BoxDecoration(
@@ -128,36 +128,7 @@ class CourseData extends StatelessWidget {
                         height: 35,
                         child: Center(
                           child: const Text(
-                            " Bulk Actions ",
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: AppColor.blackColor,
-                              fontFamily: AppFonts.poppins,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 10),
-                ////
-                GestureDetector(
-                  onTap: () {
-                    courseleaddataprovider.toggleFilters();
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                      border: Border.all(color: Colors.black12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child: SizedBox(
-                        height: 35,
-                        child: Center(
-                          child: const Text(
-                            " Filter ",
+                            "    Filter    ",
                             style: TextStyle(
                               fontSize: 14,
                               color: AppColor.blackColor,
@@ -280,7 +251,7 @@ class CourseData extends StatelessWidget {
                   );
                 },
                 child: Container(
-                  margin: EdgeInsets.all(16),
+                  margin: EdgeInsets.symmetric(horizontal: 16,vertical: 4),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(12),

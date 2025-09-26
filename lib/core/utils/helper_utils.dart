@@ -69,14 +69,10 @@ class HelperUtil {
       //course lead screen
       AppRoutes.courseLeadHome,
       AppRoutes.importCourseLeadScreen,
-      AppRoutes.courseLeadBulkActionScreen,
       AppRoutes.addCourseLeadScreen,
-      AppRoutes.courseConvertToCustomerScreen,
-      AppRoutes.courseAddNewTaskScreen,
-      AppRoutes.courseSetLeadReminderScreen,
-      AppRoutes.courseeditLeadScreen,
       AppRoutes.courseeditAssignedMember,
-
+      //payment link screen
+      AppRoutes.paymentLinkScreen,
       //no found screen
       AppRoutes.notFoundScreen,
     ];

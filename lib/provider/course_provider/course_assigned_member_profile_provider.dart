@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class 
-InlAssignedMemberProfileProvider extends ChangeNotifier {
+CourseAssignedMemberProfileProvider extends ChangeNotifier {
   int currentPage = 0;
   int pageSize = 10;
   bool get hasPreviousPage => currentPage > 0;

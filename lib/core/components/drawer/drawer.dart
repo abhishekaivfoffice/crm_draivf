@@ -136,6 +136,12 @@ class TabletMobileDrawer extends StatelessWidget {
                           targetPage: AppRoutes.enquiryHome,
                           fontSize: navItemFontSize,
                         ),
+                          TabletAppbarNavigationBtn(
+                          leadingicon: Icons.money,
+                          title: 'Payment Link',
+                          targetPage: AppRoutes.paymentLinkScreen,
+                          fontSize: navItemFontSize,
+                        ),
                         TabletAppbarNavigationBtn(
                           leadingicon: Icons.campaign,
                           title: 'Camp Management',

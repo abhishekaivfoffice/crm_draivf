@@ -10,12 +10,7 @@ import 'package:crm_draivfmobileapp/presentation/pages/camp_management/camp_mana
 import 'package:crm_draivfmobileapp/presentation/pages/camp_management/camp_zone_userdetails_screen/camp_userdetails_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/camp_management/new_comp_add/new_camp_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/course/course_add_newlead/course_add_newlead.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/course/course_bulk_action/course_bulk_action_page.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_assigned_member_profile/course_assigned_member_profile_edithome.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_edit_leads/course_edit_leads.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_data/course_add_new_task.dart/course_add_new_task_page.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_data/course_convert_to_customer/course_convert_to_customer_page.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_data/course_set_lead_reminders/course_set_lead_reminders_page.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/course/course_assigned_member_profile/course_assigned_member_profile_edit.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/course/course_lead_home/course_leads_home.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_charts/dashborad_chart_provider/chart1_provider.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_home/dashboard_screen.dart';
@@ -51,12 +46,11 @@ import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_ne
 import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/jln_set_lead_reminders/jln_set_lead_reminders_page.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/job_leads_new_data.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_home.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/payment_link/payment_link_home.dart';
 import 'package:crm_draivfmobileapp/provider/course_provider/course_add_lead_provider.dart';
-import 'package:crm_draivfmobileapp/provider/course_provider/course_add_new_task_provider.dart';
-import 'package:crm_draivfmobileapp/provider/course_provider/course_convert_to_customer_provider.dart';
+import 'package:crm_draivfmobileapp/provider/course_provider/course_assigned_member_profile_edit_provider.dart';
+import 'package:crm_draivfmobileapp/provider/course_provider/course_assigned_member_profile_provider.dart';
 import 'package:crm_draivfmobileapp/provider/course_provider/course_data_provider.dart';
-import 'package:crm_draivfmobileapp/provider/course_provider/course_import_leads_provider.dart';
-import 'package:crm_draivfmobileapp/provider/course_provider/course_setlead_reminders_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/add_leads_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_provider.dart';
 import 'package:crm_draivfmobileapp/provider/domestic_leads_provider/assigned_member_profile_edit_provider.dart';
@@ -119,6 +113,7 @@ import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_convert_to_cu
 import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_import_leads_provider.dart';
 import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_job_leads_data_provider.dart';
 import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_set_lead_reminders_provider.dart';
+import 'package:crm_draivfmobileapp/provider/payment_link_provider/payment_link_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -216,22 +211,20 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => JLNSetLeadRemindersProvider()),
         //////////////course leads provider
         ChangeNotifierProvider(create: (_) => CourseAddLeadProvider()),
-        ChangeNotifierProvider(create: (_) => CourseImportLeadsProvider()),
         ChangeNotifierProvider(create: (_) => CourseDataProvider()),
+
         ChangeNotifierProvider(
-          create: (_) => CourseConvertToCustomerProvider(),
-        ),
-        ChangeNotifierProvider(create: (_) => CourseAddNewTaskProvider()),
-        ChangeNotifierProvider(create: (_) => CourseSetleadRemindersProvider()),
-        ChangeNotifierProvider(
-          create: (_) => InlAssignedMemberProfileProvider(),
+          create: (_) => CourseAssignedMemberProfileProvider(),
         ),
         ChangeNotifierProvider(
-          create: (_) => InlAssignedMemberProfileEditProvider(),
+          create: (_) => CourseAssignedMemberProfileEditProvider(),
         ),
         //enquiry provider
         ChangeNotifierProvider(create: (_) => AddEnquiryProvider()),
         ChangeNotifierProvider(create: (_) => HomeEnquiryProvider()),
+        //payment link provider
+        ChangeNotifierProvider(create: (_) => PaymentLinkProvider()),
+
         //camp provider
         ChangeNotifierProvider(create: (_) => NewCampProvider()),
         ChangeNotifierProvider(create: (_) => CampUserDetailsProvider()),
@@ -395,25 +388,18 @@ class MyApp extends StatelessWidget {
         return JLNSetLeadRemindersPage();
       case AppRoutes.jlneditLeadScreen:
         return JLNEditLeadScreen();
- //COURSE lead screen
-
+      //COURSE lead screen
       case AppRoutes.courseLeadHome:
         return CourseLeadsHome();
       case AppRoutes.addCourseLeadScreen:
         return CourseAddNewlead();
-      case AppRoutes.courseLeadBulkActionScreen:
-        return CourseBulkActionPage();
-  
-      case AppRoutes.courseConvertToCustomerScreen:
-        return CourseConvertToCustomerPage();
-      case AppRoutes.courseAddNewTaskScreen:
-        return CourseAddNewTaskPage();
-      case AppRoutes.courseSetLeadReminderScreen:
-        return CourseSetLeadRemindersPage();
-      case AppRoutes.courseeditLeadScreen:
-        return CourseEditLeadScreen();
+
       case AppRoutes.courseeditAssignedMember:
-        return CourseAssignedMemberProfileEditHome();
+        return CourseAssignedMemberProfileEdit();
+
+      //Payment link Screen
+      case AppRoutes.paymentLinkScreen:
+        return PaymentLinkPage();
       //not found screen
       case AppRoutes.notFoundScreen:
         return const NotFoundPage();
