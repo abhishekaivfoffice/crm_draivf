@@ -5,7 +5,7 @@ import 'package:crm_draivfmobileapp/presentation/pages/donorLeadsNew/dln_donor_l
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+ 
 class DLNDonorLeadsNewHome extends StatelessWidget {
   const DLNDonorLeadsNewHome({super.key});
 
@@ -18,19 +18,19 @@ class DLNDonorLeadsNewHome extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
+            Padding( 
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
                   Row(
-                    children: [
+                    children: [  
                       Expanded(
                         child: CustomGradientButton(
                           height: 40,
                           text: "Add Donor Details",
                           icon: Icons.add,
 
-                          onPressed: () {
+                          onPressed: () { 
                             Get.toNamed(AppRoutes.adddonorLeadNewScreen);
                           },
                         ),

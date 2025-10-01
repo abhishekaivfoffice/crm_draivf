@@ -87,13 +87,12 @@ class TabletMobileDrawer extends StatelessWidget {
                           targetPage: AppRoutes.teledashboardScreen,
                           fontSize: navItemFontSize,
                         ),
-                        // TabletAppbarNavigationBtn(
-                        //   leadingicon: Icons.api,
-
-                        //   title: 'Tele Api Dashboard',
-                        //   targetPage: AppRoutes.notFoundScreen,
-                        //   fontSize: navItemFontSize,
-                        // ),
+                        TabletAppbarNavigationBtn(
+                          leadingicon: Icons.api,
+                          title: 'Tele Api Dashboard',
+                          targetPage: AppRoutes.notFoundScreen,
+                          fontSize: navItemFontSize,
+                        ),
                         TabletAppbarNavigationBtn(
                           leadingicon: Icons.home_work,
                           title: 'Domestic Leads',

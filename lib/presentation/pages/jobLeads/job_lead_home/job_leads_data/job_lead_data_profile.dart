@@ -5,18 +5,19 @@ import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/assigned_member_profile/assigned_member_profile.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/activity_log_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/attachment_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/call_recordings_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/email_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/marketing_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/notes_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/payment_links_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/profile_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/reminders_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/sms_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_data/profile_tabs/task_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_assigned_member_profile/dl_assigned_member_profile.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_profile_tabs/dl_activity_log_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_profile_tabs/dl_attachment_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_profile_tabs/dl_call_recordings_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_profile_tabs/dl_email_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_profile_tabs/dl_marketing_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_profile_tabs/dl_notes_tab.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_profile_tabs/dl_payment_links_tab.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_profile_tabs/dl_profile_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_profile_tabs/dl_reminders_tab.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_profile_tabs/dl_sms_tab.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_profile_tabs/dl_task_tabs.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/jl_assigned_member_profile/jl_assigned_member_profile.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_activity_log_tabs.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_attachment_tabs.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_call_recordings_tabs.dart';
@@ -105,7 +106,7 @@ class JOBLeadDataProfile extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                           builder:
-                                              (_) => AssignedMemberDetails(
+                                              (_) => JLAssignedMemberDetails(
                                                 member: m,
                                               ),
                                         ),

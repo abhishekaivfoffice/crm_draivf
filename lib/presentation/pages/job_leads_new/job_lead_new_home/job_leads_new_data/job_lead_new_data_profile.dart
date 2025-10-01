@@ -4,7 +4,7 @@ import 'package:crm_draivfmobileapp/core/components/drawer/drawer.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/constatnts/appimages.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/jln_assigned_member_profile/jln_assigned_member_profile.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/jln_assigned_member_profile/jln_assigned_member_profile.dart';
 import 'package:crm_draivfmobileapp/provider/job_leads_new_provider/jln_assigned_member_profile_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_info_row.dart';
 import 'package:flutter/material.dart';

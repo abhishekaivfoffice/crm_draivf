@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:crm_draivfmobileapp/core/constatnts/appimages.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_home.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_home.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/login/login_screen.dart';
 import 'package:flutter/material.dart';
 

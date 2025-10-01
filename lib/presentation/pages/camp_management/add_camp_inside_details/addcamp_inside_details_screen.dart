@@ -11,7 +11,7 @@ import '../../../../widgets/custom_filechooser_field/custom_file_chooser_field.d
 import '../../../../widgets/custom_textfield/Custom_date_field.dart';
 import '../../../../widgets/custom_textfield/custom_large_textfield.dart';
 import '../../../../widgets/custom_textfield/custom_textfield.dart';
-import '../../domesticLeads/new_leads/date_field_with_age.dart';
+import '../../domesticLeads/dl_new_leads/dl_date_field_with_age.dart';
 import 'addcamp_inside_details_provider.dart';
 
 class AddCampInsideDetailsScreen extends StatelessWidget {
