@@ -189,7 +189,7 @@ class PaymentLinkPage extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               padding: const EdgeInsets.all(0),
-              itemCount: users.length + 1, // extra for pagination buttons
+              itemCount: users.length + 1,
               itemBuilder: (context, index) {
                 if (index < users.length) {
                   final user = users[index];
@@ -204,12 +204,10 @@ class PaymentLinkPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          
                           // First Row (IMM)
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              
                               Row(
                                 children: [
                                   const Icon(
@@ -265,11 +263,9 @@ class PaymentLinkPage extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 4),
-   // second Row (IMM)
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              
                               Row(
                                 children: [
                                   const Icon(
@@ -296,65 +292,96 @@ class PaymentLinkPage extends StatelessWidget {
                                   ),
                                 ],
                               ),
-
-                         
                             ],
                           ),
-                          const SizedBox(height: 12),
-                          // Second Row (Original Glass + Price)
+                          const SizedBox(height: 4),
+
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Icon(Icons.window_outlined, size: 20),
-                              const SizedBox(width: 6),
-                              const Expanded(
-                                child: Text("Original Glass (No Exemption)"),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
-                                    "₹ 8.987,78",
-                                    style: TextStyle(
-                                      color: Colors.blue,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const Text(
-                                    "12 Installments",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Colors.grey,
-                                    ),
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.mobile_friendly,
+                                        color: Color.fromARGB(171, 0, 0, 0),
+                                        size: 20,
+                                      ),
+                                      const SizedBox(width: 6),
+                                      const Text(
+                                        "Mobile : ",
+                                        style: const TextStyle(
+                                          fontFamily: AppFonts.poppins,
+                                          color: Color.fromARGB(171, 0, 0, 0),
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                      const Text(
+                                        "+91 9076 76543",
+                                        style: const TextStyle(
+                                          fontFamily: AppFonts.poppins,
+                                          color: Color.fromARGB(171, 0, 0, 0),
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
+                              Text(
+                                "₹ 8.987,78",
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ],
                           ),
                           const SizedBox(height: 12),
 
-                          // Third Row (Quick Support Service)
-                          Row(
-                            children: [
-                              const Icon(Icons.build_circle_outlined, size: 20),
-                              const SizedBox(width: 6),
-                              const Text("Quick Support Service"),
-                            ],
-                          ),
-                          const Divider(thickness: 1, height: 20),
+                          const Divider(thickness: 1),
 
-                          // Bottom Row (Economic Car Insurance)
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text(
-                                "Economic Car Insurance",
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  paymentlinkprovider.openDialog(context);
+                                },
+
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Ref Id : ",
+                                      style: TextStyle(
+                                        fontFamily: AppFonts.poppins,
+                                        color: AppColor.blueaccent,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    Text(
+                                      "AB4567645984",
+                                      style: TextStyle(
+                                        fontFamily: AppFonts.poppins,
+                                        color: AppColor.blueaccent,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                               Text(
-                                "Detail",
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                "12-05-2025",
+                                style: TextStyle(
+                                  fontFamily: AppFonts.poppins,
+                                  color: Color.fromARGB(171, 0, 0, 0),
+                                  fontSize: 14,
+                                ),
                               ),
                             ],
                           ),

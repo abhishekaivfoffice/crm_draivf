@@ -9,7 +9,7 @@ import '../../../../core/fonts/fonts.dart';
 import '../../../../widgets/custom_buttons/custom_gradient_button.dart';
 import '../../../../widgets/custom_textfield/custom_dropdown_with_search.dart';
 import '../../../../widgets/custom_textfield/custom_textfield.dart';
-import '../../domesticLeads/new_leads/date_field_with_age.dart';
+import '../../domesticLeads/dl_new_leads/dl_date_field_with_age.dart';
 import 'new_camp_provider.dart';
 
 class NewCampScreen extends StatelessWidget {
@@ -36,7 +36,7 @@ class NewCampScreen extends StatelessWidget {
                 hintText: "Select Status",
               ),
               SizedBox(height: 6),
-              DateFieldWithAge(
+              DLDateFieldWithAge(
                 controller: newcampprovider.marriageDateController,
                 hintText: "Select Camp date",
                 labelText: "Camp Date",

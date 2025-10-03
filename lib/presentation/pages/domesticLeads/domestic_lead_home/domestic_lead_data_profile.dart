@@ -17,18 +17,6 @@ import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_profile_
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_profile_tabs/dl_reminders_tab.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_profile_tabs/dl_sms_tab.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_profile_tabs/dl_task_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/jl_assigned_member_profile/jl_assigned_member_profile.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_activity_log_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_attachment_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_call_recordings_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_email_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_marketing_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_notes_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_payment_links_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_profile_tabs.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_reminders_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_sms_tab.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/jobLeads/job_lead_home/job_leads_data/jl_profile_tabs/jl_task_tabs.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 
 import 'package:crm_draivfmobileapp/widgets/custom_popup/custom_confirm_dialogue.dart';
@@ -36,11 +24,11 @@ import 'package:crm_draivfmobileapp/widgets/custom_popup/custom_confirm_dialogue
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-//////////////////////////////////////job lead profile detailed page///////////////
+//////////////////////////////////////domestic lead profile detailed page///////////////
 
-class JOBLeadDataProfile extends StatelessWidget {
+class DomesticLeadDataProfile extends StatelessWidget {
   final User user;
-  const JOBLeadDataProfile({super.key, required this.user});
+  const DomesticLeadDataProfile({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +42,7 @@ class JOBLeadDataProfile extends StatelessWidget {
     return Scaffold(
       drawer: TabletMobileDrawer(),
 
-      appBar: CustomAppBar(title: "JOB LEAD Data detailed page"),
+      appBar: CustomAppBar(title: "Data detailed page"),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: SingleChildScrollView(
@@ -106,7 +94,7 @@ class JOBLeadDataProfile extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                           builder:
-                                              (_) => JLAssignedMemberDetails(
+                                              (_) => DLAssignedMemberProfile(
                                                 member: m,
                                               ),
                                         ),
@@ -169,7 +157,7 @@ class JOBLeadDataProfile extends StatelessWidget {
                                 Color(0xFFBAC8E0), // light grayish blue
                               ],
                               onPressed: () {
-                                Get.toNamed(AppRoutes.jleditLeadScreen);
+                                Get.toNamed(AppRoutes.editLeadScreen);
                               },
                             ),
                           ),
@@ -198,8 +186,8 @@ class JOBLeadDataProfile extends StatelessWidget {
                                             "Do you really want to delete the file?",
                                         message:
                                             "This action cannot be undone.",
-                                        confirmText: "delete",
-                                        cancelText: "Cancel",
+                                        confirmText: "Yes delete the file",
+                                        cancelText: "Cancel this time",
                                         svgAsset: AppImages.binicon,
                                         onConfirm: () {
                                           Navigator.of(context).pop();
@@ -271,27 +259,27 @@ class JOBLeadDataProfile extends StatelessWidget {
                               index: tabController.index,
                               children: [
                                 // Tab 1
-                                JLProfileTabs(user: user),
+                                DLProfileTabs(user: user),
                                 // Tab 2
-                                 JLTaskTabs(),
+                                DLTaskTabs(),
                                 // Tab 3
-                                 JLAttachmentTabs(),
+                                DLAttachmentTabs(),
                                 //tab 4
-                                 JLRemindersTab(),
+                                DlRemindersTab(),
                                 //tab 5
-                                 JLPaymentLinksTab(),
+                                DLPaymentLinksTab(),
                                 //tab 6
-                                 JLNotesTab(),
+                                DLNotesTab(),
                                 //tab 7
-                                 JLActivityLogTabs(),
+                                DLActivityLogTabs(),
                                 //tab 8
-                                 JLMarketingTabs(),
+                                DLMarketingTabs(),
                                 //tab 9
-                                 JLCallRecordingTabs(),
+                                DlCallRecordingTabs(),
                                 //tab 10
-                                 JLSmsTab(),
+                                DLSmsTab(),
                                 //tab 11
-                                 JLEmailTabs(),
+                                DLEmailTabs(),
                               ],
                             );
                           },

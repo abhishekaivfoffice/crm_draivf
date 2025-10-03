@@ -1,16 +1,17 @@
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
+import 'package:crm_draivfmobileapp/provider/internationallead_provider/inl_add_lead_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-class CustomDateField extends StatelessWidget {
+import 'package:provider/provider.dart';
+class STPStaffDateFieldWithAge extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final String labelText;
   final bool isMandatory;
   final String? Function(String?)? validator;
 
-  const CustomDateField({
+  const STPStaffDateFieldWithAge({
     super.key,
     required this.controller,
     required this.hintText,
@@ -45,9 +46,7 @@ class CustomDateField extends StatelessWidget {
         ),
         const SizedBox(height: 6),
 
-       
         // FormField (same style as your textfield)
-        
         FormField<String>(
           validator: (value) {
             if (isMandatory && (controller.text.isEmpty)) {
@@ -70,14 +69,19 @@ class CustomDateField extends StatelessWidget {
                     hintStyle: const TextStyle(
                       fontSize: 14,
                       fontFamily: AppFonts.poppins,
-                      color: AppColor.hinttextblackColor,
+                      color: AppColor.blackColor,
                     ),
                     filled: true,
                     fillColor: Colors.white,
                     contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 12, vertical: 14),
-                    suffixIcon: const Icon(Icons.calendar_today,size: 20,
-                        color: AppColor.primaryColor2),
+                      horizontal: 12,
+                      vertical: 14,
+                    ),
+                    suffixIcon: const Icon(
+                      Icons.calendar_today,
+                      size: 20,
+                      color: AppColor.primaryColor2,
+                    ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide(
@@ -109,15 +113,16 @@ class CustomDateField extends StatelessWidget {
                       lastDate: DateTime(2100),
                     );
                     if (pickedDate != null) {
-                      String formattedDate =
-                          DateFormat("dd-MM-yyyy").format(pickedDate);
-                      controller.text = formattedDate;
+                      String formattedDate = DateFormat(
+                        "dd-MM-yyyy",
+                      ).format(pickedDate);
+                      final provider = context.read<InlAddLeadProvider>();
+                      provider.setMarriageDate(formattedDate);
                       state.didChange(formattedDate);
                     }
                   },
                 ),
 
-                // Error message
                 if (state.hasError)
                   Padding(
                     padding: const EdgeInsets.only(top: 5, left: 8),

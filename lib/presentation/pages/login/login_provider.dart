@@ -1,6 +1,6 @@
 import 'package:crm_draivfmobileapp/presentation/pages/dashBoard/dashboard_home/dashboard_screen.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/new_leads/add_leads.dart';
-import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_leads_home.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/dl_new_leads/dl_add_leads.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_leads_home.dart';
 import 'package:flutter/material.dart';
 
 class LoginProvider extends ChangeNotifier{
