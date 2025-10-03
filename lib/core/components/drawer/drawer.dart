@@ -147,7 +147,12 @@ class TabletMobileDrawer extends StatelessWidget {
                           targetPage: AppRoutes.campHome,
                           fontSize: navItemFontSize,
                         ),
-                       
+                         TabletAppbarNavigationBtn(
+                          leadingicon: Icons.campaign,
+                          title: 'Setup_Staff',
+                          targetPage: AppRoutes.setupStaffHome,
+                          fontSize: navItemFontSize,
+                        ),
                       ],
                     ),
                   ),

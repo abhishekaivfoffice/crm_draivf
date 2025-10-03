@@ -47,6 +47,8 @@ import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_ne
 import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_data/job_leads_new_data.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/job_leads_new/job_lead_new_home/job_leads_new_home.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/payment_link/payment_link_home.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/setup/setup_staff/setup_staff_add_staff/stp_staff_add_new_staff.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/setup/setup_staff/setup_staff_home/stp_staff_home.dart';
 import 'package:crm_draivfmobileapp/provider/course_provider/course_add_lead_provider.dart';
 import 'package:crm_draivfmobileapp/provider/course_provider/course_assigned_member_profile_edit_provider.dart';
 import 'package:crm_draivfmobileapp/provider/course_provider/course_assigned_member_profile_provider.dart';
@@ -114,6 +116,8 @@ import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_import_leads_
 import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_job_leads_data_provider.dart';
 import 'package:crm_draivfmobileapp/provider/job_leads_provider/jl_set_lead_reminders_provider.dart';
 import 'package:crm_draivfmobileapp/provider/payment_link_provider/payment_link_provider.dart';
+import 'package:crm_draivfmobileapp/provider/setup_staff_provider/setup_staff_addnew_staff_provider.dart';
+import 'package:crm_draivfmobileapp/provider/setup_staff_provider/setup_staff_data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -231,6 +235,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CampDetailsInsidePageProvider()),
         ChangeNotifierProvider(create: (_) => AddCampInsideProvider()),
         ChangeNotifierProvider(create: (_) => AddCampInsideActionProvider()),
+        //setup_staff provider
+        ChangeNotifierProvider(create: (_) => SetupStaffDataProvider()),
+        ChangeNotifierProvider(create: (_) => SetupStaffAddNewStaffProvider()),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
@@ -400,6 +407,13 @@ class MyApp extends StatelessWidget {
       //Payment link Screen
       case AppRoutes.paymentLinkScreen:
         return PaymentLinkPage();
+      //Setup _ staff Screen
+      case AppRoutes.setupStaffHome:
+        return STPStaffHome();
+
+      case AppRoutes.setupStaffAddNewStaff:
+        return STPStaffAddNewStaffMember();
+
       //not found screen
       case AppRoutes.notFoundScreen:
         return const NotFoundPage();

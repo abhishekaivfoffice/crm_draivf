@@ -4,8 +4,10 @@ import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 
 import 'package:crm_draivfmobileapp/provider/internationallead_provider/Inl_assigned_member_profile_edit_provider.dart';
+import 'package:crm_draivfmobileapp/provider/setup_staff_provider/setup_staff_addnew_staff_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/segment_swipe_button.dart.dart';
+import 'package:crm_draivfmobileapp/widgets/custom_filechooser_field/custom_file_chooser_field.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/Custom_date_field.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_with_search.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdownfield_with_selectall_option.dart';
@@ -14,16 +16,16 @@ import 'package:crm_draivfmobileapp/widgets/custom_textfield/multiselect_chip.da
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-class STPStaffAssignedMemberProfileEditHome extends StatefulWidget {
-  const STPStaffAssignedMemberProfileEditHome({super.key});
+
+class STPStaffAddNewStaffMember extends StatefulWidget {
+  const STPStaffAddNewStaffMember({super.key});
 
   @override
-  State<STPStaffAssignedMemberProfileEditHome> createState() =>
-      _STPStaffAssignedMemberProfileEditHomeState();
+  State<STPStaffAddNewStaffMember> createState() =>
+      _STPStaffAddNewStaffMemberState();
 }
 
-class _STPStaffAssignedMemberProfileEditHomeState
-    extends State<STPStaffAssignedMemberProfileEditHome> {
+class _STPStaffAddNewStaffMemberState extends State<STPStaffAddNewStaffMember> {
   bool _isPage1Active = true;
 
   void _onPage1() {
@@ -40,8 +42,8 @@ class _STPStaffAssignedMemberProfileEditHomeState
 
   @override
   Widget build(BuildContext context) {
-    final assignedmemberprofileeditprovider =
-        Provider.of<InlAssignedMemberProfileEditProvider>(context);
+    final stpstaffaddnewstaffprovider =
+        Provider.of<SetupStaffAddNewStaffProvider>(context);
     return Scaffold(
       appBar: CustomAppBar(title: " STP Staff Profile Edit"),
       drawer: TabletMobileDrawer(),
@@ -52,7 +54,7 @@ class _STPStaffAssignedMemberProfileEditHomeState
             padding: const EdgeInsets.all(16.0),
             child: SegmentedSwipeButton(
               page1: "Permission",
-              page2: "Edit",
+              page2: "Profile",
               gradientColors: [Color(0xFF8E0E6B), Color(0xFFD4145A)],
               textStyle: const TextStyle(color: Colors.white, fontSize: 16),
               onPage1: _onPage1,
@@ -64,9 +66,7 @@ class _STPStaffAssignedMemberProfileEditHomeState
           Expanded(
             child:
                 _isPage1Active
-                    ?
-              
-                    SingleChildScrollView(
+                    ? SingleChildScrollView(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 16,
@@ -80,7 +80,7 @@ class _STPStaffAssignedMemberProfileEditHomeState
 
                               labelText: "First Name",
                               controller:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .firstNameController,
                               hintText: "enter first name",
                               validator:
@@ -95,7 +95,7 @@ class _STPStaffAssignedMemberProfileEditHomeState
 
                               labelText: "Last Name",
                               controller:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .lastNameController,
                               hintText: "enter Last name",
                               validator:
@@ -111,8 +111,7 @@ class _STPStaffAssignedMemberProfileEditHomeState
 
                               labelText: "Email",
                               controller:
-                                  assignedmemberprofileeditprovider
-                                      .emailController,
+                                  stpstaffaddnewstaffprovider.emailController,
                               hintText: "enter email id",
                               validator:
                                   (val) =>
@@ -127,7 +126,7 @@ class _STPStaffAssignedMemberProfileEditHomeState
 
                               labelText: "Call Number",
                               controller:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .phoneNumberController,
                               hintText: "enter call number",
                               validator:
@@ -136,7 +135,22 @@ class _STPStaffAssignedMemberProfileEditHomeState
                                           ? "enter call number"
                                           : null,
                             ),
-
+                            const SizedBox(height: 6),
+                            CustomFileChooserField(
+                              labelText: "Choose File",
+                              isMandatory: true,
+                              selectedFile:
+                                  stpstaffaddnewstaffprovider.selectedFile,
+                              allowedExtensions: [
+                                "csv",
+                                "Pdf",
+                              ], //  pass dynamically
+                              onFilePicked: (file) {
+                                if (file != null) {
+                                  stpstaffaddnewstaffprovider.setFile(file);
+                                }
+                              },
+                            ),
                             const SizedBox(height: 6),
 
                             const Row(
@@ -155,12 +169,11 @@ class _STPStaffAssignedMemberProfileEditHomeState
                             Row(
                               children: [
                                 Checkbox(
-                                  value:
-                                      assignedmemberprofileeditprovider
-                                          .isExotel,
+                                  value: stpstaffaddnewstaffprovider.isExotel,
                                   onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
-                                        .setIsExotel(value ?? false);
+                                    stpstaffaddnewstaffprovider.setIsExotel(
+                                      value ?? false,
+                                    );
                                   },
                                   side: const BorderSide(
                                     color: Colors.black,
@@ -181,10 +194,10 @@ class _STPStaffAssignedMemberProfileEditHomeState
                                 const SizedBox(width: 6),
                                 Checkbox(
                                   value:
-                                      assignedmemberprofileeditprovider
+                                      stpstaffaddnewstaffprovider
                                           .isCallDisabled,
                                   onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
+                                    stpstaffaddnewstaffprovider
                                         .setIsCallDisabled(value ?? false);
                                   },
                                   side: const BorderSide(
@@ -224,12 +237,11 @@ class _STPStaffAssignedMemberProfileEditHomeState
                             Row(
                               children: [
                                 Checkbox(
-                                  value:
-                                      assignedmemberprofileeditprovider
-                                          .isExotel,
+                                  value: stpstaffaddnewstaffprovider.isAdministrator,
                                   onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
-                                        .setIsExotel(value ?? false);
+                                    stpstaffaddnewstaffprovider.setIsAdministrator(
+                                      value ?? false,
+                                    );
                                   },
                                   side: const BorderSide(
                                     color: Colors.black,
@@ -247,6 +259,29 @@ class _STPStaffAssignedMemberProfileEditHomeState
                                     color: AppColor.blackColor,
                                   ),
                                 ),
+                                const SizedBox(width: 12,), Checkbox(
+                                  value: stpstaffaddnewstaffprovider.isSendWelcomeMail,
+                                  onChanged: (bool? value) {
+                                    stpstaffaddnewstaffprovider.setIsSendWelcomeMail(
+                                      value ?? false,
+                                    );
+                                  },
+                                  side: const BorderSide(
+                                    color: Colors.black,
+                                    width: 2,
+                                  ),
+                                  activeColor: AppColor.primaryColor2,
+                                  checkColor: Colors.white,
+                                ),
+
+                                const Text(
+                                  "Send Welcome Mail",
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: AppFonts.poppins,
+                                    color: AppColor.blackColor,
+                                  ),
+                                ),
                               ],
                             ),
                             const SizedBox(height: 6),
@@ -255,7 +290,7 @@ class _STPStaffAssignedMemberProfileEditHomeState
                               obscureText: true,
                               labelText: "Password",
                               controller:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .phoneNumberController,
                               hintText: "enter password",
                             ),
@@ -317,15 +352,13 @@ class _STPStaffAssignedMemberProfileEditHomeState
                           children: [
                             CustomSearchDropdownWithSearch(
                               isMandatory: false,
-                              labelText: "Attribute",
-                              items: assignedmemberprofileeditprovider.role,
+                              labelText: "Role",
+                              items: stpstaffaddnewstaffprovider.role,
                               selectedValue:
-                                  assignedmemberprofileeditprovider
-                                      .selectedRole,
+                                  stpstaffaddnewstaffprovider.selectedRole,
                               onChanged:
-                                  assignedmemberprofileeditprovider
-                                      .setSelectedRole,
-                              hintText: "Select Attribute",
+                                  stpstaffaddnewstaffprovider.setSelectedRole,
+                              hintText: "Select Role",
                             ),
                             Divider(),
                             const SizedBox(height: 8),
@@ -347,10 +380,10 @@ class _STPStaffAssignedMemberProfileEditHomeState
                               children: [
                                 Checkbox(
                                   value:
-                                      assignedmemberprofileeditprovider
+                                      stpstaffaddnewstaffprovider
                                           .isReportsEnabled,
                                   onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
+                                    stpstaffaddnewstaffprovider
                                         .setIsReportEnabled(value ?? false);
                                   },
                                   side: const BorderSide(
@@ -393,10 +426,10 @@ class _STPStaffAssignedMemberProfileEditHomeState
                               children: [
                                 Checkbox(
                                   value:
-                                      assignedmemberprofileeditprovider
+                                      stpstaffaddnewstaffprovider
                                           .isPaymentLinkEnabled,
                                   onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
+                                    stpstaffaddnewstaffprovider
                                         .setIsPaymentLinkEnabled(
                                           value ?? false,
                                         );
@@ -440,10 +473,10 @@ class _STPStaffAssignedMemberProfileEditHomeState
                               children: [
                                 Checkbox(
                                   value:
-                                      assignedmemberprofileeditprovider
+                                      stpstaffaddnewstaffprovider
                                           .isCallDataEnabled,
                                   onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
+                                    stpstaffaddnewstaffprovider
                                         .setIsCallDataEnabled(value ?? false);
                                   },
                                   side: const BorderSide(
@@ -485,10 +518,9 @@ class _STPStaffAssignedMemberProfileEditHomeState
                               children: [
                                 Checkbox(
                                   value:
-                                      assignedmemberprofileeditprovider
-                                          .isCampEnabled,
+                                      stpstaffaddnewstaffprovider.isCampEnabled,
                                   onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
+                                    stpstaffaddnewstaffprovider
                                         .setIsCampEnabled(value ?? false);
                                   },
                                   side: const BorderSide(
@@ -514,44 +546,69 @@ class _STPStaffAssignedMemberProfileEditHomeState
                             const SizedBox(height: 6),
                             CustomMultiSelectField(
                               labelText: "Enquiry",
-                              options:
-                                  assignedmemberprofileeditprovider
-                                      .enquiryLists,
+                              options: stpstaffaddnewstaffprovider.enquiryLists,
                               selectedItems:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .selectedEnquiryList,
                               onItemToggle:
-                                  (val) => assignedmemberprofileeditprovider
+                                  (val) => stpstaffaddnewstaffprovider
                                       .setSelectedEnquiryList(val),
                             ),
-                            Divider(color: AppColor.primaryColor2,),
 
                             const SizedBox(height: 6),
 
                             ///
                             CustomMultiSelectField(
                               labelText: "Leads",
-                              options:
-                                  assignedmemberprofileeditprovider.leadsList,
+                              options: stpstaffaddnewstaffprovider.leadsList,
                               selectedItems:
-                                  assignedmemberprofileeditprovider
-                                      .selectedLeadList,
+                                  stpstaffaddnewstaffprovider.selectedLeadList,
                               onItemToggle:
-                                  (val) => assignedmemberprofileeditprovider
+                                  (val) => stpstaffaddnewstaffprovider
                                       .setSelectedLeadsList(val),
                             ),
+                            const SizedBox(height: 6),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child:
+                                  //from date
+                                  CustomDateField(
+                                    controller:
+                                        stpstaffaddnewstaffprovider
+                                            .fromDateController,
+                                    hintText: "From Date",
+                                    labelText: "From date",
+                                    isMandatory: false,
+                                  ),
+                                ),
+                                SizedBox(width: 6),
+                                //to date
+                                Expanded(
+                                  child: CustomDateField(
+                                    controller:
+                                        stpstaffaddnewstaffprovider
+                                            .toDateController,
+                                    hintText: "To Date",
+                                    labelText: "To date",
+                                    isMandatory: false,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 6),
+
+                            Divider(color: AppColor.primaryColor2),
                             const SizedBox(height: 6),
                             SelectAllMultiSelectTextfield(
                               labelText: "Status",
                               hintText: "Select Status",
-                              items:
-                                  assignedmemberprofileeditprovider
-                                      .assignedstatus,
+                              items: stpstaffaddnewstaffprovider.assignedstatus,
                               selectedValues:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .selectedassignedStatus,
                               onChanged:
-                                  (vals) => assignedmemberprofileeditprovider
+                                  (vals) => stpstaffaddnewstaffprovider
                                       .setAssignedStatus(vals),
                               isMandatory: false,
                             ),
@@ -560,13 +617,13 @@ class _STPStaffAssignedMemberProfileEditHomeState
                               labelText: "Source",
                               hintText: "Select source",
                               items:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .assigneddigitalmedia,
                               selectedValues:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .selectedDigitalMedia,
                               onChanged:
-                                  (vals) => assignedmemberprofileeditprovider
+                                  (vals) => stpstaffaddnewstaffprovider
                                       .setSelectedDigitalMedia(vals),
                               isMandatory: false,
                             ),
@@ -575,18 +632,17 @@ class _STPStaffAssignedMemberProfileEditHomeState
                               labelText: "Branches",
                               hintText: "Select Branches",
                               items:
-                                  assignedmemberprofileeditprovider
-                                      .assignedbranches,
+                                  stpstaffaddnewstaffprovider.assignedbranches,
                               selectedValues:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .selectedAssignedBranches,
                               onChanged:
-                                  (vals) => assignedmemberprofileeditprovider
+                                  (vals) => stpstaffaddnewstaffprovider
                                       .setAssignedBranches(vals),
                               isMandatory: false,
                             ),
 
-                            Divider(color: AppColor.primaryColor2,),
+                            Divider(color: AppColor.primaryColor2),
 
                             const SizedBox(height: 6),
                             /////////////////////////////
@@ -607,10 +663,10 @@ class _STPStaffAssignedMemberProfileEditHomeState
                               children: [
                                 Checkbox(
                                   value:
-                                      assignedmemberprofileeditprovider
+                                      stpstaffaddnewstaffprovider
                                           .isInternationalLeadEnabled,
                                   onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
+                                    stpstaffaddnewstaffprovider
                                         .setIsInternationalLeadEnabled(
                                           value ?? false,
                                         );
@@ -654,10 +710,10 @@ class _STPStaffAssignedMemberProfileEditHomeState
                               children: [
                                 Checkbox(
                                   value:
-                                      assignedmemberprofileeditprovider
+                                      stpstaffaddnewstaffprovider
                                           .isJobLeadsLeadEnabled,
                                   onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
+                                    stpstaffaddnewstaffprovider
                                         .setIsJobLeadEnabled(value ?? false);
                                   },
                                   side: const BorderSide(
@@ -699,10 +755,10 @@ class _STPStaffAssignedMemberProfileEditHomeState
                               children: [
                                 Checkbox(
                                   value:
-                                      assignedmemberprofileeditprovider
+                                      stpstaffaddnewstaffprovider
                                           .isDonorLeadsLeadEnabled,
                                   onChanged: (bool? value) {
-                                    assignedmemberprofileeditprovider
+                                    stpstaffaddnewstaffprovider
                                         .setIsDonorLeadEnabled(value ?? false);
                                   },
                                   side: const BorderSide(
@@ -723,63 +779,33 @@ class _STPStaffAssignedMemberProfileEditHomeState
                                 ),
                               ],
                             ),
-                            Divider(color: AppColor.primaryColor2,),
+                            Divider(color: AppColor.primaryColor2),
 
                             const SizedBox(height: 6),
                             CustomMultiSelectField(
                               labelText: "Academy Leads",
                               options:
-                                  assignedmemberprofileeditprovider
-                                      .academyLeadsLists,
+                                  stpstaffaddnewstaffprovider.academyLeadsLists,
                               selectedItems:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .selectedAcademyLeadsList,
                               onItemToggle:
-                                  (val) => assignedmemberprofileeditprovider
+                                  (val) => stpstaffaddnewstaffprovider
                                       .setAcademyLeadsList(val),
                             ),
                             const SizedBox(height: 6),
-                            Row(
-                              children: [
-                                Expanded(
-                                  child:
-                                  //from date
-                                  CustomDateField(
-                                    controller:
-                                        assignedmemberprofileeditprovider
-                                            .fromDateController,
-                                    hintText: "From Date",
-                                    labelText: "From date",
-                                    isMandatory: false,
-                                  ),
-                                ),
-                                SizedBox(width: 6),
-                                //to date
-                                Expanded(
-                                  child: CustomDateField(
-                                    controller:
-                                        assignedmemberprofileeditprovider
-                                            .toDateController,
-                                    hintText: "To Date",
-                                    labelText: "To date",
-                                    isMandatory: false,
-                                  ),
-                                ),
-                              ],
-                            ),
 
-                            const SizedBox(height: 6),
                             SelectAllMultiSelectTextfield(
                               labelText: "Status",
                               hintText: "Select Status",
                               items:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .academyleadsassignedstatus,
                               selectedValues:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .selectedacademyleadsassignedStatus,
                               onChanged:
-                                  (vals) => assignedmemberprofileeditprovider
+                                  (vals) => stpstaffaddnewstaffprovider
                                       .setAcademyLeadsAssignedStatus(vals),
                               isMandatory: false,
                             ),
@@ -789,13 +815,13 @@ class _STPStaffAssignedMemberProfileEditHomeState
                               labelText: "Source",
                               hintText: "Select Source",
                               items:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .academyLeadsSourceOption,
                               selectedValues:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .selectedacademyLeadsSource,
                               onChanged:
-                                  (vals) => assignedmemberprofileeditprovider
+                                  (vals) => stpstaffaddnewstaffprovider
                                       .setSelectedAcademyLeadSource(vals),
                               isMandatory: false,
                             ),
@@ -805,17 +831,17 @@ class _STPStaffAssignedMemberProfileEditHomeState
                               labelText: "Cource",
                               hintText: "Select Cource",
                               items:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .academyLeadsCourceOption,
                               selectedValues:
-                                  assignedmemberprofileeditprovider
+                                  stpstaffaddnewstaffprovider
                                       .selectedacademyLeadsCource,
                               onChanged:
-                                  (vals) => assignedmemberprofileeditprovider
+                                  (vals) => stpstaffaddnewstaffprovider
                                       .setSelectedAcademyLeadCource(vals),
                               isMandatory: false,
                             ),
-                             Divider(color: AppColor.primaryColor2,),
+                            Divider(color: AppColor.primaryColor2),
                             const SizedBox(height: 16),
                             Row(
                               children: [
