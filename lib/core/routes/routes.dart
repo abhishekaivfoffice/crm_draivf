@@ -81,6 +81,10 @@ class AppRoutes {
 
   //camp screen
   static const campHome = '/camphome';
+  //setup_staff screen
+  static const setupStaffHome = '/setupstaffhome';
+static const setupStaffAddNewStaff = '/setupstaffAddnewstaff';
+
   //not found screen
   static const notFoundScreen = '/notfoundscreen';
 }

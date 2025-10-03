@@ -73,6 +73,10 @@ class HelperUtil {
       AppRoutes.courseeditAssignedMember,
       //payment link screen
       AppRoutes.paymentLinkScreen,
+      //setup staff screen
+      AppRoutes.setupStaffHome,
+      AppRoutes.setupStaffAddNewStaff,
+
       //no found screen
       AppRoutes.notFoundScreen,
     ];
