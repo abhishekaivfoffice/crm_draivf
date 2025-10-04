@@ -20,7 +20,7 @@ class CustomGradientButton extends StatelessWidget {
     required this.onPressed,
     this.height = 50,
     this.width = double.infinity,
-    this.borderRadius = 12,
+    this.borderRadius = 8,
     this.gradientColors = const [Color(0xFF6E0E6B), Color(0xFFD4145A)],
     this.textStyle = const TextStyle(
       fontSize: 16,

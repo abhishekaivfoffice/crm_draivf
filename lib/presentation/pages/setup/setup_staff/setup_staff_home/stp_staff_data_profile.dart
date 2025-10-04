@@ -5,6 +5,7 @@ import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/data/models/assigned_members_model.dart';
+import 'package:crm_draivfmobileapp/data/models/staff_model.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/inl_assigned_member_profile/inl_assigned_member_profile/inl_assigned_member_profile.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_activity_log_tabs.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_profile_tabs/inl_attachment_tabs.dart';
@@ -26,7 +27,7 @@ import 'package:get/get.dart';
 
 
 class STPStaffDataProfile extends StatelessWidget {
-  final User user;
+  final StaffModel user;
   const STPStaffDataProfile({super.key, required this.user});
 
   @override
@@ -34,10 +35,7 @@ class STPStaffDataProfile extends StatelessWidget {
     double avatarRadius = 30;
     double borderWidth = 2;
     double overlap = 40;
-    int count = user.assignedMembers.length;
 
-    double totalWidth =
-        (avatarRadius * 2 + borderWidth * 2) + (overlap * (count - 1));
     return Scaffold(
       drawer: TabletMobileDrawer(),
 
@@ -60,7 +58,7 @@ class STPStaffDataProfile extends StatelessWidget {
                   children: [
                     const SizedBox(height: 10),
                     Text(
-                      "${user.id}",
+                      "${user.fullName}",
                       style: TextStyle(
                         color: AppColor.blackColor,
                         fontSize: 16,
@@ -68,7 +66,7 @@ class STPStaffDataProfile extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "${user.name}",
+                      "${user.fullName}",
                       style: TextStyle(
                         color: AppColor.blackColor,
                         fontSize: 22,
@@ -76,55 +74,7 @@ class STPStaffDataProfile extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    Center(
-                      child: SizedBox(
-                        height: avatarRadius * 2 + borderWidth * 2,
-                        width: totalWidth,
-                        child: Stack(
-                          children:
-                              user.assignedMembers.asMap().entries.map((entry) {
-                                int index = entry.key;
-                                var m = entry.value;
-                                return Positioned(
-                                  left: index * overlap,
-                                  child: InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder:
-                                              (_) => InlAssignedMemberProfile(
-                                                member: m,
-                                              ),
-                                        ),
-                                      );
-                                    },
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
-                                          color: const Color.fromARGB(
-                                            255,
-                                            230,
-                                            133,
-                                            194,
-                                          ),
-                                          width: borderWidth,
-                                        ),
-                                      ),
-                                      child: CircleAvatar(
-                                        radius: avatarRadius,
-                                        backgroundImage: NetworkImage(
-                                          m.profileImage,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              }).toList(),
-                        ),
-                      ),
-                    ),
+                
                     const SizedBox(height: 10),
 
                     Text(
@@ -258,7 +208,7 @@ class STPStaffDataProfile extends StatelessWidget {
                               index: tabController.index,
                               children: [
                                 // Tab 1
-                                InlProfileTabs(user: user),
+                                // InlProfileTabs(user: user),
                                 // Tab 2
                                 INLTaskTabs(),
                                 // Tab 3

@@ -5,6 +5,7 @@ class StaffModel {
   final String role;
   final String lastLogin;
   final bool isActive;
+  final String imageUrl;
 
   StaffModel({
     required this.fullName,
@@ -13,6 +14,7 @@ class StaffModel {
     required this.role,
     required this.lastLogin,
     required this.isActive,
+    required this.imageUrl,
   });
 
   // Factory constructor to create from JSON
@@ -24,6 +26,7 @@ class StaffModel {
       role: json['role'] ?? '',
       lastLogin: json['lastLogin'] ?? '',
       isActive: json['isActive'] ?? false,
+      imageUrl: json['imageUrl'] ?? '',
     );
   }
 
@@ -36,7 +39,7 @@ class StaffModel {
       'role': role,
       'lastLogin': lastLogin,
       'isActive': isActive,
+      'imageUrl': imageUrl,
     };
   }
 }
- 

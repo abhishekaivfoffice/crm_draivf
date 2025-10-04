@@ -137,73 +137,73 @@ class DomesticLeadDataProfile extends StatelessWidget {
                       ),
                     ),
 
-                    const SizedBox(height: 16),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: CustomGradientButton(
-                              icon: Icons.edit,
-                              height: 40,
-                              text: "Edit",
-                              textStyle: TextStyle(
-                                fontFamily: AppFonts.poppins,
-                                color: AppColor.whiteColor,
-                              ),
-                              gradientColors: [
-                                Color(0xFF6A85B6), // soft blue
-                                Color(0xFFBAC8E0), // light grayish blue
-                              ],
-                              onPressed: () {
-                                Get.toNamed(AppRoutes.editLeadScreen);
-                              },
-                            ),
-                          ),
-                          const SizedBox(width: 12),
+                    // const SizedBox(height: 16),
+                    // Padding(
+                    //   padding: const EdgeInsets.symmetric(horizontal: 16),
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.center,
+                    //     children: [
+                          // Expanded(
+                          //   child: CustomGradientButton(
+                          //     icon: Icons.edit,
+                          //     height: 40,
+                          //     text: "Edit",
+                          //     textStyle: TextStyle(
+                          //       fontFamily: AppFonts.poppins,
+                          //       color: AppColor.whiteColor,
+                          //     ),
+                          //     gradientColors: [
+                          //       Color(0xFF6A85B6), // soft blue
+                          //       Color(0xFFBAC8E0), // light grayish blue
+                          //     ],
+                          //     onPressed: () {
+                          //       Get.toNamed(AppRoutes.editLeadScreen);
+                          //     },
+                          //   ),
+                          // ),
+                          // const SizedBox(width: 12),
 
-                          Expanded(
-                            child: CustomGradientButton(
-                              icon: Icons.delete,
+                          // Expanded(
+                          //   child: CustomGradientButton(
+                          //     icon: Icons.delete,
 
-                              height: 40,
-                              text: "Delete",
-                              textStyle: TextStyle(
-                                fontFamily: AppFonts.poppins,
-                                color: AppColor.whiteColor,
-                              ),
-                              gradientColors: [
-                                Color(0xFFEB3349), // bright red
-                                Color(0xFFF45C43), // orange-red
-                              ],
-                              onPressed: () {
-                                showDialog(
-                                  context: context,
-                                  builder:
-                                      (context) => CustomConfirmDialog(
-                                        title:
-                                            "Do you really want to delete the file?",
-                                        message:
-                                            "This action cannot be undone.",
-                                        confirmText: "Yes delete the file",
-                                        cancelText: "Cancel this time",
-                                        svgAsset: AppImages.binicon,
-                                        onConfirm: () {
-                                          Navigator.of(context).pop();
-                                          // delete logic
-                                        },
-                                        onCancel: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                      ),
-                                );
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                          //     height: 40,
+                          //     text: "Delete",
+                          //     textStyle: TextStyle(
+                          //       fontFamily: AppFonts.poppins,
+                          //       color: AppColor.whiteColor,
+                          //     ),
+                          //     gradientColors: [
+                          //       Color(0xFFEB3349), // bright red
+                          //       Color(0xFFF45C43), // orange-red
+                          //     ],
+                          //     onPressed: () {
+                          //       showDialog(
+                          //         context: context,
+                          //         builder:
+                          //             (context) => CustomConfirmDialog(
+                          //               title:
+                          //                   "Do you really want to delete the file?",
+                          //               message:
+                          //                   "This action cannot be undone.",
+                          //               confirmText: "Yes delete the file",
+                          //               cancelText: "Cancel this time",
+                          //               svgAsset: AppImages.binicon,
+                          //               onConfirm: () {
+                          //                 Navigator.of(context).pop();
+                          //                 // delete logic
+                          //               },
+                          //               onCancel: () {
+                          //                 Navigator.of(context).pop();
+                          //               },
+                          //             ),
+                          //       );
+                          //     },
+                          //   ),
+                          // ),
+                    //     ],
+                    //   ),
+                    // ),
                     const SizedBox(height: 16),
                   ],
                 ),

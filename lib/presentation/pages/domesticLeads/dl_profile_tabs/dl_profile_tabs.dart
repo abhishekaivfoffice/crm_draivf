@@ -29,7 +29,7 @@ class DLProfileTabs extends StatelessWidget {
                 CustomGradientButton(
                   height: 40,
                   width: 190,
-                  text: "domestic lead Convert to Customer",
+                  text: "Convert to Customer",
                   onPressed: () {
                    Get.toNamed(AppRoutes.convertToCustomerScreen);
                   },
@@ -131,7 +131,7 @@ class DLProfileTabs extends StatelessWidget {
            
 
             InfoRowWithoutIcon(label: "Husband Name", value: "---"),
-            InfoRowWithoutIcon(label: "Wife Number", value: "+91 9999 9999 54"),
+            InfoRowWithoutIcon(label: "Wife Number", value: "+91 **** **** 54"),
             InfoRowWithoutIcon(label: "Purpose", value: "Fertility Treatment"),
             InfoRowWithoutIcon(label: "Hysband Number", value: "---"),
             Row(
