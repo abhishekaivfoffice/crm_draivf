@@ -241,7 +241,12 @@ class CourseData extends StatelessWidget {
           itemBuilder: (context, index) {
             if (index < users.length) {
               final user = users[index];
-              return GestureDetector(
+              return 
+              
+              
+              
+              
+              GestureDetector(
                            onTap: () {
                   Navigator.push(
                     context,

@@ -1,4 +1,5 @@
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
+import 'package:crm_draivfmobileapp/core/constatnts/appimages.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/core/routes/routes.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/domesticLeads/domestic_lead_home/domestic_lead_data_profile.dart';
@@ -8,6 +9,7 @@ import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_daterange_fi
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdown_with_search.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_textfield/custom_dropdownfield_with_selectall_option.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
@@ -65,50 +67,50 @@ class DomesticLeadsData extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 10),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(8),
-                      bottomLeft: Radius.circular(8),
-                    ),
-                    border: Border.all(color: Colors.black12),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4),
-                    child: SizedBox(
-                      height: 35,
-                      child: DropdownButton<String>(
-                        value: domestileaddataprovider.selectedAction,
-                        underline: const SizedBox(),
-                        hint: const Text(
-                          " Export",
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: AppColor.blackColor,
-                            fontFamily: AppFonts.poppins,
-                          ),
-                        ),
-                        items:
-                            domestileaddataprovider.actionItems.map((e) {
-                              return DropdownMenuItem(
-                                value: e,
-                                child: Text(
-                                  "    $e",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: AppColor.blackColor,
-                                    fontFamily: AppFonts.poppins,
-                                  ),
-                                ),
-                              );
-                            }).toList(),
-                        onChanged: (val) {
-                          domestileaddataprovider.setSelectedAction(val);
-                        },
-                      ),
-                    ),
-                  ),
-                ),
+                // Container(
+                //   decoration: BoxDecoration(
+                //     borderRadius: BorderRadius.only(
+                //       topLeft: Radius.circular(8),
+                //       bottomLeft: Radius.circular(8),
+                //     ),
+                //     border: Border.all(color: Colors.black12),
+                //   ),
+                //   child: Padding(
+                //     padding: const EdgeInsets.symmetric(horizontal: 4),
+                //     child: SizedBox(
+                //       height: 35,
+                //       child: DropdownButton<String>(
+                //         value: domestileaddataprovider.selectedAction,
+                //         underline: const SizedBox(),
+                //         hint: const Text(
+                //           " Export",
+                //           style: TextStyle(
+                //             fontSize: 14,
+                //             color: AppColor.blackColor,
+                //             fontFamily: AppFonts.poppins,
+                //           ),
+                //         ),
+                //         items:
+                //             domestileaddataprovider.actionItems.map((e) {
+                //               return DropdownMenuItem(
+                //                 value: e,
+                //                 child: Text(
+                //                   "    $e",
+                //                   style: TextStyle(
+                //                     fontSize: 14,
+                //                     color: AppColor.blackColor,
+                //                     fontFamily: AppFonts.poppins,
+                //                   ),
+                //                 ),
+                //               );
+                //             }).toList(),
+                //         onChanged: (val) {
+                //           domestileaddataprovider.setSelectedAction(val);
+                //         },
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 ////
                 GestureDetector(
                   onTap: () {
@@ -309,29 +311,44 @@ class DomesticLeadsData extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 4,
-                                ),
-                                decoration: BoxDecoration(
-                                  color:
-                                      user.status == "Query"
-                                          ? Colors.green.shade100
-                                          : user.status == "Pending"
-                                          ? Colors.orange.shade100
-                                          : user.status == "Closed"
-                                          ? Colors.red.shade100
-                                          : Colors.blue.shade100,
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Text(
-                                  user.status,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
+                              Row(
+                                children: [
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: SvgPicture.asset(
+                                      AppImages.phonerecordicon,
+                                      width: 24,
+                                      height: 24,
+                                      color: const Color.fromARGB(255, 43, 43, 43),
+                                      semanticsLabel: 'Call',
+                                    ),
+                                    tooltip: 'Call',
                                   ),
-                                ),
+                                  const SizedBox(width: 12),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color:
+                                          user.status == "Query"
+                                              ? Colors.green.shade100
+                                              : user.status == "Pending"
+                                              ? Colors.orange.shade100
+                                              : user.status == "Closed"
+                                              ? Colors.red.shade100
+                                              : Colors.blue.shade100,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: Text(
+                                      user.status,
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
@@ -347,7 +364,7 @@ class DomesticLeadsData extends StatelessWidget {
                                   color: AppColor.blackColor,
                                 ),
                               ),
-                                  Text(
+                              Text(
                                 "${user.source}",
                                 style: const TextStyle(color: Colors.grey),
                               ),
@@ -370,18 +387,40 @@ class DomesticLeadsData extends StatelessWidget {
                           ),
 
                           const Divider(),
-                          CustomGradientButton(
-                            text: ("${user.phone}"),
-                            height: 33,
-                            icon: Icons.call,
-                            gradientColors: const [
-                              Color(0xFF42A5F5), // Sky Blue
-                              Color(0xFF1565C0), // Rich Blue
-                            ],
+                          Row(
+                            children: [
+                              Expanded(
+                                flex: 7,
+                                child: CustomGradientButton(
+                                  text: ("${user.phone}"),
+                                  height: 33,
+                                  icon: Icons.call,
+                                  gradientColors: const [
+                                    Color(0xFF42A5F5),
+                                    Color(0xFF1565C0),
+                                  ],
+                                  onPressed: () {
+                                    // Call action
+                                  },
+                                ),
+                              ),
 
-                            onPressed: () {
-                              // cancel action
-                            },
+                              const SizedBox(width: 8),
+
+                              Expanded(
+                                flex: 4,
+                                child: CustomGradientButton(
+                                  text: "Whatsapp",
+                                  height: 33,
+                                  icon: Icons.message,
+                                  gradientColors: const [
+                                    Color(0xFF66BB6A),
+                                    Color(0xFF2E7D32),
+                                  ],
+                                  onPressed: () {},
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -390,12 +429,10 @@ class DomesticLeadsData extends StatelessWidget {
                 ),
               );
             } else {
-              // Show pagination controls (Next + Back) at the bottom
               return Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if (domestileaddataprovider
-                      .hasPreviousPage) // Show Back only if not on first page
+                  if (domestileaddataprovider.hasPreviousPage)
                     ElevatedButton(
                       onPressed: domestileaddataprovider.previousPage,
 
@@ -408,8 +445,7 @@ class DomesticLeadsData extends StatelessWidget {
                       child: const Text("← Back"),
                     ),
                   const SizedBox(width: 12),
-                  if (domestileaddataprovider
-                      .hasNextPage) // Show Next if more pages
+                  if (domestileaddataprovider.hasNextPage)
                     ElevatedButton(
                       onPressed: domestileaddataprovider.nextPage,
                       style: ElevatedButton.styleFrom(

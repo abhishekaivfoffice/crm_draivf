@@ -1,10 +1,13 @@
 import 'package:crm_draivfmobileapp/core/constatnts/appcolors.dart';
+import 'package:crm_draivfmobileapp/core/constatnts/appimages.dart';
 import 'package:crm_draivfmobileapp/core/fonts/fonts.dart';
 import 'package:crm_draivfmobileapp/presentation/pages/internationalLeads/international_lead_home/international_leads_data/inl_data_profile.dart';
+import 'package:crm_draivfmobileapp/presentation/pages/setup/setup_staff/setup_staff_home/stp_staff_data_profile.dart';
 import 'package:crm_draivfmobileapp/provider/setup_staff_provider/setup_staff_data_provider.dart';
 import 'package:crm_draivfmobileapp/widgets/custom_buttons/custom_gradient_button.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 class STPStaffData extends StatelessWidget {
@@ -12,9 +15,7 @@ class STPStaffData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final stpstaffdataprovider = Provider.of<SetupStaffDataProvider>(
-      context,
-    );
+    final stpstaffdataprovider = Provider.of<SetupStaffDataProvider>(context);
     final users = stpstaffdataprovider.currentPageUsers;
 
     return Column(
@@ -111,131 +112,185 @@ class STPStaffData extends StatelessWidget {
           ),
         ),
 
-       
-
         /////////////////////////////////////////////
         ListView.builder(
           physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(0),
           itemCount: users.length + 1, // extra for pagination buttons
           itemBuilder: (context, index) {
             if (index < users.length) {
               final user = users[index];
               return GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => InlDataProfile(user: user),
-                    ),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => CourseDataProfile(),
+                  //   ),
+                  // );
                 },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 6),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      border: Border.all(color: Colors.black26),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // Header Row
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
                             children: [
-                              // Name + Branch
                               Text(
-                                user.name,
+                                user.fullName,
                                 style: const TextStyle(
-                                  fontSize: 15,
                                   fontFamily: AppFonts.poppins,
-                                  color: AppColor.blackColor,
-                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(171, 0, 0, 0),
+                                  fontSize: 16,
                                 ),
                               ),
 
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 4,
-                                ),
-                                decoration: BoxDecoration(
-                                  color:
-                                      user.status == "Query"
-                                          ? Colors.green.shade100
-                                          : user.status == "Pending"
-                                          ? Colors.orange.shade100
-                                          : user.status == "Closed"
-                                          ? Colors.red.shade100
-                                          : Colors.blue.shade100,
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
+                              SizedBox(height: 4),
+                              Flexible(
                                 child: Text(
-                                  user.status,
+                                  user.email,
                                   style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
+                                    fontFamily: AppFonts.poppins,
+                                    color: Color.fromARGB(171, 0, 0, 0),
+                                    fontSize: 14,
+                                  ),
+                                  softWrap: true,
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Text(
+                                user.location,
+                                style: const TextStyle(
+                                  fontFamily: AppFonts.poppins,
+                                  color: Color.fromARGB(171, 0, 0, 0),
+                                  fontSize: 14,
+                                ),
+                              ),
+
+                              SizedBox(height: 4),
+
+                              Text(
+                                user.role,
+                                style: const TextStyle(
+                                  fontFamily: AppFonts.poppins,
+                                  color: Color.fromARGB(171, 0, 0, 0),
+                                  fontSize: 14,
+                                ),
+                              ),
+
+                              SizedBox(height: 4),
+
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Center(
+                                    child: Text(
+                                      user.lastLogin,
+                                      style: const TextStyle(
+                                        fontFamily: AppFonts.poppins,
+                                        color: Color.fromARGB(171, 0, 0, 0),
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ),
+
+                                  SizedBox(width: 8),
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color:
+                                          user.isActive
+                                              ? Colors.green
+                                              : Colors.red,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: Text(
+                                      user.isActive ? "Active" : "Inactive",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                        fontFamily: AppFonts.poppins,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+
+                      // Right side - Profile image
+                      Container(
+                        width: 120,
+                        // height: 160,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(12),
+                          ),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(12),
+                          ),
+                          child: Image.network(
+                            "${user.imageUrl}",
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Container(
+                                color: Colors.grey[300],
+                                child: Icon(
+                                  Icons.person,
+                                  size: 50,
+                                  color: Colors.grey[600],
+                                ),
+                              );
+                            },
+                            loadingBuilder: (context, child, loadingProgress) {
+                              if (loadingProgress == null) return child;
+                              return Container(
+                                color: Colors.grey[200],
+                                child: Center(
+                                  child: CircularProgressIndicator(
+                                    value:
+                                        loadingProgress.expectedTotalBytes !=
+                                                null
+                                            ? loadingProgress
+                                                    .cumulativeBytesLoaded /
+                                                loadingProgress
+                                                    .expectedTotalBytes!
+                                            : null,
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 8),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "# ID: ${user.id}",
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 14,
-                                  color: AppColor.blackColor,
-                                ),
-                              ),
-                                  Text(
-                                "${user.source}",
-                                style: const TextStyle(color: Colors.grey),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Branch: ${user.branch}",
-                                style: const TextStyle(
-                                  color: AppColor.blackColor,
-                                ),
-                              ),
-                              Text(
-                                "${user.created}",
-                                style: const TextStyle(color: Colors.grey),
-                              ),
-                            ],
-                          ),
-
-                          const Divider(),
-                          CustomGradientButton(
-                            text: ("${user.phone}"),
-                            height: 33,
-                            icon: Icons.call,
-                            gradientColors: const [
-                              Color(0xFF42A5F5), // Sky Blue
-                              Color(0xFF1565C0), // Rich Blue
-                            ],
-
-                            onPressed: () {
-                              // cancel action
+                              );
                             },
                           ),
-                        ],
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                 ),
               );
